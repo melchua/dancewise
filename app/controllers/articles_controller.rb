@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
   def create
     # important to whitelist the variables (title and description) coming in from the params
     @article = Article.new(article_params)
+    @article.user = User.first
     # render plain: @article.inspect
     if @article.save
       flash[:notice] = "Article was created successfully."
