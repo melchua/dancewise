@@ -1,0 +1,19 @@
+<h1>Event Listing</h1>
+
+<table>
+  <thead></thead> 
+  <tr>
+    <th>Name</th>
+    <th>Dance Type</th>
+    <th>Description</th>
+    <th colspan="3">Actions</th>
+  </tr>
+  <% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%=event.dance_type %></td>
+    <td><%= event.description %></td>
+  </tr>
+  <% end %>
+
+</table>
