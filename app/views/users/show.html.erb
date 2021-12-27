@@ -1,6 +1,11 @@
 <h2>Showing user details</h1>
 
 <%= gravatar_for @user, size: 200 %>
+
+<div>
+  <%= link_to "Edit your profile", edit_user_path(@user) %>
+</div>
+
 <p><%= @user.username %></p>
 <p><%= @user.email %></p>
 
