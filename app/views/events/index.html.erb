@@ -1,6 +1,9 @@
 <div class="container">
   <div>
     <h1>Event Listing</h1>
+    <div class="digg_pagination">
+      <%= will_paginate @events, :container => false %>
+    </div>
   </div>
   <%= link_to '<button type="button" class="btn btn-outline-primary">
     Add Event
