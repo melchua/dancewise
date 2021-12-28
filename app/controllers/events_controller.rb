@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.user = User.first
+    @event.user = current_user
     if @event.save
       flash[:notice] = "Event was created successfully."
       redirect_to @event
