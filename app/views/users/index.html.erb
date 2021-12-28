@@ -1,34 +1,37 @@
+<div class="container">
 <h1>User listing</h1>
-
-<table> 
-  <thead></thead> 
-  <tr>
-    <th>User Name</th>
-    <th>Gravatar</th>
-    <th>Email</th>
-    <th>Article count</th>
-    <th colspan="2">Actions<th>
-  </tr>
-  <tbody>
-    <% @users.each do |user| %>
+  <table> 
+    <thead></thead> 
     <tr>
-      <td>
-        <%= link_to user.username, user %>
-      </td>
-      <td>
-        <%= link_to gravatar_for(user, size: 150), user %>
-      </td>
-       <td>
-        <%= user.email %>
-      </td>
-      <td>
-        <%= pluralize(user.articles.count, "article") %>
-      </td>
-      <td><%= link_to 'View profile', user %></td>
-      <td><%= link_to 'Edit profile', edit_user_path(user) %></td>
+      <th>User Name</th>
+      <th>Gravatar</th>
+      <th>Email</th>
+      <th>Article count</th>
+      <th colspan="2">Actions<th>
     </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to user.username, user %>
+        </td>
+        <td>
+          <%= link_to gravatar_for(user, size: 150), user %>
+        </td>
+        <td>
+          <%= user.email %>
+        </td>
+        <td>
+          <%= pluralize(user.articles.count, "article") %>
+        </td>
+        <td><%= link_to 'View profile', user %></td>
+        <td><%= link_to 'Edit profile', edit_user_path(user) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to '<button type="button" class="btn btn-outline-primary">
+  User Signup
+  </button>'.html_safe, signup_path %>
 
-
-</table>
+</div>

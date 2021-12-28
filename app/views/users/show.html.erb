@@ -1,14 +1,17 @@
-<h2>Showing user details</h1>
+<div class="container">
+  <h2>Showing user details</h1>
 
-<%= gravatar_for @user, size: 200 %>
+  <%= gravatar_for @user, size: 200 %>
 
-<div>
-  <%= link_to "Edit your profile", edit_user_path(@user) %>
+  <div>
+    <%= link_to "Edit your profile", edit_user_path(@user) %>
+  </div>
+
+  <p><%= @user.username %></p>
+  <p><%= @user.email %></p>
+
+  <h3>Events created</h3>
+  <div class="row row-cols-4">
+    <%= render 'events/event' %>
+  </div>
 </div>
-
-<p><%= @user.username %></p>
-<p><%= @user.email %></p>
-
-<h3>Articles</h3>
-
-<%= render 'articles/article' %>
