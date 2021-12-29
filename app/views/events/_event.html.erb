@@ -12,6 +12,10 @@
         <%= link_to '<button type="button" class="btn btn-outline-primary">
         Event details
         </button>'.html_safe, event %>
+
+        <%= link_to '<button type="button" class="btn btn-outline-primary">
+        Edit event
+        </button>'.html_safe, edit_event_path(event) %>
     </div>
   </div>
 <% end %>
