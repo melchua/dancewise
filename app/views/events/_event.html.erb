@@ -3,6 +3,11 @@
     <img src=<%= event.image_url %> class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><%= event.name %></h5>
+      <p class="card-text">
+        <small class="text-muted">
+          <%= event.event_date %>
+        </small>
+      </p>
       <p class="card-text"><%= event.description %></p>
         <%= link_to '<button type="button" class="btn btn-outline-primary">
         Event details

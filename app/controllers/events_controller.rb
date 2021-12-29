@@ -1,10 +1,23 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:edit, :show, :update]
+
   def new
     @event = Event.new
   end
 
+  def edit
+  end
+
   def show
-    @event = Event.find(params[:id])
+  end
+
+  def update
+    if @event.update(event_params) 
+      flash[:notice] = "Event was updated successfully"
+      redirect_to @event
+    else 
+      render 'new'
+    end
   end
 
   def index
@@ -25,7 +38,11 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :image_url, :type, :dance_type)
+    params.require(:event).permit(:name, :description, :image_url, :type, :dance_type, :event_date)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 
 end
