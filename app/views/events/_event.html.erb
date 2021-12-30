@@ -16,6 +16,11 @@
         <%= link_to '<button type="button" class="btn btn-outline-primary">
         Edit event
         </button>'.html_safe, edit_event_path(event) %>
+
+        <%= link_to '<button type="button" class="btn btn-outline-primary">
+        Delete event
+        </button>'.html_safe, event_path(event), method: :delete, data: { confirm: "Are you sure?"} %>
+
     </div>
   </div>
 <% end %>

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:edit, :show, :update]
+  before_action :set_event, only: [:edit, :show, :update, :destroy]
 
   def new
     @event = Event.new
@@ -33,6 +33,11 @@ class EventsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to events_path
   end
 
   private
