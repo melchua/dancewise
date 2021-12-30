@@ -8,7 +8,10 @@ import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 
-require("@popperjs/core");
+// import "bootstrap/dist/css/bootstrap";
+// import "bootstrap/dist/js/bootstrap";
+
+import "stylesheets/application";
 
 import "bootstrap";
 

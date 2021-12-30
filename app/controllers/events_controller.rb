@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
+  # order matters here
   before_action :set_event, only: [:edit, :show, :update, :destroy]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def new
     @event = Event.new
@@ -21,7 +24,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.paginate(page: params[:page], per_page: 2)
+    @events = Event.paginate(page: params[:page], per_page: 4)
   end
 
   def create
@@ -48,6 +51,13 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @event.user
+      flash[:alert] = "You can only edit or delete your own article"
+      redirect_to @event
+    end
   end
 
 end
