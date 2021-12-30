@@ -24,8 +24,17 @@
         <td>
           <%= pluralize(user.events.count, "event") %>
         </td>
-        <td><%= link_to 'View profile', user %></td>
-        <td><%= link_to 'Edit profile', edit_user_path(user) %></td>
+        <td><%= link_to 'View profile', user, class: "btn btn-outline-primary" %></td>
+        <% if logged_in? %>
+          <% if user == current_user %>
+            <td><%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-outline-secondary" %></td>
+          <% end %>
+          <% if current_user.admin? %>
+            <td><%= link_to "Delete user", user_path(user), class: "btn btn-outline-danger", 
+            method: :delete, data: { confirm: "Are you sure you want to delete the user 
+            account and all associated events?"} %></td>
+          <% end %>
+        <% end %>
       </tr>
       <% end %>
     </tbody>

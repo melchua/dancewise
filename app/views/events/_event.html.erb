@@ -13,7 +13,7 @@
         Event details
         </button>'.html_safe, event %>
 
-        <% if logged_in? && event.user == current_user %>
+        <% if logged_in? && (event.user == current_user || current_user.admin?) %>
           <%= link_to '<button type="button" class="btn btn-outline-primary">
           Edit event
           </button>'.html_safe, edit_event_path(event) %>
