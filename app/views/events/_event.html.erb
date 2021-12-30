@@ -13,14 +13,18 @@
         Event details
         </button>'.html_safe, event %>
 
-        <%= link_to '<button type="button" class="btn btn-outline-primary">
-        Edit event
-        </button>'.html_safe, edit_event_path(event) %>
+        <% if logged_in? && event.user == current_user %>
+          <%= link_to '<button type="button" class="btn btn-outline-primary">
+          Edit event
+          </button>'.html_safe, edit_event_path(event) %>
 
-        <%= link_to '<button type="button" class="btn btn-outline-primary">
-        Delete event
-        </button>'.html_safe, event_path(event), method: :delete, data: { confirm: "Are you sure?"} %>
-
+          <%= link_to '<button type="button" class="btn btn-outline-primary">
+          Delete event
+          </button>'.html_safe, event_path(event), method: :delete, data: { confirm: "Are you sure?"} %>
+        <% end %>
+        
+        <p class="card-text"><small class="text-muted">Created by <%= event.user.username %> </small>
+        
     </div>
   </div>
 <% end %>

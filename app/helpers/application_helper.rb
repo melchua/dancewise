@@ -7,8 +7,8 @@ module ApplicationHelper
     image_tag(gravatar_url, alt: user.username)
   end
 
-  def logged_in?
-    !!current_user
+  def formatDateLong(date)
+    date.strftime("%B %d, %Y")
   end
 
 end

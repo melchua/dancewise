@@ -2,4 +2,21 @@
   <h1>Event: <%= @event.name %></h1>
 
   <img src=<%= @event.image_url %> style="max-width: 800px" >
+
+  <div class="container">
+    <p><small class="text-muted"><%= formatDateLong(@event.event_date) %></small></p>
+    <p><%= @event.description %></p>
+    
+  </div>
+  <div class="container">
+    <% if logged_in? && @event.user == current_user %>
+      <%= link_to '<button type="button" class="btn btn-outline-primary">
+      Edit event
+      </button>'.html_safe, edit_event_path(@event) %>
+
+      <%= link_to '<button type="button" class="btn btn-outline-primary">
+      Delete event
+      </button>'.html_safe, event_path(@event), method: :delete, data: { confirm: "Are you sure?"} %>
+    <% end %>
+  </div>
 </div>
