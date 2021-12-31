@@ -1,6 +1,12 @@
 require "test_helper"
 
 class CreateDanceStyleTest < ActionDispatch::IntegrationTest
+  setup do
+    @admin_user = User.create(username: "johndoe", email: "johndoe@example.com",
+                                password: "password", admin: true)
+    sign_in_as(@admin_user)
+  end
+
   test "get new dance style form and create dance style" do
     get "/dance_styles/new"
     assert_response :success

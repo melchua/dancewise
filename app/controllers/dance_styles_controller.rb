@@ -1,4 +1,6 @@
 class DanceStylesController < ApplicationController
+  before_action :require_admin, except: [:index, :show]
+
   def show
     @dance_style = DanceStyle.find(params[:id])
   end
@@ -25,5 +27,12 @@ class DanceStylesController < ApplicationController
 
   def dance_style_params
     params.require(:dance_style).permit(:name)
+  end
+
+  def require_admin
+    if !(logged_in? && current_user.admin?)
+      flash[:alert] = "Only admins can perform that action"
+      redirect_to dance_styles_path
+    end
   end
 end

@@ -17,6 +17,19 @@
             <%= link_to "View Events", events_path, class: "dropdown-item" %>
           </div>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dance styles
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if logged_in? && current_user.admin? %>
+              <%= link_to "Create new dance style", new_dance_style_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "View dance styles", dance_styles_path, class: "dropdown-item" %>
+          </div>
+        </li>
+
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
