@@ -1,0 +1,11 @@
+<h1 class="text-center mt-4">Dance styles</h1>
+
+<div class="container">
+  <ul class="list-group list-group-horizontal">
+  <% @dance_styles.each do |dance_style| %>
+    <li class="list-group-item">
+      <%= link_to dance_style.name, dance_style_path(dance_style) %>
+    </li>
+    <% end %>
+  </ul>
+</div>
