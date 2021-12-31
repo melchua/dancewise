@@ -4,9 +4,16 @@
   <img src=<%= @event.image_url %> style="max-width: 800px" >
 
   <div class="container">
-    <p><small class="text-muted"><%= formatDateLong(@event.event_date) %></small></p>
-    <p><%= @event.description %></p>
-    
+
+  <p><small class="text-muted"><%= formatDateLong(@event.event_date) %></small></p>
+  <p><%= @event.description %></p>
+
+  <% if @event.dance_styles.any? %>
+    <div class="mt-2">
+      <%= render @event.dance_styles %>
+    </div>
+  <% end %>
+
   </div>
   <div class="container">
     <% if logged_in? && (@event.user == current_user || current_user.admin?)  %>
@@ -14,7 +21,7 @@
       Edit event
       </button>'.html_safe, edit_event_path(@event) %>
 
-      <%= link_to '<button type="button" class="btn btn-outline-primary">
+      <%= link_to '<button type="button" class="btn btn-outline-danger">
       Delete event
       </button>'.html_safe, event_path(@event), method: :delete, data: { confirm: "Are you sure?"} %>
     <% end %>

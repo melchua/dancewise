@@ -5,9 +5,6 @@
       <%= will_paginate @events, :container => false %>
     </div>
   </div>
-  <%= link_to '<button type="button" class="btn btn-outline-primary">
-    Add Event
-  </button>'.html_safe, new_event_path %>
 
   <div class="row row-cols-4">
     <%= render 'event' %>
