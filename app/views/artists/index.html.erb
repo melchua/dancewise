@@ -1,0 +1,15 @@
+<div class="container">
+  <div>
+    <h1>Artist Listing</h1>
+    
+
+ <div class="digg_pagination">
+      <%= will_paginate @artists, :container => false %>
+    </div> 
+
+</div>
+
+  <div class="row row-cols-4">
+    <%= render 'artist' %>
+  </div>
+</div>

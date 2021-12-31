@@ -1,0 +1,28 @@
+<% @artists.each do |artist| %>
+  <div class="card shadow rounded me-3 mb-2 mt-2" style="width: 18rem;">
+    <img src=<%= artist.image_url %> class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= artist.name %></h5>
+
+      <p class="card-text"><%= artist.description %></p>
+      
+      <%= link_to '<button type="button" class="btn btn-outline-primary">
+      Artist details
+      </button>'.html_safe, artist %>
+
+      <%
+=begin%>
+ <%= link_to '<button type="button" class="btn btn-outline-primary">
+      Edit artist
+      </button>'.html_safe, edit_event_path(event) %>
+
+      <%= link_to '<button type="button" class="btn btn-outline-danger mt-1">
+      Delete artist
+      </button>'.html_safe, event_path(event), method: :delete, data: { confirm: "Are you sure?"} %>
+      <% end %> 
+<%
+=end%>
+      
+    </div>
+  </div>
+<% end %>
