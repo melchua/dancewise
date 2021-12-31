@@ -4,9 +4,11 @@
     <%= f.text_field :name %>
   </p>
 
-    <p>
-    <%= f.label :dance_type %><br />
-    <%= f.text_field :dance_type %>
+  <p>
+    <%= f.label :dance_style %><br />
+    <%= f.collection_select(:dance_style_ids, DanceStyle.all, :id, :name, 
+                            { prompt: "Make your selection from the list below (one or more)"}, 
+                            { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
   </p>
 
   <p>

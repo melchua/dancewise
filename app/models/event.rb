@@ -1,8 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :user
+  has_many :event_dance_styles
+  has_many :dance_styles, through: :event_dance_styles
   validates :name, presence: true, length: { minimum: 6, maximum: 100}
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
-  validates :dance_type, presence: true
   validates :image_url, length: { minimum: 10, maximum: 200 }
   validates :event_date, presence: true
 end
