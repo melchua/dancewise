@@ -6,11 +6,21 @@
   <div class="container">
 
   <p><small class="text-muted"><%= formatDateLong(@event.event_date) %></small></p>
+  <h2>Event details</h2>
   <p><%= @event.description %></p>
 
+  <h2>Your Artists: </h2>
+  <% if @event.artists.any? %>
+    <div class="row row-cols-4">
+      <%= render @event.artists %>
+    </div>
+  <% end %>
+
   <% if @event.dance_styles.any? %>
-    <div class="mt-2">
-      <%= render @event.dance_styles %>
+    <div class="row row-cols-4">
+      <div class="mt-2">
+        <%= render @event.dance_styles %>
+      </div>
     </div>
   <% end %>
 

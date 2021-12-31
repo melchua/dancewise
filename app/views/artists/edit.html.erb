@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Update artist</h1>
+  <%= render 'shared/errors', obj: @artist %>
+
+  <%= form_with(model: @artist, local: true) do |f| %>
+    <p>
+      <%= f.label :name, "Artist name" %><br />
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :image_url, "Artist profile image url" %><br />
+      <%= f.text_field :image_url %>
+    </p>
+
+    <p>
+      <%= f.label :description %><br />
+      <%= f.text_field :description %>
+    </p>
+    
+    <p>
+      <%= f.check_box :instructor %>
+      <%= f.label :instructor, "I am an instructor" %>
+    </p>
+
+    <p>
+      <%= f.check_box :dj %>
+      <%= f.label :dj, "I am a DJ" %>
+    </p>
+    <p>
+      <%= f.submit class: "btn btn-outline-primary btn-md" %>
+    </p>
+  <% end %>
+
+</div>

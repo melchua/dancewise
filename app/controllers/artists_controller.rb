@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :require_admin, except: [:index, :show]
+  before_action :set_artist, only: [:show, :update, :edit, :destroy]
 
   def index
     @artists = Artist.paginate(page: params[:page], per_page: 4)
@@ -10,7 +11,6 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find(params[:id])
   end
 
   def create
@@ -26,13 +26,29 @@ class ArtistsController < ApplicationController
   def edit
   end
 
+  def update
+    if @artist.update(artist_params)
+      flash[:notice] = "Artist was successfully updated"
+      redirect_to @artist
+    else
+      render 'new'
+    end
+  end
+
   def destroy
+    @artist.destroy
+    flash[:notice] = "Artist was successfully deleted."
+    redirect_to artists_path
   end
 
   private
 
   def artist_params
     params.require(:artist).permit(:name, :description, :image_url, :instructor, :dj)
+  end
+
+  def set_artist
+    @artist = Artist.find(params[:id])
   end
 
   def require_admin

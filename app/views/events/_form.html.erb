@@ -17,6 +17,13 @@
   </p>
 
   <p>
+    <%= f.label :artists %><br />
+    <%= f.collection_select(:artist_ids, Artist.all, :id, :name, 
+                            { prompt: "Make your selection from the list below (one or more)"}, 
+                            { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
+  </p>
+
+  <p>
     <%= f.label :image_url %><br />
     <%= f.text_field :image_url %>
   </p>
