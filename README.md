@@ -47,15 +47,6 @@ None for now
 rails db:create db:migrate
 ```
 
-### Add heroku remotes
-
-Using [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli):
-
-```shell
-heroku git:remote -a dancewise
-heroku git:remote --remote heroku-staging -a dancewise-staging
-```
-
 ## Serve
 
 ```shell
@@ -103,6 +94,16 @@ git push
 5. Write a description in your pull request, request a reviewer, and save the pull request
 
 ## Deploy
+
+### Add heroku remotes
+### NOTE: THIS HAS NOT BEEN SETUP YET. DO NOT DEPLOY UNTIL SETUP
+Using [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli):
+
+```shell
+heroku git:remote -a dancewise
+heroku git:remote --remote heroku-staging -a dancewise-staging
+```
+
 
 ### With Heroku pipeline (recommended)
 
