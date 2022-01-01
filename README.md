@@ -62,6 +62,39 @@ heroku git:remote --remote heroku-staging -a dancewise-staging
 rails s
 ```
 
+## Process for merging into master
+
+Branch protection has been setup on the master branch. So you should never be able to
+merge a branch into master (remote - on GitHub) without an approved pull request (PR).
+
+You should also not be able to (and should not) push to master directly from your dev environment.
+ie. `git push master`
+
+The process to implement a new feature in the code is:
+
+1. Create a new branch locally
+
+```shell
+git checkout -b your-feature-branch-name
+```
+
+2. Stage and commit files in to your local branch
+
+```shell
+git add .
+git commit -m "One liner description of what your branch has added to the codebase"
+```
+
+3. Push your branch to GitHub
+
+```shell
+git push
+```
+
+4. Go the GitHub repository, create a new [Pull Request](https://github.com/melchua/dancewise/pulls) for your branch to merge into master
+
+5. Write a description in your pull request, request a reviewer, and save the pull request
+
 ## Deploy
 
 ### With Heroku pipeline (recommended)
