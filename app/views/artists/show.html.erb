@@ -9,4 +9,10 @@
   </div>
 </div>
 
+  <h3>Current Booked Events</h3>
+  <% if @artist.events.any? %>
+    <div class="row row-cols-4">
+      <%= render @artist.events %>
+    </div>
+  <% end %>
 </div>
