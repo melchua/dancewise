@@ -72,6 +72,12 @@ ie. `git push master`
 
 The process to implement a new feature in the code is:
 
+0. Make sure you are have the most up-to-date master branch
+```shell
+git checkout master
+git pull
+```
+
 1. Create a new branch locally
 
 ```shell
@@ -82,6 +88,7 @@ git checkout -b your-feature-branch-name
 
 ```shell
 git add .
+git status
 git commit -m "One liner description of what your branch has added to the codebase"
 ```
 
