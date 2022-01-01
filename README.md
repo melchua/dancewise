@@ -1,4 +1,4 @@
-# Project
+# Dancewise: Aka wheretofuckingdance
 
 [wheretofuckingdance.com](https://www.wheretofuckingdance.com/)
 
