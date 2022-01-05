@@ -1,1 +1,22 @@
+<div class="container">
+
 <h1 class="text-center mt-4">Dance Style: <%= @dance_style.name %></h1>
+
+<div class="card";>
+<h3>Events</h3>
+  <% if @dance_style.events.any? %>
+<div class="row row-cols-4">
+      <%= render @dance_style.events %>
+  <% end %>
+</div>
+</div>
+
+<div class="card";>
+<h3>Artists</h3>
+  <% if @dance_style.artists.any? %>
+<div class="row row-cols-4">
+      <%= render @dance_style.artists %>
+  <% end %>
+  </div>
+  </div>
+</div>

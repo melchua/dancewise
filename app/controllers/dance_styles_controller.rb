@@ -26,7 +26,7 @@ class DanceStylesController < ApplicationController
   private
 
   def dance_style_params
-    params.require(:dance_style).permit(:name)
+    params.require(:dance_style).permit(:name, event_ids: [], artist_ids: [])
   end
 
   def require_admin

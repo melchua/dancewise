@@ -1,6 +1,9 @@
 class Artist < ApplicationRecord
+  
   has_many :event_artists
   has_many :events, through: :event_artists
+  has_many :artist_dance_styles
+  has_many :dance_styles, through: :artist_dance_styles
 
   validates_uniqueness_of :name
   validates :name, presence: true, length: { minimum: 3, maximum: 100 }

@@ -6,6 +6,12 @@
 
     <p class="card-text"><%= artist.description %></p>
     
+    <% if artist.dance_styles.any? %>
+        <div class="pb-2">
+          <%= render artist.dance_styles %>
+        </div>
+    <% end %>
+
     <%= link_to '<button type="button" class="btn btn-outline-primary">
     Artist details
     </button>'.html_safe, artist %>
