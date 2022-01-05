@@ -15,6 +15,14 @@
 <div class="row row-cols-4">
   <iframe width="650" height="315" src="<%= @artist.first_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<div class="plyr__video-embed" id="player">
+  <iframe
+    src="<%= @artist.first_video_id %>"
+    allowfullscreen
+    allowtransparency
+    allow="autoplay"
+  ></iframe>
+</div>
 </div>
 </div>
 
