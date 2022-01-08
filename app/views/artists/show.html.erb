@@ -1,23 +1,35 @@
 <div class="container">
-  <h2>Showing artist details</h1>
+ <h2><%= @artist.name %></h2>
+ <div class="artist-info-wrapper">
+    <% if @artist.dance_styles.any? %>
+        <div class="pb-2">
+          <%= render @artist.dance_styles %>
+        </div>
+    <% end %>
+  <p>&nbsp;&nbsp;|&nbsp;&nbsp;</p>
+ <p><%= @artist.description %></p>
+ <p>&nbsp;&nbsp;|&nbsp;&nbsp;</p>
+ <p>Based in (Insert Artist City)</p>
+ </div>
+<div class="artist-wrapper-topinfo">
+ 
 
-  <div class="card" style="width: 18rem;">
+  <div class="card profile-image" style="width: 18rem;">
   <img src=<%= @artist.image_url %> class="card-img-top" alt="artist picture">
-  <div class="card-body">
-    <h5 class="card-title"><%= @artist.name %></h5>
-    <p class="card-text"><%= @artist.description %></p>
+ <div class="card-body">
+  <%# <h5 class="card-title"><%= @artist.name </h5> %>
+    <%# <p class="card-text"><%= @artist.description </p> %>
   </div>
 </div>
 
-<div class="card";>
-<h3>Artist Videos</h3>
+<div class="card videos";>
+<h4>Artist Videos</h4>
   
 <div class="row row-cols-4">
-  <iframe width="650" height="315" src="<%= @artist.first_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <div class="plyr__video-embed" id="player">
   <iframe
-    src="<%= @artist.first_video_id %>"
+    src="<%= @artist.youtube_embed_url %>?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
     allowfullscreen
     allowtransparency
     allow="autoplay"
@@ -25,15 +37,30 @@
 </div>
 </div>
 </div>
-
+</div>
 
 <div class="card";>
 <h3>Current Booked Events</h3>
   <% if @artist.events.any? %>
 <div class="row row-cols-4">
       <%= render @artist.events %>
-  <% end %>
 </div>
+<% end %>
+
+</div>
+<div class="wrapper">
+     <% if logged_in? && current_user.admin? %>
+      <%= link_to '<button type="button" class="btn btn-outline-primary">
+      Edit artist
+      </button>'.html_safe, edit_artist_path(@artist) %>
+      
+      <%= link_to '<button type="button" class="btn btn-outline-danger mt-1">
+      Delete artist
+      </button>'.html_safe, artist_path(@artist), method: :delete, data: { confirm: "Are you sure?"} %>
+    <% end %>
+  </div>
+</div>
+  </div>
 </div>
 
 </div>

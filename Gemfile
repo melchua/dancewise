@@ -64,3 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "pry", "~> 0.14.1"
 
 gem "youtube_addy", "~> 1.0"
+
+gem "filterrific", "~> 5.2"

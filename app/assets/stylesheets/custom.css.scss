@@ -80,3 +80,19 @@
 *:first-child + html .digg_pagination {
   overflow: hidden;
 }
+.artist-wrapper-topinfo {
+  display: flex; /* or inline-flex */
+  gap: 20px 40px;
+}
+.artist-info-wrapper {
+  display: flex;
+}
+.card.videos {
+  flex-grow: 4;
+}
+.card {
+  flex-grow: 4;
+}
+.card.profile-image {
+  flex-grow: 1;
+}

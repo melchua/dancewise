@@ -1,4 +1,4 @@
-<div class="card shadow rounded me-3 mb-2 mt-2" style="width: 18rem;">
+  <div class="card shadow rounded me-3 mb-2 mt-2" style="width: 18rem;">
   <img src=<%= artist.image_url %> class="card-img-top img-fluid" alt="...">
   <div class="card-body">
   
@@ -12,15 +12,14 @@
         </div>
     <% end %>
 
+    
     <%= link_to '<button type="button" class="btn btn-outline-primary">
     Artist details
     </button>'.html_safe, artist %>
-
     <% if logged_in? && current_user.admin? %>
       <%= link_to '<button type="button" class="btn btn-outline-primary">
       Edit artist
       </button>'.html_safe, edit_artist_path(artist) %>
-
       <%= link_to '<button type="button" class="btn btn-outline-danger mt-1">
       Delete artist
       </button>'.html_safe, artist_path(artist), method: :delete, data: { confirm: "Are you sure?"} %>
