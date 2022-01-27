@@ -1,27 +1,21 @@
 class ArtistsController < ApplicationController
   include VideosHelper
-  include ActionController::MimeResponds
   before_action :require_admin, except: [:index, :show]
   before_action :set_artist, only: [:show, :update, :edit, :destroy]
 
   def index
     @artists = Artist.paginate(page: params[:page], per_page: 20)
-  
     @filterrific = initialize_filterrific(
-      Artist,
-      params[:filterrific],
-      select_options: {
-        sorted_by: Artist.options_for_sorted_by,
-      }
+      @Artist,
+      params[:filterrific]
     ) or return
     @artists = @filterrific.find.page(params[:page])
-  end 
  
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
-  # end
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def new
     @artist = Artist.new
@@ -48,6 +42,7 @@ class ArtistsController < ApplicationController
   end
 
   def update
+    # youtube_embed_url
     if @artist.update(artist_params)
       flash[:notice] = "Artist was successfully updated"
       redirect_to @artist
@@ -55,7 +50,6 @@ class ArtistsController < ApplicationController
       render 'new'
     end
   end
-  
 
   def destroy
     @artist.destroy
@@ -92,4 +86,4 @@ class ArtistsController < ApplicationController
     end
   end
 
-end 
+end
