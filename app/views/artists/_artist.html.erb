@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div class="card shadow rounded me-3 mb-2 mt-2" style="width: 18rem;">
   <img src=<%= artist.image_url %> class="card-img-top img-fluid" alt="...">
   <div class="card-body">
@@ -6,15 +7,36 @@
     <p class="card-text"><%= artist.description %></p>
     
     <%= link_to '<button type="button" class="btn btn-outline-primary">
+=======
+<div class="card group" style="width: 18rem;">
+      <img class="artist-image" alt="..." src=<%= artist.image_url %>  />
+  <div class="card-body">
+      <h5 class="card-title"><%= artist.name %></h5>
+      <p class="card-text"><%= artist.description %></p>
+    
+    <% if artist.dance_styles.any? %>
+        <div class="pb-2">
+          <%= render artist.dance_styles %>
+      </div>
+    <% end %>
+  
+
+
+    <%= link_to '<button type="button" class="btn btn-info me-1 mb-1">
+>>>>>>> Stashed changes
     Artist details
     </button>'.html_safe, artist %>
 
     <% if logged_in? && current_user.admin? %>
-      <%= link_to '<button type="button" class="btn btn-outline-primary">
+      <%= link_to '<button type="button" class="btn btn-secondary me-1 mb-1">
       Edit artist
       </button>'.html_safe, edit_artist_path(artist) %>
+<<<<<<< Updated upstream
 
       <%= link_to '<button type="button" class="btn btn-outline-danger mt-1">
+=======
+      <%= link_to '<button type="button" class="btn btn-danger me-1 mb-1">
+>>>>>>> Stashed changes
       Delete artist
       </button>'.html_safe, artist_path(artist), method: :delete, data: { confirm: "Are you sure?"} %>
     <% end %>

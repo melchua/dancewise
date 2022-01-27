@@ -1,4 +1,4 @@
-@import "bootstrap/dist/css/bootstrap";
+// @import "bootstrap/dist/css/bootstrap";
 
 // .navbar {
 //   background-color: plum !important;
@@ -74,3 +74,53 @@
 *:first-child + html .digg_pagination {
   overflow: hidden;
 }
+<<<<<<< Updated upstream
+=======
+.artist-wrapper-topinfo {
+  display: flex; /* or inline-flex */
+  gap: 20px 40px;
+}
+.artist-info-wrapper {
+  display: flex;
+}
+.card.videos {
+  flex-grow: 4;
+}
+.card2 {
+  flex-grow: 4;
+}
+.card.profile-image {
+  flex-grow: 1;
+  padding: 0px;
+  margin: 0px;
+}
+
+.img-thumbnail2 {
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius: 20px;
+}
+
+.img-thumbnail2.show {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 60px !important;
+  font-weight: 900 !important;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+>>>>>>> Stashed changes

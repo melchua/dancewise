@@ -11,6 +11,14 @@ class ArtistsController < ApplicationController
   end
 
   def show
+<<<<<<< Updated upstream
+=======
+    if @artist.first_video_id.nil?
+      return @artist 
+    else
+      @artist.youtube_embed_url
+    end
+>>>>>>> Stashed changes
   end
 
   def create
