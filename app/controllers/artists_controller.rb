@@ -1,9 +1,30 @@
 class ArtistsController < ApplicationController
+<<<<<<< Updated upstream
+=======
+  include VideosHelper
+>>>>>>> Stashed changes
   before_action :require_admin, except: [:index, :show]
   before_action :set_artist, only: [:show, :update, :edit, :destroy]
 
+
+  #One of of the changes I made to fix the some of the errors was on line 12 to change @artists to Artist.
+
   def index
+<<<<<<< Updated upstream
     @artists = Artist.paginate(page: params[:page], per_page: 4)
+=======
+    @artists = Artist.paginate(page: params[:page], per_page: 20)
+    @filterrific = initialize_filterrific(
+      Artist,
+      params[:filterrific]
+    ) or return
+    @artists = @filterrific.find.page(params[:page])
+ 
+    respond_to do |format|
+      format.html
+      format.js
+    end
+>>>>>>> Stashed changes
   end
 
   def new
@@ -27,6 +48,7 @@ class ArtistsController < ApplicationController
   end
 
   def update
+    # youtube_embed_url
     if @artist.update(artist_params)
       flash[:notice] = "Artist was successfully updated"
       redirect_to @artist
@@ -58,4 +80,8 @@ class ArtistsController < ApplicationController
     end
   end
 
+<<<<<<< Updated upstream
 end
+=======
+end
+>>>>>>> Stashed changes

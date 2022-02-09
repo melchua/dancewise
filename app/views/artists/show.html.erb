@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< Updated upstream
   <h2>Showing artist details</h1>
 
   <div class="card" style="width: 18rem;">
@@ -6,6 +7,28 @@
   <div class="card-body">
     <h5 class="card-title"><%= @artist.name %></h5>
     <p class="card-text"><%= @artist.description %></p>
+=======
+ <h1><%= @artist.name %></h1>
+ <div class="artist-info-wrapper">
+    <% if @artist.dance_styles.any? %>
+        <div class="pb-2">
+          <%= render @artist.dance_styles %>
+        </div>
+    <% end %>
+  <p>&nbsp;&nbsp;|&nbsp;&nbsp;</p>
+ <p><%= @artist.description %></p>
+ <p>&nbsp;&nbsp;|&nbsp;&nbsp;</p>
+ <p>Based in (Insert Artist City)</p>
+ </div>
+<div class="artist-wrapper-topinfo">
+ 
+
+  <div class="" style="width: 18rem;">
+  <img src=<%= @artist.image_url %> class="artist-page-image" alt="artist picture">
+ <div class="card-body">
+  <%# <h5 class="card-title"><%= @artist.name </h5> %>
+    <%# <p class="card-text"><%= @artist.description </p> %>
+>>>>>>> Stashed changes
   </div>
 </div>
 
