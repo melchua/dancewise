@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   def show
   end
 
-  def update
+  def update    
     if @event.update(event_params) 
       flash[:notice] = "Event was updated successfully"
       redirect_to @event
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :image_url, :type, :event_date, dance_style_ids: [], artist_ids: [])
+    params.require(:event).permit(:name, :description, :image_url, :type, :event_date, :event_type_id, dance_style_ids: [], artist_ids: [])
   end
 
   def set_event
