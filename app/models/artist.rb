@@ -1,17 +1,29 @@
 class Artist < ApplicationRecord
+# This VideoHelper and Youtube Regex line is super important to avoid the uninitialize error message. 
+# make sure that you create the videos_helpers.rb file and two make sure YOUTUBE_REGEX is defined in the model.
+  include VideosHelper
+  YOUTUBE_REGEX = %r(^(http[s]*:\/\/)?(www.)?(youtube.com|youtu.be)\/(watch\?v=){0,1}([a-zA-Z0-9_-]{11}))
+
   has_many :event_artists
   has_many :events, through: :event_artists
+  has_many :artist_dance_styles
+  has_many :dance_styles, through: :artist_dance_styles
 
   validates_uniqueness_of :name
   validates :name, presence: true, length: { minimum: 3, maximum: 100 }
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
   validates :image_url, length: { minimum: 10, maximum: 200 }
-<<<<<<< Updated upstream
-end
-=======
   # validates :first_video_id, presence: true
   validates :first_video_id, length: { in: 0..255, allow_nil: false } 
 
+  def youtube_embed_url
+    normal_url = self.first_video_id
+    youtube_id = YOUTUBE_REGEX.match normal_url.to_str
+    if youtube_id
+      youtube_id[6] || youtube_id[5]
+    end
+    embed_url = "http://www.youtube.com/embed/#{ youtube_id[5] }"
+end
 
   # Be sure the filterrific is in the gemfile, stop the server, 'gem install filterrific' and then run bundle install and bundle update!
   filterrific(
@@ -40,13 +52,5 @@ end
   }
     
 
-def youtube_embed_url
-    normal_url = self.first_video_id
-    youtube_id = YOUTUBE_REGEX.match normal_url.to_str
-    if youtube_id
-      youtube_id[6] || youtube_id[5]
-    end
-    embed_url = "http://www.youtube.com/embed/#{ youtube_id[5] }"
+
 end
-end
->>>>>>> Stashed changes

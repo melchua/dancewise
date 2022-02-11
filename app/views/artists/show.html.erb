@@ -1,41 +1,66 @@
+<div class="show-page-wrapper">
+
 <div class="container">
-<<<<<<< Updated upstream
   <h2>Showing artist details</h1>
 
-  <div class="card" style="width: 18rem;">
-  <img src=<%= @artist.image_url %> class="card-img-top" alt="artist picture">
-  <div class="card-body">
-    <h5 class="card-title"><%= @artist.name %></h5>
-    <p class="card-text"><%= @artist.description %></p>
-=======
- <h1><%= @artist.name %></h1>
- <div class="artist-info-wrapper">
-    <% if @artist.dance_styles.any? %>
-        <div class="pb-2">
-          <%= render @artist.dance_styles %>
-        </div>
-    <% end %>
-  <p>&nbsp;&nbsp;|&nbsp;&nbsp;</p>
- <p><%= @artist.description %></p>
- <p>&nbsp;&nbsp;|&nbsp;&nbsp;</p>
- <p>Based in (Insert Artist City)</p>
- </div>
-<div class="artist-wrapper-topinfo">
- 
-
-  <div class="" style="width: 18rem;">
-  <img src=<%= @artist.image_url %> class="artist-page-image" alt="artist picture">
+  <div class="-">
+  <img class="artist-page-image" src=<%= @artist.image_url %> alt="artist picture">
+   <% if @artist.dance_styles.any? %>
+    <div class="row row-cols-4">
+      <div class="mt-2">
+        <%= render @artist.dance_styles %>
+      </div>
+    </div>
+  <% end %>
  <div class="card-body">
   <%# <h5 class="card-title"><%= @artist.name </h5> %>
     <%# <p class="card-text"><%= @artist.description </p> %>
->>>>>>> Stashed changes
   </div>
 </div>
 
-  <h3>Current Booked Events</h3>
+<div class="artist-video-wrapper">
+  <h3>Artist Videos</h3>
+ 
+  
+<div class="row row-cols-4">
+
+<% if @artist.first_video_id.nil? %>
+<div>Empty.</div>
+<% else %>
+<div class="plyr__video-embed" id="player">
+  <iframe
+    src="<%= @artist.youtube_embed_url %>?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+    allowfullscreen
+    allowtransparency
+    allow="autoplay"
+  ></iframe>
+</div>
+<% end %>
+</div>
+
+</div>
+
+<div class="";>
+<h3>Current Booked Events</h3>
   <% if @artist.events.any? %>
     <div class="row row-cols-4">
       <%= render @artist.events %>
     </div>
   <% end %>
 </div>
+
+<div class="data-control-wrapper">
+   <% if logged_in? && current_user.admin? %>
+      <%= link_to '<button type="button" class="btn btn-outline-primary">
+      Edit artist
+      </button>'.html_safe, edit_artist_path(@artist) %>
+
+      <%= link_to '<button type="button" class="btn btn-outline-danger mt-1">
+      Delete artist
+      </button>'.html_safe, artist_path(@artist), method: :delete, data: { confirm: "Are you sure?"} %>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
+

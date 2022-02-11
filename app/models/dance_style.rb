@@ -3,4 +3,6 @@ class DanceStyle < ApplicationRecord
   validates_uniqueness_of :name
   has_many :event_dance_styles
   has_many :events, through: :event_dance_styles
+  has_many :artist_dance_styles
+  has_many :artists, through: :artist_dance_styles
 end
