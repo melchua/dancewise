@@ -74,8 +74,6 @@
 *:first-child + html .digg_pagination {
   overflow: hidden;
 }
-<<<<<<< Updated upstream
-=======
 .artist-wrapper-topinfo {
   display: flex; /* or inline-flex */
   gap: 20px 40px;
@@ -115,4 +113,20 @@
 h1, h2, h3, h4, h5 {
   font-family: poppins;
 }
->>>>>>> Stashed changes
+
+.data-control-wrapper {
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.artist-video-wrapper {
+  margin-bottom: 40px;
+}
+
+.event-list-wrapper {
+  margin-bottom: 40px;
+}
+
+.artist-list-wrapper {
+  margin-bottom: 40px;
+}

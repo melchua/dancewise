@@ -3,7 +3,15 @@
 <br>
   <img src=<%= @event.image_url %> class="event-page-image" >
 
-  <div class="container">
+   <% if @event.dance_styles.any? %>
+    <div class="row row-cols-4">
+      <div class="mt-2">
+        <%= render @event.dance_styles %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="event-detail-wrapper">
 
   <p><small class="text-muted"><%= formatDateLong(@event.event_date) %></small></p>
   <h2>Event details</h2>
@@ -16,16 +24,10 @@
     </div>
   <% end %>
 
-  <% if @event.dance_styles.any? %>
-    <div class="row row-cols-4">
-      <div class="mt-2">
-        <%= render @event.dance_styles %>
-      </div>
-    </div>
-  <% end %>
+ 
 
   </div>
-  <div class="container">
+  <div class="data-control-wrapper">
     <% if logged_in? && (@event.user == current_user || current_user.admin?)  %>
       <%= link_to '<button type="button" class="btn btn-outline-primary">
       Edit event

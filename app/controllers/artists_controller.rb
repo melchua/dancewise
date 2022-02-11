@@ -1,18 +1,14 @@
 class ArtistsController < ApplicationController
-<<<<<<< Updated upstream
-=======
   include VideosHelper
->>>>>>> Stashed changes
+  include ActionController::MimeResponds
   before_action :require_admin, except: [:index, :show]
   before_action :set_artist, only: [:show, :update, :edit, :destroy]
+
 
 
   #One of of the changes I made to fix the some of the errors was on line 12 to change @artists to Artist.
 
   def index
-<<<<<<< Updated upstream
-    @artists = Artist.paginate(page: params[:page], per_page: 4)
-=======
     @artists = Artist.paginate(page: params[:page], per_page: 20)
     @filterrific = initialize_filterrific(
       Artist,
@@ -24,7 +20,6 @@ class ArtistsController < ApplicationController
       format.html
       format.js
     end
->>>>>>> Stashed changes
   end
 
   def new
@@ -32,6 +27,7 @@ class ArtistsController < ApplicationController
   end
 
   def show
+    puts @artist
   end
 
   def create
@@ -66,7 +62,7 @@ class ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:name, :description, :image_url, :instructor, :dj)
+    params.require(:artist).permit(:name, :description, :image_url, :instructor, :dj, :first_video_id, :second_video_id, :third_video_id, dance_style_ids: [], event_ids: [])
   end
 
   def set_artist
@@ -80,8 +76,4 @@ class ArtistsController < ApplicationController
     end
   end
 
-<<<<<<< Updated upstream
 end
-=======
-end
->>>>>>> Stashed changes
