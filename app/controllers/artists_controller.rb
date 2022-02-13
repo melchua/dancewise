@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :update, :edit, :destroy]
 
   def index
-    @artists = Artist.paginate(page: params[:page], per_page: 4)
+    @artists = Artist.paginate(page: params[:page], per_page: 20)
   end
 
   def new

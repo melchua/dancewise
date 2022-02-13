@@ -11,6 +11,13 @@
                             { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
   </p>
 
+   <p>
+    <%= f.label "Event Type" %><br />
+    <%= f.collection_select(:event_type_ids, DanceStyle.all, :id, :name, 
+                            { prompt: "Make your selection from the list below (one or more)"}, 
+                            { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
+  </p>
+
   <p>
     <%= f.label :description %><br />
     <%= f.text_field :description %>
