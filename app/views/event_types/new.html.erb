@@ -1,0 +1,18 @@
+<h1>New Event Type</h1>
+
+<div class="container">
+  <h1>Create a new event type</h1>
+  <%= render 'shared/errors', obj: @event_type %>
+
+  <%= form_with(model: @event_type, local: true) do |f| %>
+    <p>
+      <%= f.label :name, "Event Type Name" %><br />
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.submit class: "btn btn-outline-dark btn-md" %>
+    </p>
+  <% end %>
+
+</div>

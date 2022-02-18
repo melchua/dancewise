@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   resources :dance_styles, except: [:destroy]
   resources :artists
+  resources :event_types
 end

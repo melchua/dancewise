@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :user
+  belongs_to :event_types
   has_many :event_dance_styles
   has_many :dance_styles, through: :event_dance_styles
   has_many :event_artists
