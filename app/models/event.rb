@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :dance_styles, through: :event_dance_styles
   has_many :event_artists
   has_many :artists, through: :event_artists
-  belongs_to :event_type, optional: true
+  belongs_to :event_type, optional: true, class_name: "Event Type", foreign_key: "event_type_id"
   validates :name, presence: true, length: { minimum: 6, maximum: 100}
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
   validates :image_url, length: { minimum: 10, maximum: 200 }

@@ -12,7 +12,7 @@
                             { size: 4, class: "custom-select shadow rounded"}, ) %>
   </p>
 
-<%# <p> 
+<%# This was the code that was needed to point the collect select to the proper place in the data params. The :selected code part above! <p> 
   <%= f.collection_select(:event_type_id, EventType.all, :id, :name, { :prompt => 'Select an Event Type', :selected => @event.event_type_id }, { class: 'form-control' }) 
 </p>  %>
 

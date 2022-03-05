@@ -8,7 +8,9 @@ class EventTypesController < ApplicationController
 
   # GET /event_types/1 or /event_types/1.json
   def show
+    binding.pry
       @event_types = EventType.find(params[:id])
+      @event_type_name = @event_types.name
   end
 
   # GET /event_types/new

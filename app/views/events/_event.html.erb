@@ -10,11 +10,19 @@
 
       <p class="card-text"><%= event.description %></p>
       
+      <p>
       <% if event.dance_styles.any? %>
         <div class="pb-2">
           <%= render event.dance_styles %>
         </div>
       <% end %>
+      </p>
+
+      <p>
+      <% @event.each do |e| %>
+      <%= e.event_type_id.name %>
+      <% end %>
+      </p>
 
       
 
