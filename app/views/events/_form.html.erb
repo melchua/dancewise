@@ -6,10 +6,15 @@
 
  <p>
     <%= f.label :event_types %><br />
-    <%= f.collection_select(:event_type_ids, EventType.all, :id, :name, 
-                            { prompt: "Make your selection from the list below (one or more)"}, 
-                            { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
+    <%= f.collection_select(:event_type_id, EventType.all, :id, :name, 
+                            { :prompt => "Make your selection from the list below",
+                            :selected => @event.event_type_id },
+                            { size: 4, class: "custom-select shadow rounded"}, ) %>
   </p>
+
+<%# <p> 
+  <%= f.collection_select(:event_type_id, EventType.all, :id, :name, { :prompt => 'Select an Event Type', :selected => @event.event_type_id }, { class: 'form-control' }) 
+</p>  %>
 
   <p>
     <%= f.label :dance_style %><br />
