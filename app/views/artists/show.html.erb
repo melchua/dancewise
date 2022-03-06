@@ -1,56 +1,52 @@
 <div class="show-page-wrapper">
 
-<div class="container">
-  <h2>Showing artist details</h1>
-
-  <div class="-">
-  <img class="artist-page-image" src=<%= @artist.image_url %> alt="artist picture">
-   <% if @artist.dance_styles.any? %>
-    <div class="row row-cols-4">
-      <div class="mt-2">
-        <%= render @artist.dance_styles %>
-      </div>
-    </div>
-  <% end %>
- <div class="card-body">
+  <div class="container">
+    <h2>Showing artist details</h1>
+      <div class="">
+            <img class="artist-page-image" src=<%= @artist.image_url %> alt="artist picture">
+            <% if @artist.dance_styles.any? %>
+          <div class="row row-cols-4">
+            <div class="mt-2">
+              <%= render @artist.dance_styles %>
+            </div>
+          </div>
+            <% end %>
+        <div class="card-body">
   <%# <h5 class="card-title"><%= @artist.name </h5> %>
     <%# <p class="card-text"><%= @artist.description </p> %>
+      </div>
   </div>
-</div>
 
-<div class="artist-video-wrapper">
-  <h3>Artist Videos</h3>
- 
-  
-<div class="row row-cols-4">
+  <div class="artist-video-wrapper">
+      <h3>Artist Videos</h3>
+    <div class="row row-cols-4">
+        <% if @artist.first_video_id.nil? %>
+      <div>
+        Empty.
+      </div>
+        <% else %>
+      <div class="plyr__video-embed" id="player">
+        <iframe src="<%= @artist.youtube_embed_url %>?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+          allowfullscreen
+          allowtransparency
+          allow="autoplay">   
+        </iframe>
+      </div>
+          <% end %>
+    </div>
+  </div>
 
-<% if @artist.first_video_id.nil? %>
-<div>Empty.</div>
-<% else %>
-<div class="plyr__video-embed" id="player">
-  <iframe
-    src="<%= @artist.youtube_embed_url %>?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
-    allowfullscreen
-    allowtransparency
-    allow="autoplay"
-  ></iframe>
-</div>
-<% end %>
-</div>
-
-</div>
-
-<div class="";>
-<h3>Current Booked Events</h3>
-  <% if @artist.events.any? %>
+  <div class="";>
+      <h3>Current Booked Events</h3>
+       <% if @artist.events.any? %>
     <div class="row row-cols-4">
       <%= render @artist.events %>
     </div>
-  <% end %>
-</div>
+      <% end %>
+  </div>
 
-<div class="data-control-wrapper">
-   <% if logged_in? && current_user.admin? %>
+  <div class="data-control-wrapper">
+    <% if logged_in? && current_user.admin? %>
       <%= link_to '<button type="button" class="btn btn-outline-primary">
       Edit artist
       </button>'.html_safe, edit_artist_path(@artist) %>
@@ -61,6 +57,5 @@
     <% end %>
   </div>
 </div>
-</div>
-</div>
+
 
