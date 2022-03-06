@@ -14,16 +14,13 @@
       <% if event.dance_styles.any? %>
         <div class="pb-2">
           <%= render event.dance_styles %>
+          <% end %>
+          <%= render event.event_type %>
         </div>
-      <% end %>
       </p>
 
-      <p>
-      <% @event.each do |e| %>
-      <%= e.event_type_id.name %>
-      <% end %>
-      </p>
-
+  <%# ON DISPLAYING EVENT TYPE NAME ON THE EVENT VIEW: After making the changes to the eventtype and event models into include the class names I was able to get this render to work to display the event type name!# %>
+     
       
 
       <%= link_to '<button type="button" class="btn btn-outline-primary">
