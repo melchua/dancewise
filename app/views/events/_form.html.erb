@@ -16,6 +16,14 @@
   <%= f.collection_select(:event_type_id, EventType.all, :id, :name, { :prompt => 'Select an Event Type', :selected => @event.event_type_id }, { class: 'form-control' }) 
 </p>  %>
 
+<p>
+    <%= f.label :event_frequencies %><br />
+    <%= f.collection_select(:event_frequency_id, EventFrequency.all, :id, :name, 
+                            { :prompt => "Make your selection from the list below",
+                            :selected => @event.event_frequency_id },
+                            { size: 4, class: "custom-select shadow rounded"}, ) %>
+  </p>
+
   <p>
     <%= f.label :dance_style %><br />
     <%= f.collection_select(:dance_style_ids, DanceStyle.all, :id, :name, 
