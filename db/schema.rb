@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_102337) do
+ActiveRecord::Schema.define(version: 2022_03_11_172430) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_102337) do
     t.string "first_video_id"
     t.string "second_video_id"
     t.string "third_video_id"
+    t.string "video_links"
   end
 
   create_table "dance_styles", force: :cascade do |t|

@@ -13,8 +13,8 @@ class Artist < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3, maximum: 100 }
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
   validates :image_url, length: { minimum: 10, maximum: 200 }
-  # validates :first_video_id, presence: true
   validates :first_video_id, length: { in: 0..255, allow_nil: false } 
+  serialize :video_links, Array 
 
   def youtube_embed_url
     normal_url = self.first_video_id
