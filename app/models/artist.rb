@@ -16,14 +16,27 @@ class Artist < ApplicationRecord
   validates :first_video_id, length: { in: 0..255, allow_nil: false } 
   serialize :video_links, Array 
 
+  # In order to add an arrray to the Artist I migrated " add_column :artists, :video_links, :string " and also added "serialize :video_links, Array" to the Arist model. I was able to add strings to the database via the rails console by assigning a letter to Artist.first, and then running "a.video_links<<"https://youtu.be/CyO_Vda2IMg"" and I was able to repeat this for multiple links and then I ran a.save! #
+
   def youtube_embed_url
-    normal_url = self.first_video_id
+    binding.pry
+    normal_url = self.video_links.each do |v| puts v
+    end
     youtube_id = YOUTUBE_REGEX.match normal_url.to_str
     if youtube_id
       youtube_id[6] || youtube_id[5]
     end
     embed_url = "http://www.youtube.com/embed/#{ youtube_id[5] }"
-end
+  end
+
+  # def youtube_embed_link
+  #   normal_link = self.video_links
+  #   youtube_id = YOUTUBE_REGEX.match normal_link.to_str
+  #   if youtube_link
+  #     youtube_link[6] || youtube_link[5]
+  #   end
+  #   embed_link = "http://www.youtube.com/embed/#{ youtube_link[5] }"
+  # end
 
   # Be sure the filterrific is in the gemfile, stop the server, 'gem install filterrific' and then run bundle install and bundle update!
   filterrific(
