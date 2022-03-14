@@ -10,10 +10,13 @@ import "channels";
 
 // import "bootstrap/dist/css/bootstrap";
 // import "bootstrap/dist/js/bootstrap";
+// require toastr
 
 import "stylesheets/application";
 
 import "bootstrap";
+import "toastr";
+
 
 Rails.start();
 Turbolinks.start();

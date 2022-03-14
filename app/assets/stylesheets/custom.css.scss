@@ -135,3 +135,21 @@ h1, h2, h3, h4, h5 {
 .artist-list-wrapper {
   margin-bottom: 40px;
 }
+
+.avatar_small {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.avatar_medium {
+  width: 48px;
+}
+
+.avatar_large {
+  width: 68px;
+}
+
+.avatar_full {
+  width: 100%;
+}
