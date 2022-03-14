@@ -56,12 +56,15 @@ ActiveRecord::Schema.define(version: 2022_03_07_102337) do
     t.integer "event_id"
   end
 
+<<<<<<< HEAD
   create_table "event_frequencies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+=======
+>>>>>>> master
   create_table "event_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -77,8 +80,11 @@ ActiveRecord::Schema.define(version: 2022_03_07_102337) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "event_date"
     t.integer "event_type_id", null: false
+<<<<<<< HEAD
     t.integer "event_frequency_id", null: false
     t.index ["event_frequency_id"], name: "index_events_on_event_frequency_id"
+=======
+>>>>>>> master
     t.index ["event_type_id"], name: "index_events_on_event_type_id"
   end
 
@@ -91,6 +97,9 @@ ActiveRecord::Schema.define(version: 2022_03_07_102337) do
     t.boolean "admin", default: false
   end
 
+<<<<<<< HEAD
   add_foreign_key "events", "event_frequencies"
+=======
+>>>>>>> master
   add_foreign_key "events", "event_types"
 end
