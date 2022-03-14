@@ -15,6 +15,11 @@
               <%= link_to "Create new event", new_event_path, class: "dropdown-item" %>
             <% end %>
             <%= link_to "View Events", events_path, class: "dropdown-item" %>
+            <br>
+             <% if logged_in? && current_user.admin? %>
+              <%= link_to "Create new event type", new_event_type_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "View event types", event_types_path, class: "dropdown-item" %>
           </div>
         </li>
 
@@ -39,8 +44,11 @@
               <%= link_to "Create new dance style", new_dance_style_path, class: "dropdown-item" %>
             <% end %>
             <%= link_to "View dance styles", dance_styles_path, class: "dropdown-item" %>
+            
           </div>
         </li>
+
+        
 
         <% if logged_in? %>
           <li class="nav-item dropdown">
