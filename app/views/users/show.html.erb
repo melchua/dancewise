@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Showing user details</h1>
+  <h2>Showing User Details</h1>
 
   <%= gravatar_for @user, size: 200 %>
 
@@ -12,6 +12,6 @@
 
   <h3>Events created</h3>
   <div class="row row-cols-4">
-    <%= render 'events/event' %>
+    <%= render @user.events %>
   </div>
 </div>
