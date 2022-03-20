@@ -1,51 +1,37 @@
-<%= form_with(model: @event, local: true) do |f| %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
+<%= bootstrap_form_for(@event) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.collection_select :event_type_id, EventType.all, :id, :name %>
+  <%= f.collection_select :dance_style_ids, DanceStyle.all, :id, :name %>
+  <%= f.collection_select :artist_ids, Artist.all, :id, :name %>
+  <%= f.text_field :image_url, class: "form-control" %>
+  <%= f.date_select :event_date, wrapper: { class: "date"} %>
+  <%= f.submit "Update Event" %>
+<% end %>
 
- <p>
-    <%= f.label :event_types %><br />
-    <%= f.collection_select(:event_type_id, EventType.all, :id, :name, 
-                            { :prompt => "Make your selection from the list below",
-                            :selected => @event.event_type_id },
-                            { size: 4, class: "custom-select shadow rounded"}, ) %>
-  </p>
+      <%# <div class="row">
+        <div class="col-md-4 select p-3">          
+            <p>
+                <%= f.label :event_types %>
+                <%# <%= f.collection_select(:event_type_id, EventType.all, :id, :name, 
+                                        { :prompt => "Make your selection from the list below",
+                                        :selected => @event.event_type_id },
+                                        { size: 4, class: "form-select shadow rounded"}, ) %>
+            <%# </p>    
+        </div> %> 
 
 <%# This was the code that was needed to point the collect select to the proper place in the data params. The :selected code part above! <p> 
   <%= f.collection_select(:event_type_id, EventType.all, :id, :name, { :prompt => 'Select an Event Type', :selected => @event.event_type_id }, { class: 'form-control' }) 
 </p>  %>
 
-  <p>
-    <%= f.label :dance_style %><br />
-    <%= f.collection_select(:dance_style_ids, DanceStyle.all, :id, :name, 
-                            { prompt: "Make your selection from the list below (one or more)"}, 
-                            { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
-  </p>
+    
 
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
 
-  <p>
-    <%= f.label :artists %><br />
-    <%= f.collection_select(:artist_ids, Artist.all, :id, :name, 
-                            { prompt: "Make your selection from the list below (one or more)"}, 
-                            { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
-  </p>
+          <%# <div class="form-group">
+            <label for="product_release_date">Release date</label>
+            <input class="form-control" type="date" name="product[release_date]" id="product_release_date">
+            <small class="form-text text-muted">Date when the product will be released.</small>
+          </div> %>
 
-  <p>
-    <%= f.label :image_url %><br />
-    <%= f.text_field :image_url %>
-  </p>
+  
 
-  <p>
-    <%= f.label :date_time %><br />
-    <%= f.date_select :event_date %>
-  </p>
-
-  <p>
-    <%= f.submit class: "btn btn-outline-dark btn-md" %>
-  </p>
-<% end %>
+ 

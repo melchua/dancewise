@@ -10,19 +10,10 @@ import "channels";
 
 // import "bootstrap/dist/css/bootstrap";
 // import "bootstrap/dist/js/bootstrap";
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 import "stylesheets/application";
 
 import "bootstrap";
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
 
 Rails.start();
 Turbolinks.start();
