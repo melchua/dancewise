@@ -15,6 +15,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'will_paginate', '~> 3.3'
 gem 'pry'
+gem "aws-sdk-s3", require: false
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

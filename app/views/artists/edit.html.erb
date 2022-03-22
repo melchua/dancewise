@@ -20,6 +20,11 @@
       <%= f.text_field :image_url %>
     </p>
 
+     <p>
+      <%= f.label "Image Upload", "Image Upload" %><br />
+      <%= f.file_field :images, multiple: true %>
+    </p>
+
     <p>
       <%= f.label :description %><br />
       <%= f.text_field :description %>
