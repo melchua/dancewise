@@ -16,7 +16,6 @@
   <%# <h5 class="card-title"><%= @artist.name </h5> %>
     <%# <p class="card-text"><%= @artist.description </p> %>
   </div>
-</div>
 
 <div class="artist-video-wrapper">
   <h3>Artist Videos</h3>
@@ -46,7 +45,20 @@
     <div class="row row-cols-4">
       <%= render @artist.events %>
     </div>
-  <% end %>
+      <% end %>
+  </div>
+
+  <div class="data-control-wrapper">
+    <% if logged_in? && current_user.admin? %>
+      <%= link_to '<button type="button" class="btn btn-outline-primary">
+      Edit artist
+      </button>'.html_safe, edit_artist_path(@artist) %>
+
+      <%= link_to '<button type="button" class="btn btn-outline-danger mt-1">
+      Delete artist
+      </button>'.html_safe, artist_path(@artist), method: :delete, data: { confirm: "Are you sure?"} %>
+    <% end %>
+  </div>
 </div>
 
 <div class="data-control-wrapper">
