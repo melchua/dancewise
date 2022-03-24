@@ -1,6 +1,10 @@
   <div class="card shadow rounded me-3 mb-2 mt-2" style="width: 18rem;">
-  <img src=<%= artist.image_url %> class="even-size-artist" alt="...">
-  <div class="card-body">
+   <% if artist.avatar.attached? %>
+       <%= image_tag artist.avatar, class: "even-size-artist" %>
+    <% else %>
+       <img src=<%= "https://dancewise.s3.amazonaws.com/misc-images/Blank+Avatar.png" %> class="even-size-artist">
+    <% end %>
+    <div class="card-body">
     <h5 class="card-title"><%= artist.name %></h5>
        <% if artist.dance_styles.any? %>
     <div class="row row-cols-4">

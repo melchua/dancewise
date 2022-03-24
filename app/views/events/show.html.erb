@@ -1,7 +1,11 @@
 <div class="container">
   <h1><%= @event.name %></h1>
 <br>
-  <img src=<%= @event.image_url %> class="event-page-image" >
+  <% if @event.event_image.attached? %>
+       <%= image_tag @event.event_image, class: "event-page-image" %>
+    <% else %>
+       <p>No event image uploaded.</p>
+    <% end %>
 
    <% if @event.dance_styles.any? %>
     <div class="row row-cols-4">
@@ -39,28 +43,4 @@
       </button>'.html_safe, event_path(@event), method: :delete, data: { confirm: "Are you sure?"} %>
     <% end %>
   </div>
-</div>
-
-
- <div class="panel panel-default">
-        <div class="container">
-            <div class="jumbotron">
-            <h2>Create your beautiful place</h2>
-            </div>
-          <div class="panel-body">
-            <div class="container">
-              <h1>Testing</h1>
-              <%# <%= form_for @room do |f| %>
-              <div class="row">
-                <div class="col-md-4 select">
-                  <div class="form-group">
-                      <label>Home Type</label>
-                  </div>
-                </div>
-                  <%# <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 </div>

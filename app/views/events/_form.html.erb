@@ -1,11 +1,13 @@
 <%= bootstrap_form_for(@event) do |f| %>
   <%= f.text_field :name %>
+  <%= f.text_field :description %>
   <%= f.collection_select :event_type_id, EventType.all, :id, :name %>
+  <%# <%= f.collection_select :event_frequency_id, EventFrequency.all, :id, :name %> %>
   <%= f.collection_select :dance_style_ids, DanceStyle.all, :id, :name %>
   <%= f.collection_select :artist_ids, Artist.all, :id, :name %>
-  <%= f.text_field :image_url, class: "form-control" %>
+  <%= f.file_field :event_image %>
   <%= f.date_select :event_date, wrapper: { class: "date"} %>
-  <%= f.submit "Update Event" %>
+  <%= f.submit "Submit Event" %>
 <% end %>
 
       <%# <div class="row">

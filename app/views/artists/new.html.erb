@@ -1,46 +1,9 @@
 <div class="container">
-  <h1>Create a new artist</h1>
+
+  <h1>Create New Artist</h1>
+
   <%= render 'shared/errors', obj: @artist %>
 
-  <%= form_with(model: @artist, local: true) do |f| %>
-    <p>
-      <%= f.label :name, "Artist name" %><br />
-      <%= f.text_field :name %>
-    </p>
-
-  <p>
-    <%= f.label :dance_style %><br />
-    <%= f.collection_select(:dance_style_ids, DanceStyle.all, :id, :name, 
-                            { prompt: "Make your selection from the list below (one or more)"}, 
-                            { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
-  </p>
-
-    <p>
-      <%= f.label :image_url, "Artist profile image url" %><br />
-      <%= f.text_field :image_url %>
-    </p>
-
-    <p>
-      <%= f.label :description %><br />
-      <%= f.text_field :description %>
-    </p>
-    
-    <p>
-      <%= f.check_box :instructor %>
-      <%= f.label :instructor, "I am an instructor" %>
-    </p>
-
-    <p>
-      <%= f.check_box :dj %>
-      <%= f.label :dj, "I am a DJ" %>
-    </p>
-      <p>
-      <%= f.label :first_video_id, "1st YouTube URL" %><br />
-      <%= f.text_field :first_video_id %>
-    </p>
-    <p>
-      <%= f.submit class: "btn btn-outline-primary btn-md" %>
-    </p>
-  <% end %>
+  <%= render 'form'%>
 
 </div>

@@ -1,25 +1,30 @@
-<div class="card shadow rounded me-3 mb-2 mt-2" style="width: 18rem;">
-    <img src=<%= event.image_url %> class="even-size-event" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%= event.name %></h5>
-      <p class="card-text">
-        <small class="text-muted">
-          <%= formatDateLong(event.event_date) %>
-        </small>
-      </p>
 
-      <p class="card-text"><%= event.description %></p>
-      
-      <p>
-      <% if event.dance_styles.any? %>
-        <div class="pb-2">
-          <%= render event.dance_styles %>
-          <% end %>
-          <%= render event.event_type %>
-        </div>
-      </p>
+    <div class="card shadow rounded me-3 mb-2 mt-2" style="width: 18rem;">
+      <% if event.event_image.attached? %>
+          <%= image_tag event.event_image, class: "event-page-image" %>
+        <% else %>
+          <p>No event image uploaded.</p>
+        <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= event.name %></h5>
+          <p class="card-text">
+            <small class="text-muted">
+               <%= formatDateLong(event.event_date) %>
+            </small>
+          </p>
+          <p class="card-text"><%= event.description %></p>
+          <p>
+            <% if event.dance_styles.any? %>
+              <div class="row row-cols-4">
+              <div class="mt-2">
+                  <%= render event.dance_styles %>
+                 <% end %>
+                  <%= render event.event_type %>
+              </div>
+              </div>
+          </p>
 
-  <%# ON DISPLAYING EVENT TYPE NAME ON THE EVENT VIEW: After making the changes to the eventtype and event models into include the class names I was able to get this render to work to display the event type name!# %>
+              <%# ON DISPLAYING EVENT TYPE NAME ON THE EVENT VIEW: After making the changes to the eventtype and event models into include the class names I was able to get this render to work to display the event type name!# %>
      
       
 
@@ -41,3 +46,4 @@
         
     </div>
   </div>
+

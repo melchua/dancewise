@@ -1,16 +1,21 @@
 <div class="container">
 
-<%# Pagination number is set in the controller under def index! %>
+  <%# Pagination number is set in the controller under def index! %>
   <div>
     <h1>Event Listing</h1>
     <div class="digg_pagination">
       <%= will_paginate @events, :container => false %>
     </div>
-</div>
+  </div>
 
-  <div class="row row-cols-4">
+    
+      
+  
+  
+  <div class="row row-cols-4">      
     <% @events.each do |event| %>
-      <%= render 'event', event: event %>
-    <% end %>
+        <%= render 'event', event: event %>
+      <% end %>
   </div>
 </div>
+
