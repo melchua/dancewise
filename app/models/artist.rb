@@ -19,7 +19,6 @@ class Artist < ApplicationRecord
   # In order to add an arrray to the Artist I migrated " add_column :artists, :video_links, :string " and also added "serialize :video_links, Array" to the Arist model. I was able to add strings to the database via the rails console by assigning a letter to Artist.first, and then running "a.video_links<<"https://youtu.be/CyO_Vda2IMg"" and I was able to repeat this for multiple links and then I ran a.save! #
 
   def youtube_embed_url
-    binding.pry
     normal_url = self.video_links.each do |v| puts v
     end
     youtube_id = YOUTUBE_REGEX.match normal_url.to_str
