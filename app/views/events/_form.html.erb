@@ -25,6 +25,20 @@
 
     
 
+<<<<<<< Updated upstream
+=======
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <%= f.label :artists %><br />
+    <%= f.collection_select(:artist_ids, Artist.all, :id, :name, 
+                            { prompt: "Make your selection from the list below (one or more)"}, 
+                            { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
+  </p>
+>>>>>>> Stashed changes
 
           <%# <div class="form-group">
             <label for="product_release_date">Release date</label>

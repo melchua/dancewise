@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode 
   belongs_to :user
   has_many :event_dance_styles
   has_many :dance_styles, through: :event_dance_styles
