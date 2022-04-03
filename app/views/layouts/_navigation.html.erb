@@ -20,6 +20,11 @@
               <%= link_to "Create new event type", new_event_type_path, class: "dropdown-item" %>
             <% end %>
             <%= link_to "View event types", event_types_path, class: "dropdown-item" %>
+            <br>
+              <% if logged_in? && current_user.admin? %>
+              <%= link_to "Create new event frequency", new_event_frequency_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "View event frequencies", event_frequencies_path, class: "dropdown-item" %>
           </div>
         </li>
 

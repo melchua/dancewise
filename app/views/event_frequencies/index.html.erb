@@ -1,28 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="container">  
+  <p id="notice"><%= notice %></p>
 
-<h1>Event Frequencies</h1>
+  <h1>Event Frequencies</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Event Frequency ID</th>
-      <th>Event Frequency</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @event_frequencies.each do |event_frequency| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= event_frequency.id %>
-        <td><%= event_frequency.name %>
-        <td><%= link_to 'Show', event_frequency %></td>
-        <td><%= link_to 'Edit', edit_event_frequency_path(event_frequency) %></td>
-        <td><%= link_to 'Destroy', event_frequency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Event Frequency ID</th>
+        <th>Event Frequency</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @event_frequencies.each do |event_frequency| %>
+        <tr>
+          <td><%= event_frequency.id %>
+          <td><%= event_frequency.name %>
+          <td><%= link_to 'Show', event_frequency %></td>
+          <td><%= link_to 'Edit', edit_event_frequency_path(event_frequency) %></td>
+          <td><%= link_to 'Destroy', event_frequency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Event Frequency', new_event_frequency_path %>
+  <br>
+
+  <%= link_to 'New Event Frequency', new_event_frequency_path %>
+</div>
