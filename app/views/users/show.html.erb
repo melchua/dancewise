@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Showing User Details</h1>
 
-  <%= gravatar_for @user, size: 200 %>
+  <%= image_tag avatar_url(current_user), class: "img-circle avatar_xlarge" %>
 
   <div>
     <%= link_to "Edit your profile", edit_user_path(@user) %>
