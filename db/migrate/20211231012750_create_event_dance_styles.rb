@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateEventDanceStyles < ActiveRecord::Migration[6.1]
   def change
     create_table :event_dance_styles do |t|

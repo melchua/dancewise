@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+./node_modules/prettier/bin-prettier.js --single-quote --trailing-comma es5 --write "{app,__{tests,mocks}__}/**/*.{js,es6,jsx,scss,css}"
+rubocop -a "{app}/**/*.rb"

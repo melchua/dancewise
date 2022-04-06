@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def gravatar_for(user, options = { size: 80 })
     email_address = user.email.downcase
@@ -10,5 +12,4 @@ module ApplicationHelper
   def formatDateLong(date)
     date.strftime("%B %d, %Y")
   end
-
 end

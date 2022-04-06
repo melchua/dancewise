@@ -1,12 +1,12 @@
+# frozen_string_literal: true
+
 class ArtistsController < ApplicationController
   include VideosHelper
   include ActionController::MimeResponds
-  before_action :require_admin, except: [:index, :show]
-  before_action :set_artist, only: [:show, :update, :edit, :destroy]
+  before_action :require_admin, except: %i[index show]
+  before_action :set_artist, only: %i[show update edit destroy]
 
-
-
-  #One of of the changes I made to fix the some of the errors was on line 12 to change @artists to Artist.
+  # One of of the changes I made to fix the some of the errors was on line 12 to change @artists to Artist.
 
   def index
     @artists = Artist.paginate(page: params[:page], per_page: 20)
@@ -15,7 +15,7 @@ class ArtistsController < ApplicationController
       params[:filterrific]
     ) or return
     @artists = @filterrific.find.page(params[:page])
- 
+
     respond_to do |format|
       format.html
       format.js
@@ -36,12 +36,11 @@ class ArtistsController < ApplicationController
       flash[:notice] = "Artist was successfully created"
       redirect_to @artist
     else
-      render 'new'
+      render "new"
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     # youtube_embed_url
@@ -49,7 +48,7 @@ class ArtistsController < ApplicationController
       flash[:notice] = "Artist was successfully updated"
       redirect_to @artist
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -60,20 +59,19 @@ class ArtistsController < ApplicationController
   end
 
   private
-
-  def artist_params
-    params.require(:artist).permit(:name, :description, :image_url, :instructor, :dj, :first_video_id, :second_video_id, :third_video_id, dance_style_ids: [], event_ids: [])
-  end
-
-  def set_artist
-    @artist = Artist.find(params[:id])
-  end
-
-  def require_admin
-    if !(logged_in? && current_user.admin?)
-      flash[:alert] = "Only admins can perform that action"
-      redirect_to artists_path
+    def artist_params
+      params.require(:artist).permit(:name, :description, :image_url, :instructor, :dj, :first_video_id,
+                                     :second_video_id, :third_video_id, dance_style_ids: [], event_ids: [])
     end
-  end
 
+    def set_artist
+      @artist = Artist.find(params[:id])
+    end
+
+    def require_admin
+      unless logged_in? && current_user.admin?
+        flash[:alert] = "Only admins can perform that action"
+        redirect_to artists_path
+      end
+    end
 end

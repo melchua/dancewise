@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateEventFrequencies < ActiveRecord::Migration[6.1]
   def change
     create_table :event_frequencies do |t|

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EventFrequenciesController < ApplicationController
-  before_action :set_event_frequency, only: %i[ show edit update destroy ]
+  before_action :set_event_frequency, only: %i[show edit update destroy]
 
   # GET /event_frequencies or /event_frequencies.json
   def index
@@ -18,8 +20,7 @@ class EventFrequenciesController < ApplicationController
   end
 
   # GET /event_frequencies/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /event_frequencies or /event_frequencies.json
   def create
@@ -27,7 +28,9 @@ class EventFrequenciesController < ApplicationController
 
     respond_to do |format|
       if @event_frequency.save
-        format.html { redirect_to event_frequency_url(@event_frequency), notice: "Event frequency was successfully created." }
+        format.html do
+          redirect_to event_frequency_url(@event_frequency), notice: "Event frequency was successfully created."
+        end
         format.json { render :show, status: :created, location: @event_frequency }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +43,9 @@ class EventFrequenciesController < ApplicationController
   def update
     respond_to do |format|
       if @event_frequency.update(event_frequency_params)
-        format.html { redirect_to event_frequency_url(@event_frequency), notice: "Event frequency was successfully updated." }
+        format.html do
+          redirect_to event_frequency_url(@event_frequency), notice: "Event frequency was successfully updated."
+        end
         format.json { render :show, status: :ok, location: @event_frequency }
       else
         format.html { render :edit, status: :unprocessable_entity }

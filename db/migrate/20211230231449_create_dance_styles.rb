@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDanceStyles < ActiveRecord::Migration[6.1]
   def change
     create_table :dance_styles do |t|

@@ -1,4 +1,4 @@
-@use "bootstrap/dist/css/bootstrap";
+@use 'bootstrap/dist/css/bootstrap';
 
 // .navbar {
 //   background-color: plum !important;
@@ -61,7 +61,7 @@
   padding: 0.1em 0.25em;
 }
 .digg_pagination:after {
-  content: ".";
+  content: '.';
   display: block;
   height: 0;
   clear: both;
@@ -115,7 +115,11 @@
   width: 100%;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: poppins;
 }
 
