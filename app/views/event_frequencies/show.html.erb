@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event_frequency.name %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @event_frequency.event_ids %>
+</p>
+
+<%= link_to 'Edit', edit_event_frequency_path(@event_frequency) %> |
+<%= link_to 'Back', event_frequencies_path %>
