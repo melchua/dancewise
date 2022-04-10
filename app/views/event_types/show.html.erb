@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event_type.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @event_type.name %>
+  </p>
 
-<p>
-  <strong>Event:</strong>
-  <%= @event_types.event_ids %>
-</p>
+  <p>
+    <strong>Event:</strong>
+    <%= @event_types.event_ids %>
+  </p>
 
-<%= link_to 'Edit', edit_event_type_path(@event_type) %> |
-<%= link_to 'Back', event_types_path %>
+  <%= link_to 'Edit', edit_event_type_path(@event_type) %> |
+  <%= link_to 'Back', event_types_path %>
+</div>
