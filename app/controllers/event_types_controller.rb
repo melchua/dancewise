@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EventTypesController < ApplicationController
-  before_action :set_event_type, only: %i[ show edit update destroy ]
+  before_action :set_event_type, only: %i[show edit update destroy]
 
   # GET /event_types or /event_types.json
   def index
@@ -8,8 +10,8 @@ class EventTypesController < ApplicationController
 
   # GET /event_types/1 or /event_types/1.json
   def show
-      @event_types = EventType.find(params[:id])
-      @event_type_name = @event_types.name
+    @event_types = EventType.find(params[:id])
+    @event_type_name = @event_types.name
   end
 
   # GET /event_types/new
@@ -18,8 +20,7 @@ class EventTypesController < ApplicationController
   end
 
   # GET /event_types/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /event_types or /event_types.json
   def create

@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+    if user&.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "Logged in successfully"
       redirect_to user
-    else 
+    else
       flash.now[:alert] = "There was something wrong with your login details"
-      render 'new'
+      render "new"
     end
   end
 
