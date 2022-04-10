@@ -10,11 +10,10 @@ class Artist < ApplicationRecord
   has_many :events, through: :event_artists
   has_many :artist_dance_styles
   has_many :dance_styles, through: :artist_dance_styles
-
+  has_one_attached :avatar
   validates_uniqueness_of :name
   validates :name, presence: true, length: { minimum: 3, maximum: 100 }
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
-  validates :image_url, length: { minimum: 10, maximum: 200 }
   # validates :first_video_id, presence: true
   validates :first_video_id, length: { in: 0..255, allow_nil: false }
 

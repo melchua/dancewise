@@ -7,12 +7,12 @@ local:
   root: <%= Rails.root.join("storage") %>
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
-# amazon:
-#   service: S3
-#   access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
-#   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
-#   region: us-east-1
-#   bucket: your_own_bucket
+amazon:
+  service: S3
+  access_key_id: AKIAWTIQCGLRJHJVB4YE
+  secret_access_key: le0B/DphtcqI2NkbESIIz1WdSYrm3MYlq6QGW8fu
+  region: us-east-1
+  bucket: dancewise
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
