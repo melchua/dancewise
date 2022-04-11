@@ -139,3 +139,27 @@ h5 {
 .artist-list-wrapper {
   margin-bottom: 40px;
 }
+
+.avatar_small {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.avatar_medium {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.avatar_large {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+}
+
+.avatar_xlarge {
+  width: 300px;
+  height: 300px;
+  border-radius: 10%;
+}
