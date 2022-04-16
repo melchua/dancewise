@@ -1,6 +1,6 @@
 <div class="container">
 <h1>User listing</h1>
-  <table> 
+  <table class="table table-striped"> 
     <thead></thead> 
     <tr>
       <th>User Name</th>
@@ -16,7 +16,7 @@
           <%= link_to user.username, user %>
         </td>
         <td>
-          <%= link_to gravatar_for(user, size: 150), user %>
+           <%= image_tag avatar_url(current_user), class: "img-circle avatar_large" %>
         </td>
         <td>
           <%= user.email %>
