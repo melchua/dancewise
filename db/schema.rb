@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,86 +10,87 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_307_102_337) do
-  create_table 'articles', force: :cascade do |t|
-    t.string 'title'
-    t.text 'description'
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
-    t.integer 'user_id'
+ActiveRecord::Schema.define(version: 2022_03_07_102337) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "user_id"
   end
 
-  create_table 'artist_dance_styles', force: :cascade do |t|
-    t.integer 'artist_id'
-    t.integer 'dance_style_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "artist_dance_styles", force: :cascade do |t|
+    t.integer "artist_id"
+    t.integer "dance_style_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'artists', force: :cascade do |t|
-    t.string 'name'
-    t.string 'description'
-    t.string 'image_url'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.boolean 'instructor', default: false
-    t.boolean 'dj', default: false
-    t.string 'first_video_id'
-    t.string 'second_video_id'
-    t.string 'third_video_id'
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "instructor", default: false
+    t.boolean "dj", default: false
+    t.string "first_video_id"
+    t.string "second_video_id"
+    t.string "third_video_id"
   end
 
-  create_table 'dance_styles', force: :cascade do |t|
-    t.string 'name'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "dance_styles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'event_artists', force: :cascade do |t|
-    t.integer 'artist_id'
-    t.integer 'event_id'
+  create_table "event_artists", force: :cascade do |t|
+    t.integer "artist_id"
+    t.integer "event_id"
   end
 
-  create_table 'event_dance_styles', force: :cascade do |t|
-    t.integer 'dance_style_id'
-    t.integer 'event_id'
+  create_table "event_dance_styles", force: :cascade do |t|
+    t.integer "dance_style_id"
+    t.integer "event_id"
   end
 
-  create_table 'event_frequencies', force: :cascade do |t|
-    t.string 'name'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "event_frequencies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'event_types', force: :cascade do |t|
-    t.string 'name'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "event_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'events', force: :cascade do |t|
-    t.string 'name'
-    t.string 'description'
-    t.string 'image_url'
-    t.integer 'user_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.datetime 'event_date'
-    t.integer 'event_type_id', null: false
-    t.integer 'event_frequency_id', null: false
-    t.index ['event_frequency_id'], name: 'index_events_on_event_frequency_id'
-    t.index ['event_type_id'], name: 'index_events_on_event_type_id'
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "image_url"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "event_date"
+    t.integer "event_type_id", default: 1
+    t.integer "event_frequency_id", null: false
+    t.index ["event_frequency_id"], name: "index_events_on_event_frequency_id"
+    t.index ["event_type_id"], name: "index_events_on_event_type_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'username'
-    t.string 'email'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'password_digest'
-    t.boolean 'admin', default: false
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
-  add_foreign_key 'events', 'event_frequencies'
-  add_foreign_key 'events', 'event_types'
+  add_foreign_key "events", "event_frequencies"
+  add_foreign_key "events", "event_types"
 end
