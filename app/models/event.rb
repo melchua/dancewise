@@ -23,9 +23,9 @@ class Event < ApplicationRecord
   #   obj.country = geo.country_code
   # end
 
-#   def address
-#     [street, city, state, country].compact.join(', ')
-#   end
+  #   def address
+  #     [street, city, state, country].compact.join(', ')
+  #   end
 end
 
 # On Event Types appearing on the view, the fix I implemented was removing the space between "Event Type" and that is allowing the code to render on the event show page.

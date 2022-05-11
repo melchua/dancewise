@@ -1,9 +1,9 @@
-import { Controller } from "stimulus"
+import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = [  ]
+  static targets = [];
 
   connect() {
-    console.log("places")
+    console.log('places');
   }
 }
