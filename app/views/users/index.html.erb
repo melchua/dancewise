@@ -16,7 +16,8 @@
           <%= link_to user.username, user %>
         </td>
         <td>
-           <%= image_tag avatar_url(current_user), class: "img-circle avatar_large" %>
+              <%= image_tag avatar_url(user), class: "img-circle avatar_large" %>
+              <%# <img src=<%= "https://dancewise.s3.amazonaws.com/generic+user+image.png"  class="even-size-artist"> %>
         </td>
         <td>
           <%= user.email %>

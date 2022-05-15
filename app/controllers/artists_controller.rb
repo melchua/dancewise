@@ -60,7 +60,7 @@ class ArtistsController < ApplicationController
 
   private
     def artist_params
-      params.require(:artist).permit(:name, :description, :image_url, :instructor, :dj, :first_video_id,
+      params.require(:artist).permit(:name, :description, :image_url, :avatar, :instructor, :dj, :first_video_id,
                                      :second_video_id, :third_video_id, dance_style_ids: [], event_ids: [])
     end
 

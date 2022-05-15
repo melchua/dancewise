@@ -1,16 +1,8 @@
 <div class="container">
-  <h1>Create a new dance style</h1>
+  <h1>Create new dance style</h1>
+
   <%= render 'shared/errors', obj: @dance_style %>
 
-  <%= form_with(model: @dance_style, local: true) do |f| %>
-    <p>
-      <%= f.label :name, "Dance style name" %><br />
-      <%= f.text_field :name %>
-    </p>
-
-    <p>
-      <%= f.submit class: "btn btn-outline-dark btn-md" %>
-    </p>
-  <% end %>
+  <%= render 'form'%>
 
 </div>

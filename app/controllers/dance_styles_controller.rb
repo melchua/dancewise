@@ -11,6 +11,10 @@ class DanceStylesController < ApplicationController
     @dance_style = DanceStyle.new
   end
 
+  def edit
+    @dance_style = DanceStyle.find(params[:id])
+  end
+
   def index
     @dance_styles = DanceStyle.all
   end
@@ -22,6 +26,18 @@ class DanceStylesController < ApplicationController
       redirect_to @dance_style
     else
       render "new"
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @dance_style.update(dance_style_params)
+        format.html { redirect_to dance_style_url(@dance_style_type), notice: "Dance style was successfully updated." }
+        format.json { render :show, status: :ok, location: @dance_style }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @dance_style.errors, status: :unprocessable_entity }
+      end
     end
   end
 

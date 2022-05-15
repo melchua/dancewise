@@ -1,17 +1,9 @@
-<%= form_with(model: event_type) do |form| %>
-  <% if event_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event_type.errors.count, "error") %> prohibited this event_type from being saved:</h2>
-
-      <ul>
-        <% event_type.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+<div class="form-style">
+  <%= bootstrap_form_for(@event_type) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Create Event Type" %>
   <% end %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+
+
