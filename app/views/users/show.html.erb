@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Showing User Details</h1>
 
-   <%= image_tag avatar_url(current_user), class: "img-circle avatar_large" %>
+   <%= image_tag avatar_url(@user), class: "img-circle avatar_large" %>
 
   <div>
     <%= link_to "Edit your profile", edit_user_path(@user) %>
@@ -14,4 +14,4 @@
   <div class="row row-cols-4">
     <%= render @user.events %>
   </div>
-</div>
+</div> 

@@ -1,4 +1,4 @@
-@use 'bootstrap/dist/css/bootstrap';
+@use "bootstrap/dist/css/bootstrap";
 
 // .navbar {
 //   background-color: plum !important;
@@ -61,7 +61,7 @@
   padding: 0.1em 0.25em;
 }
 .digg_pagination:after {
-  content: '.';
+  content: ".";
   display: block;
   height: 0;
   clear: both;
@@ -101,8 +101,11 @@
 }
 
 .event-page-image {
-  max-width: 200px;
+  max-width: 400px;
+  height: 150px;
+  object-fit: cover;
   border-radius: 10px;
+  margin-top: 10px;
 }
 
 .even-size-event {
@@ -138,6 +141,10 @@ h5 {
 
 .artist-list-wrapper {
   margin-bottom: 40px;
+}
+
+.form-style {
+  width: 500px;
 }
 
 .avatar_small {

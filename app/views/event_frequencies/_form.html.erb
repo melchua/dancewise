@@ -1,22 +1,6 @@
-<%= form_with(model: event_frequency) do |form| %>
-  <% if event_frequency.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event_frequency.errors.count, "error") %> prohibited this event_frequency from being saved:</h2>
-
-      <ul>
-        <% event_frequency.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+<div class="form-style">
+  <%= bootstrap_form_for(@event_frequency) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Create Event Frequency" %>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

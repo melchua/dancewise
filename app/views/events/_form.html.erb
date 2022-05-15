@@ -1,59 +1,13 @@
-<%= form_with(model: @event, local: true) do |f| %>
-  <p>
-    <%= f.label :name %><br />
+<div class="form-style">
+  <%= bootstrap_form_for(@event) do |f| %>
     <%= f.text_field :name %>
-  </p>
-
- <p>
-    <%= f.label :event_types %><br />
-    <%= f.collection_select(:event_type_id, EventType.all, :id, :name, 
-                            { :prompt => "Make your selection from the list below",
-                            :selected => @event.event_type_id },
-                            { size: 4, class: "custom-select shadow rounded"}, ) %>
-  </p>
-
-<%# This was the code that was needed to point the collect select to the proper place in the data params. The :selected code part above! <p> 
-  <%= f.collection_select(:event_type_id, EventType.all, :id, :name, { :prompt => 'Select an Event Type', :selected => @event.event_type_id }, { class: 'form-control' }) 
-</p>  %>
-
-<p>
-    <%= f.label :event_frequencies %><br />
-    <%= f.collection_select(:event_frequency_id, EventFrequency.all, :id, :name, 
-                            { :prompt => "Make your selection from the list below",
-                            :selected => @event.event_frequency_id },
-                            { size: 4, class: "custom-select shadow rounded"}, ) %>
-  </p>
-
-  <p>
-    <%= f.label :dance_style %><br />
-    <%= f.collection_select(:dance_style_ids, DanceStyle.all, :id, :name, 
-                            { prompt: "Make your selection from the list below (one or more)"}, 
-                            { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
-  </p>
-
-  <p>
-    <%= f.label :description %><br />
     <%= f.text_field :description %>
-  </p>
-
-  <p>
-    <%= f.label :artists %><br />
-    <%= f.collection_select(:artist_ids, Artist.all, :id, :name, 
-                            { prompt: "Make your selection from the list below (one or more)"}, 
-                            { multiple: true, size: 4, class: "custom-select shadow rounded"}, ) %>
-  </p>
-
-  <p>
-    <%= f.label :image_url %><br />
-    <%= f.text_field :image_url %>
-  </p>
-
-  <p>
-    <%= f.label :date_time %><br />
-    <%= f.date_select :event_date %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+    <%= f.collection_select :event_type_id, EventType.all, :id, :name %>
+    <%= f.collection_select :dance_style_ids, DanceStyle.all, :id, :name %>
+    <%= f.collection_select :event_frequency_id, EventFrequency.all, :id, :name %>
+    <%= f.collection_select :artist_ids, Artist.all, :id, :name %>
+    <%= f.file_field :event_image %>
+    <%= f.date_field :event_date, wrapper: { class: "date"} %>
+    <%= f.submit "Submit Event" %>
+  <% end %>
+</div>
