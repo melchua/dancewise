@@ -1,4 +1,4 @@
-@use "bootstrap/dist/css/bootstrap";
+@use 'bootstrap/dist/css/bootstrap';
 
 // .navbar {
 //   background-color: plum !important;
@@ -61,7 +61,7 @@
   padding: 0.1em 0.25em;
 }
 .digg_pagination:after {
-  content: ".";
+  content: '.';
   display: block;
   height: 0;
   clear: both;
@@ -143,10 +143,10 @@ h5 {
   margin-bottom: 40px;
 }
 
-.form-style {
-  width: 500px;
+.sorting-wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-
 .avatar_small {
   width: 40px;
   height: 40px;

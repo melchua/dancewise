@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_25_230622) do
+ActiveRecord::Schema.define(version: 2022_05_03_005441) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -106,6 +106,13 @@ ActiveRecord::Schema.define(version: 2022_04_25_230622) do
     t.datetime "event_date"
     t.integer "event_type_id", default: 1
     t.integer "event_frequency_id", null: false
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "continent"
     t.index ["event_frequency_id"], name: "index_events_on_event_frequency_id"
     t.index ["event_type_id"], name: "index_events_on_event_type_id"
   end

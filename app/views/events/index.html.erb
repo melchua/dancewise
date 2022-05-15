@@ -2,11 +2,11 @@
 
 <%# Pagination number is set in the controller under def index! %>
   <div>
-    <h1>Event Listing</h1>
-    <div class="digg_pagination">
-      <%= will_paginate @events, :container => false %>
-    </div>
-</div>
+      <h1>Event Listing</h1>    
+        <div class="sorting-wrapper">   
+          <%= render 'events/search_form.html.erb' %>
+        </div>
+  </div>
 
   <div class="row row-cols-4">
     <% @events.each do |event| %>

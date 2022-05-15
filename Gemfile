@@ -32,6 +32,8 @@ gem 'will_paginate', '~> 3.3'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'filterrific'
+gem 'geocoder'
+gem 'ransack'
 gem "aws-sdk-s3", require: false 
 gem "bootstrap_form", "~> 5.0"
 gem 'faker'
