@@ -3,7 +3,7 @@
 <%= bootstrap_form_for(@artist) do |f| %>
   <%= f.text_field :name %>
   <%= f.text_field :description %>
-  <%= f.collection_select :dance_style_ids, DanceStyle.all, :id, :name %>
+  <%= f.collection_check_boxes :dance_style_ids, DanceStyle.all, :id, :name %>
   <%= f.file_field :avatar %>
   <%= f.check_box :instructor %>
   <%= f.check_box :dj %>
