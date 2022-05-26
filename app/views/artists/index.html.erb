@@ -3,9 +3,12 @@
 <%# Pagination number is set in the controller under def index! %>
   <div>
     <h1>Artist Listing</h1>
-    <div class="digg_pagination">
+      <div class="sorting-wrapper">   
+          <%= render 'artists/search_form.html.erb' %>
+      </div>
+    <%# <div class="digg_pagination">
     <%= will_paginate @artists, :container => false %>
-  </div> 
+   
 
 </div>
 
