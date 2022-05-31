@@ -20,6 +20,8 @@ class ArtistsController < ApplicationController
       format.html
       format.js
     end
+    @q = Artist.ransack(params[:q])
+    @artists = @q.result(distinct: true)
   end
 
   def new
