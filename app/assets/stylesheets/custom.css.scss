@@ -170,3 +170,7 @@ h5 {
   height: 300px;
   border-radius: 10%;
 }
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
