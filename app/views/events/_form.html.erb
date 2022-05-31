@@ -1,7 +1,8 @@
 <div class="form-style">
-  <%= bootstrap_form_for(@event) do |f| %>
+  <%= bootstrap_form_for(@event, data: { controller: "places", action: "google-maps-callback@window->places#initMap" }) do |f| %>
     <%= f.text_field :name %>
     <%= f.text_field :description %>
+    <%= f.text_field :address, data: { target: "places.field" } %>
     <%= f.collection_select :event_type_id, EventType.all, :id, :name %>
     <%= f.collection_check_boxes :dance_style_ids, DanceStyle.all, :id, :name %>
     <%= f.collection_select :event_frequency_id, EventFrequency.all, :id, :name %>

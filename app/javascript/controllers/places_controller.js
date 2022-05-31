@@ -1,9 +1,15 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = [];
+  static targets = ['field'];
 
   connect() {
-    console.log('places');
+    if (typeof google != 'undefined') {
+      this.initMap();
+    }
+  }
+
+  initMap() {
+    this.autocomplete = new google.maps.places.Autocomplete(this.fieldTarget);
   }
 }
