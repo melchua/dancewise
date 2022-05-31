@@ -37,6 +37,7 @@ gem 'ransack'
 gem "aws-sdk-s3", require: false 
 gem "bootstrap_form", "~> 5.0"
 gem 'faker'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

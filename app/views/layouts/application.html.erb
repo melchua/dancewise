@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Dancewise</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <html>
+    <head>
+      <title>Dancewise</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:maps_api_key] %>&libraries=places&callback=initMap" async defer data-turbolinks-eval="false"></script>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <%# <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:maps_api_key] %&libraries=places&callback=initMap" async defer data-turbolinks-eval="false"></script> %>
 
-  </head>
+ 
 
   <body>
       
       <%= render 'layouts/navigation' %>
       <%= render 'layouts/messages' %>
       <%= yield %>
-    </div>
   </body>
 </html>
