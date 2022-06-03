@@ -39,7 +39,8 @@ bundle && yarn
 
 ### Set environment variables
 
-None for now
+`cp config/application.yml.template config/application.yml`
+Enter all credential information here
 
 ### Initialize the database
 
