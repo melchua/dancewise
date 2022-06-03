@@ -15,11 +15,11 @@ class Artist < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3, maximum: 100 }
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
 
-  def youtube_embed_url
-    normal_url = first_video_id
-    youtube_id = YOUTUBE_REGEX.match normal_url.to_str
-    youtube_id[6] || youtube_id[5] if youtube_id
-  end
+  # def youtube_embed_url
+  #   normal_url = video_links
+  #   youtube_id = YOUTUBE_REGEX.match normal_url.to_ary
+  #   youtube_id[6] || youtube_id[5] if youtube_id
+  # end
 
   # Be sure the filterrific is in the gemfile, stop the server, 'gem install filterrific' and then run bundle install and bundle update!
   filterrific(

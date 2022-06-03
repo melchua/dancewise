@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_005441) do
+ActiveRecord::Schema.define(version: 2022_06_03_175654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,9 +66,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_005441) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "instructor", default: false
     t.boolean "dj", default: false
-    t.string "first_video_id"
-    t.string "second_video_id"
-    t.string "third_video_id"
+    t.text "video_links", default: [], array: true
   end
 
   create_table "dance_styles", force: :cascade do |t|
