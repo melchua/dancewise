@@ -39,12 +39,29 @@ bundle && yarn
 
 ### Set environment variables
 
-None for now
+`cp config/application.yml.template config/application.yml`
+Enter all credential information here
 
 ### Initialize the database
 
+1. First you need to install postgresql:
+   `brew install postgresql`
+
+2. Install Postico (this gives you a GUI interface to interact with psql databases)
+   `brew install --cask postico`
+
+3. Check that postgres is installed
+   `psql postgres`
+
+4. Using postico to connect: [Postico docs](https://eggerapps.at/postico/docs/v1.5.20/connect-to-local-postgresql-server.html)
+
+![Postico local setup](/docs/img/postico-setup.png "Postico local setup")
+Your username and password will default to your laptop's username and password
+hostname: local
+port: default
+
 ```shell
-rails db:create db:migrate
+rails db:create db:migrate db:seed
 ```
 
 ## Serve
@@ -64,6 +81,7 @@ ie. `git push master`
 The process to implement a new feature in the code is:
 
 0. Make sure you are have the most up-to-date master branch
+
 ```shell
 git checkout master
 git pull
@@ -96,14 +114,15 @@ git push
 ## Deploy
 
 ### Add heroku remotes
+
 ### NOTE: THIS HAS NOT BEEN SETUP YET. DO NOT DEPLOY UNTIL SETUP
+
 Using [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli):
 
 ```shell
 heroku git:remote -a dancewise
 heroku git:remote --remote heroku-staging -a dancewise-staging
 ```
-
 
 ### With Heroku pipeline (recommended)
 
