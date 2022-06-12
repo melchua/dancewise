@@ -7,6 +7,7 @@
       <%= csp_meta_tag %>
       <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_API_KEY'] %>&libraries=places&callback=initMap" async defer data-turbolinks-eval="false"></script>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= favicon_link_tag asset_path('WEB ICON 32PX.png') %>
     </head>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
