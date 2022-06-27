@@ -20,7 +20,7 @@ class Event < ApplicationRecord
 
   def save_additional_address_fields
     search_results = Geocoder.search(address)
-    result = search_results.select {|x| (x.type == 'city') && (x.data['class'] == 'place' )  }.first || search_results.first
+    result = search_results.select { |x| (x.type == "city") && (x.data["class"] == "place")  }.first || search_results.first
 
     self.city = result.city rescue "unknown"
     self.state = result.state rescue "unknown"
