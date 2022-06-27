@@ -16,16 +16,16 @@ class Event < ApplicationRecord
   validates :event_type, presence: true
 
   geocoded_by :address
-  after_validation :geocode, :reverse_geocode
-  # if geo = results.first
-  #   obj.city    = geo.city
-  #   obj.zipcode = geo.postal_code
-  #   obj.country = geo.country_code
-  # end
+  after_validation :geocode, :reverse_geocode, :save_additional_address_fields
 
-  #   def address
-  #     [street, city, state, country].compact.join(', ')
-  #   end
+  def save_additional_address_fields
+    search_results = Geocoder.search(address)
+    result = search_results.select { |x| (x.type == "city") && (x.data["class"] == "place")  }.first || search_results.first
+
+    self.city = result.city rescue "unknown"
+    self.state = result.state rescue "unknown"
+    self.country = result.country rescue "unknown"
+  end
 end
 
 # On Event Types appearing on the view, the fix I implemented was removing the space between "Event Type" and that is allowing the code to render on the event show page.
