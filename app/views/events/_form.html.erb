@@ -1,5 +1,5 @@
 <div class="form-style">
-  <%= bootstrap_form_for(@event, data: { controller: "places", action: "google-maps-callback@window->places#initMap" }) do |f| %>
+  <%= bootstrap_form_for(@event, data: { controller: "places", action: "google-maps-callback@window->places#initAddressMap" }) do |f| %>
     <%= f.text_field :name %>
     <%= f.text_field :description %>
     <%= f.text_field :address, data: { target: "places.field" } %>

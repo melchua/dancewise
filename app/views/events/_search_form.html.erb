@@ -1,5 +1,5 @@
 <%= search_form_for @q,  
-    data: { controller: "places", action: "google-maps-callback@window->places#initMap" } do |f| %>
+    data: { controller: "places", action: "google-maps-callback@window->places#initCityMap" } do |f| %>
 
     <%= f.label :name_cont %>
     <%= f.search_field :name_cont %>
