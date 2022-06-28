@@ -7,6 +7,12 @@
        <p>No event image uploaded.</p>
     <% end %>
 
+     <p class="card-text">
+      <%= @event.address %> <br>
+      <br>
+      <%= @event.city %> <%= @event.state %> <%= @event.country %> <%= @event.continent %>
+    </p>
+
    <% if @event.dance_styles.any? %>
     <div class="row row-cols-4">
       <div class="mt-2">

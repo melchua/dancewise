@@ -12,6 +12,11 @@
       </small>
     </p>
 
+    <p class="card-text">
+      <%= event.address %> <br>
+      <%= event.city %> <%= event.state %> <%= event.country %> <%= event.continent %>
+    </p>
+
     <p>
       <% if event.dance_styles.any? %>
         <div class="pb-2">
