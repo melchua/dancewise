@@ -24,6 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pry'
 gem 'will_paginate', '~> 3.3'
+gem 'json'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
