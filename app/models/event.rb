@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "json"
+
 class Event < ApplicationRecord
   belongs_to :user
   has_many :event_dance_styles
@@ -23,9 +25,16 @@ class Event < ApplicationRecord
     # search_results = Geocoder.search(to_coordinaters)
     result = search_results.select { |x| (x.type == "city") && (x.data["class"] == "place")  }.first || search_results.first
 
+    # JSON hash country code lookup to find continent
+    file = File.read(File.join(Rails.root, "app", "assets", "json", "continents.json"))
+    continent_string = JSON.parse(file)
+    country_code = result.country_code.upcase
+    continent = continent_string[country_code]
+
     self.city = result.city rescue "unknown"
     self.state = result.state rescue "unknown"
     self.country = result.country rescue "unknown"
+    self.continent = continent rescue "unknown"
   end
 end
 
