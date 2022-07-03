@@ -93,6 +93,20 @@ Event.create(
 
 EventDanceStyle.create(event_id: 1, dance_style_id: 1)
 
+Event.create(
+    user_id: 1,
+    name: "WCS Event Test 1",
+    description: "Awesome WCS Hop Event in Boston",
+    image_url: "imageplaceholder123456",
+    event_type_id: rand(1..7),
+    event_frequency_id: rand(1..5),
+    event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
+)
+
+EventDanceStyle.create(event_id: 8, dance_style_id: 5)
+
+
+
 
 Event.create(
     user_id: 1,
@@ -166,17 +180,7 @@ Event.create(
 
 EventDanceStyle.create(event_id: 7, dance_style_id: 4)
 
-Event.create(
-    user_id: 1,
-    name: "WCS Event Test 1",
-    description: "Awesome WCS Hop Event in Boston",
-    image_url: "imageplaceholder123456",
-    event_type_id: rand(1..7),
-    event_frequency_id: rand(1..5),
-    event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
-)
 
-EventDanceStyle.create(event_id: 8, dance_style_id: 5)
 
 # ARTIST CREATION 
 
