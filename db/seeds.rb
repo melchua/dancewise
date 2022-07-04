@@ -89,6 +89,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
+    address: "220 Richmond St W, Toronto, ON M5V 1V6, Canada"
 )
 
 EventDanceStyle.create(event_id: 1, dance_style_id: 1)
@@ -116,6 +117,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
+    address: "66 6A St - Al Quoz - Dubai - United Arab Emirates"
 )
 
 EventDanceStyle.create(event_id: 2, dance_style_id: 6)
@@ -128,6 +130,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
+    address: "40 N Lotts, North City, Dublin, Ireland"
 )
 
 EventDanceStyle.create(event_id: 3, dance_style_id: 2)
@@ -140,6 +143,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
+    address: "Cra. 43A #7-50, Medellín, El Poblado, Medellín, Antioquia, Colombia"
 )
 
 EventDanceStyle.create(event_id: 4, dance_style_id: 8)
