@@ -25,14 +25,14 @@ class EventsController < ApplicationController
 
   def index
     if params[:q]
-      params[:q][:combinator] = 'or'
+      params[:q][:combinator] = "or"
       params[:q][:groupings] = []
-      split_geo = params[:q][:address_or_city_or_state_or_country_or_continent_cont_all].split(' ')
+      split_geo = params[:q][:address_or_city_or_state_or_country_or_continent_cont_all].split(" ")
       params[:q][:address_or_city_or_state_or_country_or_continent_cont_all].clear
       split_geo.each_with_index do |word, index|
-        params[:q][:groupings][index] = {address_or_city_or_state_or_country_or_continent_cont_all: word}
+        params[:q][:groupings][index] = { address_or_city_or_state_or_country_or_continent_cont_all: word }
       end
-  end
+    end
 
     @q = Event.ransack(params[:q])
     @events = @q.result(distinct: true)
