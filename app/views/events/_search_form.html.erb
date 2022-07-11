@@ -5,7 +5,7 @@
     <%= f.search_field :name_cont %>
 
     <%= f.label :location %>
-    <%= f.search_field :address_or_city_or_state_or_country_or_continent_cont_any, data: { target: "places.field" } %>
+    <%= f.search_field :address_or_city_or_state_or_country_or_continent_cont_all, data: { target: "places.field" } %>
  
     <%= f.label :dance_style %>
     <%= f.collection_select :dance_styles_id_eq, DanceStyle.all, :id, :name, include_blank: true %>

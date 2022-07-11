@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_005441) do
+ActiveRecord::Schema.define(version: 2022_07_11_023652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,9 +66,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_005441) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "instructor", default: false
     t.boolean "dj", default: false
-    t.string "first_video_id"
-    t.string "second_video_id"
-    t.string "third_video_id"
+    t.text "video_links", default: [], array: true
   end
 
   create_table "dance_styles", force: :cascade do |t|
@@ -118,6 +116,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_005441) do
     t.string "continent"
     t.index ["event_frequency_id"], name: "index_events_on_event_frequency_id"
     t.index ["event_type_id"], name: "index_events_on_event_type_id"
+    t.index ["latitude", "longitude"], name: "index_events_on_latitude_and_longitude"
   end
 
   create_table "users", force: :cascade do |t|
