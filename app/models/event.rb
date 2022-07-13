@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "json"
+require "i18n"
 
 class Event < ApplicationRecord
   belongs_to :user
