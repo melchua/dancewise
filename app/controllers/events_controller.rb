@@ -25,18 +25,18 @@ class EventsController < ApplicationController
 
   def index
     if params[:q]
-    params[:q][:combinator] = "and"
-    params[:q][:groupings] = []
-    split_geo = params[:q][:address_or_city_or_state_or_country_or_continent_cont_all].split(/[,\s]+/)
-        split_geo.map! do |a|
-          a.parameterize
-        end
+      params[:q][:combinator] = "and"
+      params[:q][:groupings] = []
+      split_geo = params[:q][:address_or_city_or_state_or_country_or_continent_cont_all].split(/[,\s]+/)
+      split_geo.map! do |a|
+        a.parameterize
+      end
       params[:q][:address_or_city_or_state_or_country_or_continent_cont_all].clear
       split_geo.each_with_index do |word, index|
-      params[:q][:groupings][index] = { address_or_city_or_state_or_country_or_continent_cont_all: word }
+        params[:q][:groupings][index] = { address_or_city_or_state_or_country_or_continent_cont_all: word }
       end
     end
-  
+
 
     @q = Event.ransack(params[:q])
     @events = @q.result(distinct: true)
