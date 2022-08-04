@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container form-style">
   <h1><%= @event.name %></h1>
 <br>
    <% if @event.event_image.attached? %>
@@ -8,9 +8,14 @@
     <% end %>
 
      <p class="card-text">
-      <%= @event.address %> <br>
-      <br>
-      <%= @event.city %> <%= @event.state %> <%= @event.country %> <%= @event.continent %>
+        <div class="p-3 mb-2 bg-info text-white">
+          <%= @event.address %> <br>
+          <br>
+          <%= @event.city %> <%= @event.state %> <%= @event.country %> <%= @event.continent %>
+        </div>
+        <div class="p-3 mb-2 bg-warning text-dark">
+          <%= @event.event_month %> <%= @event.event_year %>
+        </div>
     </p>
 
    <% if @event.dance_styles.any? %>

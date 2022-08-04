@@ -9,12 +9,15 @@
 
     <%= f.label :dance_style %>
     <%= f.collection_select :dance_styles_id_eq, DanceStyle.all, :id, :name, :multiple => true, :include_blank => "All dance styles" %> &emsp;
+
+    <%= f.label "Event Type" %>
+    <%= f.collection_select :event_type_id_eq, EventType.all, :id, :name, :multiple => true, :include_blank => "All event types" %> &emsp;
     <br>
     <br>
 
-    <%= f.select(:event_month, Date::MONTHNAMES[1..12]) %>
+    <%= f.select(:event_month_eq, Date::MONTHNAMES[1..12], {:prompt => 'Select Month', include_blank: true}) %>
 
-    <%= f.select(:event_year, 2018..2030) %>
+    <%= f.select(:event_year_eq, Date.today.year-2 .. Date.today.year+3, {:prompt => 'Select Year', include_blank: true}) %>
 
     <%# <%= f.date_select :event_year, {order: [:year]} %> 
 
