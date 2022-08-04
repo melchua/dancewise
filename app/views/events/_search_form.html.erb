@@ -1,14 +1,24 @@
 <%= search_form_for @q,  
     data: { controller: "places", action: "google-maps-callback@window->places#initMap" } do |f| %>
 
-    <%= f.label :name_cont %>
-    <%= f.search_field :name_cont %>
+      <%= f.label :location %>
+    <%= f.search_field :name_cont, placeholder: "Name contains" %> &emsp;
 
     <%= f.label :location %>
-    <%= f.search_field :address_or_city_or_state_or_country_or_continent_cont_all, data: { target: "places.field" } %>
- 
+    <%= f.search_field :address_or_city_or_state_or_country_or_continent_cont_all, data: { target: "places.field" } %> &emsp;
+
     <%= f.label :dance_style %>
-    <%= f.collection_select :dance_styles_id_eq, DanceStyle.all, :id, :name, include_blank: true %>
+    <%= f.collection_select :dance_styles_id_eq, DanceStyle.all, :id, :name, :multiple => true, :include_blank => "All dance styles" %> &emsp;
+    <br>
+    <br>
+
+    <%= f.select(:event_month, Date::MONTHNAMES[1..12]) %>
+
+    <%= f.select(:event_year, 2018..2030) %>
+
+    <%# <%= f.date_select :event_year, {order: [:year]} %> 
+
+    <%# <%= f.date_field(:event_start_date_eq) %>
 
     <%= f.submit "Search!" %>
 <% end %>

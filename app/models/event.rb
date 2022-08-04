@@ -2,6 +2,7 @@
 
 require "json"
 require "i18n"
+require "date"
 
 class Event < ApplicationRecord
   belongs_to :user
@@ -14,12 +15,24 @@ class Event < ApplicationRecord
   belongs_to :event_frequency, optional: true, class_name: "EventFrequency", foreign_key: "event_frequency_id"
   validates :name, presence: true, length: { minimum: 6, maximum: 100 }
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
-  validates :event_date, presence: true
+  validates :event_start_date, presence: true
+  # validates :event_end_date, presence: true
   validates :event_frequency, presence: true
   validates :event_type, presence: true
 
   geocoded_by :address
-  after_validation :geocode, :reverse_geocode, :save_additional_address_fields
+  after_validation :geocode, :reverse_geocode, :save_additional_address_fields, :date_parsing
+
+  def date_parsing
+  end
+
+  # ransacker :event_start_date do
+  #   Arel.sql('date(event_start_date)')
+  # end
+
+  # ransacker :event_month do
+  #   Arel.sql('date(event_month)')
+  # end
 
   def save_additional_address_fields
     search_results = Geocoder.search(address)

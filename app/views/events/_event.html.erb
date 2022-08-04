@@ -8,13 +8,19 @@
     <h5 class="card-title"><%= event.name %></h5>
     <p class="card-text">
       <small class="text-muted">
-        <%= formatDateLong(event.event_date) %>
+        <%= formatDateLong(event.event_start_date) %>
+      </small>
+      <small class="text-muted">
+      <% if event.event_end_date? %>
+         <%= formatDateLong(event.event_end_date) %>
+      <% end %>
       </small>
     </p>
 
     <p class="card-text">
-      <%= event.address %> <br>
-      <%= event.city %> <%= event.state %> <%= event.country %> <%= event.continent %>
+      <%= event.address %> <br><br>
+      <%= event.city %> <%= event.state %> <%= event.country %> <%= event.continent %> <br><br>
+      <%= event.event_month %> <%= event.event_year %>
     </p>
 
     <p>
