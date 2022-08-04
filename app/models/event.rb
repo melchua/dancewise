@@ -24,9 +24,9 @@ class Event < ApplicationRecord
   after_validation :geocode, :reverse_geocode, :save_additional_address_fields, :date_parsing
 
   def date_parsing
-      event_date = self.event_start_date
-      self.event_month = event_date.strftime("%B")
-      self.event_year = event_date.strftime("%Y")
+    event_date = self.event_start_date
+    self.event_month = event_date.strftime("%B")
+    self.event_year = event_date.strftime("%Y")
   end
 
   # ransacker :event_start_date do
