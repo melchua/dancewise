@@ -4,6 +4,8 @@ class Artist < ApplicationRecord
   # This VideoHelper and Youtube Regex line is super important to avoid the uninitialize error message.
   # make sure that you create the videos_helpers.rb file and two make sure YOUTUBE_REGEX is defined in the model.
   include VideosHelper
+  include PgSearch
+
   YOUTUBE_REGEX = %r(^(https*://)?(www.)?(youtube.com|youtu.be)/(watch\?v=){0,1}([a-zA-Z0-9_-]{11}))
 
   has_many :event_artists
@@ -15,11 +17,11 @@ class Artist < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3, maximum: 100 }
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
 
-  def youtube_embed_url
-    normal_url = first_video_id
-    youtube_id = YOUTUBE_REGEX.match normal_url.to_str
-    youtube_id[6] || youtube_id[5] if youtube_id
-  end
+  # def youtube_embed_url
+  #   normal_url = first_video_id
+  #   youtube_id = YOUTUBE_REGEX.match normal_url.to_str
+  #   youtube_id[6] || youtube_id[5] if youtube_id
+  # end
 
   # Be sure the filterrific is in the gemfile, stop the server, 'gem install filterrific' and then run bundle install and bundle update!
   filterrific(

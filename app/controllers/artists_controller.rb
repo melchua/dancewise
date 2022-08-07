@@ -24,6 +24,12 @@ class ArtistsController < ApplicationController
     @artists = @q.result(distinct: true)
   end
 
+  if params[:term]
+    @users = Artist.search_by_full_name(params[:term])
+  else
+    @users = Artist.all
+  end
+
   def new
     @artist = Artist.new
   end
