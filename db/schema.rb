@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_005441) do
+ActiveRecord::Schema.define(version: 2022_08_04_191912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,9 +66,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_005441) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "instructor", default: false
     t.boolean "dj", default: false
-    t.string "first_video_id"
-    t.string "second_video_id"
-    t.string "third_video_id"
+    t.text "video_links", default: [], array: true
   end
 
   create_table "dance_styles", force: :cascade do |t|
@@ -106,7 +104,7 @@ ActiveRecord::Schema.define(version: 2022_05_03_005441) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "event_date"
+    t.datetime "event_start_date"
     t.bigint "event_type_id", default: 1
     t.bigint "event_frequency_id", null: false
     t.string "address"
@@ -116,8 +114,12 @@ ActiveRecord::Schema.define(version: 2022_05_03_005441) do
     t.string "state"
     t.string "country"
     t.string "continent"
+    t.datetime "event_end_date"
+    t.string "event_month"
+    t.integer "event_year"
     t.index ["event_frequency_id"], name: "index_events_on_event_frequency_id"
     t.index ["event_type_id"], name: "index_events_on_event_type_id"
+    t.index ["latitude", "longitude"], name: "index_events_on_latitude_and_longitude"
   end
 
   create_table "users", force: :cascade do |t|
