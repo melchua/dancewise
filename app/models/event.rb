@@ -40,7 +40,7 @@ class Event < ApplicationRecord
   def save_additional_address_fields
     search_results = Geocoder.search(address)
     # search_results = Geocoder.search(to_coordinates)
-    result = search_results.select { |x| (x.type == "city") && (x.data["class"] == "place")  }.first || search_results.first
+    result = search_results.select { |x| (x.types == "city") && (x.data["class"] == "place")  }.first || search_results.first
 
     # JSON hash country code lookup to find continent
     file = File.read(File.join(Rails.root, "app", "assets", "json", "continents.json"))
