@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  include EventsHelper
   # order matters here
   before_action :set_event, only: %i[edit show update destroy]
   before_action :require_user, except: %i[show index]
