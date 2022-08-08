@@ -10,6 +10,10 @@
     <%= f.file_field :event_image %>
     <%= f.date_field :event_start_date, wrapper: { class: "date"} %>
     <%= f.date_field :event_end_date, wrapper: { class: "date"} %>
+    <%= f.text_field :website_url %>
+    <%= f.text_field :ticket_url %>
+    <%= f.text_field :facebook_url %>
+    <%= f.text_field :instagram_url %>
     <%= f.submit "Submit Event" %>
   <% end %>
 </div>

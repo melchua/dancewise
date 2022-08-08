@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_04_191912) do
+ActiveRecord::Schema.define(version: 2022_08_08_014807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,10 @@ ActiveRecord::Schema.define(version: 2022_08_04_191912) do
     t.datetime "event_end_date"
     t.string "event_month"
     t.integer "event_year"
+    t.string "website_url"
+    t.string "facebook_url"
+    t.string "instagram_url"
+    t.string "ticket_url"
     t.index ["event_frequency_id"], name: "index_events_on_event_frequency_id"
     t.index ["event_type_id"], name: "index_events_on_event_type_id"
     t.index ["latitude", "longitude"], name: "index_events_on_latitude_and_longitude"

@@ -6,6 +6,26 @@
     <% else %>
        <p>No event image uploaded.</p>
     <% end %>
+    <br>
+      <div class="d-grid gap-2 d-md-block">
+        <% if @event.website_url.present? %>
+           <a href="<%= @event.website_url %>" class="btn btn-outline-primary" target="_blank" >Website</a>
+        <% else %>
+          <% end %>
+        <% if @event.ticket_url.present? %>
+           <a class="btn btn-outline-primary" href="<%= @event.ticket_url %>" target="_blank" role="button">Passes</a>
+        <% else %>
+          <% end %>
+        <% if @event.facebook_url.present? %>
+           <a class="btn btn-outline-primary" href="<%= @event.facebook_url %>" target="_blank" role="button">Facebook</a>
+        <% else %>
+          <% end %>
+        <% if @event.instagram_url.present? %>
+           <a class="btn btn-outline-primary" href="<%= @event.instagram_url %>" target="_blank" role="button">Instagram</a>
+        <% else %>
+          <% end %>
+      </div>
+    <br>
 
      <p class="card-text">
         <div class="p-3 mb-2 bg-info text-white">
