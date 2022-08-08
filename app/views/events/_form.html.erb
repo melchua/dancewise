@@ -1,19 +1,19 @@
 <div class="form-style">
   <%= bootstrap_form_for(@event, data: { controller: "places", action: "google-maps-callback@window->places#initMap" }) do |f| %>
-    <%= f.text_field :name, placeholder: 'Name of your event' %>
-    <%= f.text_field :description, placeholder: 'Description of your event' %>
-    <%= f.text_field :address, data: { target: "places.field" } %>
-    <%= f.collection_select :event_type_id, EventType.all, :id, :name %>
-    <%= f.collection_check_boxes :dance_style_ids, DanceStyle.all, :id, :name %>
-    <%= f.collection_select :event_frequency_id, EventFrequency.all, :id, :name %>
-    <%= f.collection_check_boxes :artist_ids, Artist.all, :id, :name %>
-    <%= f.file_field :event_image %>
-    <%= f.date_field :event_start_date, wrapper: { class: "date"} %>
-    <%= f.date_field :event_end_date, wrapper: { class: "date"} %>
-    <%= f.text_field :website_url, label: "Event Website Link", placeholder: 'http://www.yourevent.com' %>
-    <%= f.text_field :ticket_url, label: "Passes Link", placeholder: 'http://yourticketsite.com/yourevent' %>
-    <%= f.text_field :facebook_url, label: "Facebook Event Link", placeholder: 'https://www.facebook.com/events/12356/' %>
-    <%= f.text_field :instagram_url, label: "Instgram Link", placeholder: 'http://www.instagram.com/yourevent' %>
-    <%= f.submit "Submit Event" %>
+    <%= f.text_field :name, placeholder: 'Enter the name of the event here', label: "What is the name of this event?" %>
+    <%= f.rich_text_area :description, placeholder: 'Enter the description of the event here', label: "Tell us about the event." %>
+    <%= f.text_field :address, data: { target: "places.field" }, label: "Where is this event taking place?" %>
+    <%= f.collection_select :event_type_id, EventType.all, :id, :name, label: "What type of event is this?" %>
+    <%= f.collection_check_boxes :dance_style_ids, DanceStyle.all, :id, :name, switch: true, label: "Which dance styles will be included at this event?" %>
+    <%= f.collection_select :event_frequency_id, EventFrequency.all, :id, :name, label: "How often does this event occur?" %>
+    <%= f.collection_check_boxes :artist_ids, Artist.all, :id, :name, label: "Which artists are booked for this event?" %>
+    <%= f.file_field :event_image, label: "Upload the event image", help: "Upload a horizontal image of event flyer, 1920 X 1080 pixels works best!" %>
+    <%= f.date_field :event_start_date, wrapper: { class: "date"}, label: "What date does this event start?" %>
+    <%= f.date_field :event_end_date, wrapper: { class: "date"}, label: "What date does this event end?", help: "Enter the same date if this is a same day event." %>
+    <%= f.text_field :website_url, label: "Event Website Link", placeholder: 'http://www.yourevent.com', label: "Does this event have a website?", help: "If the event has a website, enter the link here." %>
+    <%= f.text_field :ticket_url, label: "Passes Link", placeholder: 'http://yourticketsite.com/yourevent', label: "What is the link to purchase passes?", help: "If the event has a direct link to purchase passes, enter the link here." %>
+    <%= f.text_field :facebook_url, label: "Facebook Event Link", placeholder: 'https://www.facebook.com/events/12356/', label: "Is this event on Facebook?", help: "If the event has a Facebook event, enter the link here." %>
+    <%= f.text_field :instagram_url, label: "Instgram Link", placeholder: 'http://www.instagram.com/yourevent', label: "Does this event have an Instagram account?", help: "If the event has an Instagram account, enter the link here." %>
+    <%= f.submit "Create The Event", class: "btn btn-success" %>
   <% end %>
 </div>
