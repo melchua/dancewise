@@ -20,7 +20,7 @@ class Event < ApplicationRecord
   # validates :event_end_date, presence: true
   validates :event_frequency, presence: true
   validates :event_type, presence: true
-  
+
 
   geocoded_by :address
   after_validation :geocode, :reverse_geocode, :save_additional_address_fields, :date_parsing
