@@ -14,6 +14,7 @@ import 'channels';
 import 'stylesheets/application';
 
 import 'bootstrap';
+// require("utilities/tom_select")
 
 Rails.start();
 Turbolinks.start();
@@ -27,3 +28,5 @@ window.initMap = function(...args) {
   event.args = args;
   window.dispatchEvent(event);
 };
+
+import "controllers"
