@@ -1,17 +1,11 @@
 <div class="form-style">
-    <%= bootstrap_form_for(@artist),
-    data: { controller: "select"
-    } do |f| %>
+    <%= bootstrap_form_for(@artist) do |f| %>
       <%= f.text_field :name %>
       <%= f.text_field :description %>
       <%= f.select :dance_style_ids, DanceStyle.all.pluck(:name, :id), 
           { label: "What dance styles does this artist represent?", 
-             help: "Select the main dance styles they teach if they are an instructor, and the main dance styles they play if they are a DJ.",
-             multiple: true
-          }, 
-          data: {
-                controller: 'select_controller'
-              } %>
+             help: "Select the main dance styles they teach if they are an instructor, and the main dance styles they play if they are a DJ."}, 
+          { multiple: true, id: "select-dancestyle" } %>
       <%= f.file_field :avatar %>
       <%= f.check_box :instructor %>
       <%= f.check_box :dj %>
