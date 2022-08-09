@@ -8,8 +8,7 @@ import Turbolinks from 'turbolinks';
 import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
 
-require("utilities/tom_select")
-
+require('utilities/tom_select');
 
 // import "bootstrap/dist/css/bootstrap";
 // import "bootstrap/dist/js/bootstrap";
