@@ -31,14 +31,6 @@ class Event < ApplicationRecord
     self.event_year = event_date.strftime("%Y")
   end
 
-  # ransacker :event_start_date do
-  #   Arel.sql('date(event_start_date)')
-  # end
-
-  # ransacker :event_month do
-  #   Arel.sql('date(event_month)')
-  # end
-
   def save_additional_address_fields
     search_results = Geocoder.search(address)
     # search_results = Geocoder.search(to_coordinates)

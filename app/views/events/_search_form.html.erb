@@ -19,10 +19,6 @@
 
     <%= f.select(:event_year_eq, Date.today.year-2 .. Date.today.year+3, {:prompt => 'Select Year', include_blank: true}) %>
 
-    <%# <%= f.date_select :event_year, {order: [:year]} %> 
-
-    <%# <%= f.date_field(:event_start_date_eq) %>
-
     <%= f.submit "Search!" %>
 <% end %>
 
