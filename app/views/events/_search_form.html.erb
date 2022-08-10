@@ -1,5 +1,5 @@
-<%= search_form_for @q,  
-    data: { controller: "places", action: "google-maps-callback@window->places#initMap" } do |f| %>
+<%= bootstrap_form_for @q,  
+    data: { controller: "places", action: "google-maps-callback@window->places#initMap" }do |f| %>
 
       <%= f.label :location %>
     <%= f.search_field :name_cont, placeholder: "Name contains" %> &emsp;
@@ -9,6 +9,11 @@
 
     <%= f.label :dance_style %>
     <%= f.collection_select :dance_styles_id_eq, DanceStyle.all, :id, :name, :multiple => true, :include_blank => "All dance styles" %> &emsp;
+
+    <%# I'm attempting to get the Tom Select feature to be used on this form as well but when I add the code below I'm getting the following error: Invalid query parameters: expected Array (got String) for param, will need to reseach more later.
+     %>
+    <%# <%= f.select(:dance_styles_id_eq, DanceStyle.all.pluck(:name, :id), 
+          {}, { multiple: true, id: "select-dancestyle" })%>
 
     <%= f.label "Event Type" %>
     <%= f.collection_select :event_type_id_eq, EventType.all, :id, :name, :multiple => true, :include_blank => "All event types" %> &emsp;
