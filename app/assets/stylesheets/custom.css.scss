@@ -101,11 +101,16 @@
 }
 
 .event-page-image {
-  max-width: 400px;
-  height: 150px;
+  max-width: 60vw;
+  height: auto;
   object-fit: cover;
   border-radius: 10px;
   margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.event-show-date {
+  display: flex;
 }
 
 .even-size-event {
@@ -178,6 +183,12 @@ h5 {
 .form-style {
   margin-bottom: 200px;
   width: 30vw;
+}
+
+.show-style {
+  margin-bottom: 200px;
+  width: 60vw;
+  align: center;
 }
 
 ::placeholder {
