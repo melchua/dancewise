@@ -33,3 +33,5 @@ window.initMap = function (...args) {
 };
 
 import 'controllers';
+require('trix');
+require('@rails/actiontext');

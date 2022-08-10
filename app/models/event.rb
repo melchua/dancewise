@@ -6,6 +6,7 @@ require "date"
 
 class Event < ApplicationRecord
   belongs_to :user
+  has_rich_text :description
   has_many :event_dance_styles
   has_many :dance_styles, through: :event_dance_styles
   has_many :event_artists
@@ -14,11 +15,12 @@ class Event < ApplicationRecord
   belongs_to :event_type, optional: true, class_name: "EventType", foreign_key: "event_type_id"
   belongs_to :event_frequency, optional: true, class_name: "EventFrequency", foreign_key: "event_frequency_id"
   validates :name, presence: true, length: { minimum: 6, maximum: 100 }
-  validates :description, presence: true, length: { minimum: 10, maximum: 300 }
+  validates :description, presence: true, length: { minimum: 10 }
   validates :event_start_date, presence: true
   # validates :event_end_date, presence: true
   validates :event_frequency, presence: true
   validates :event_type, presence: true
+
 
   geocoded_by :address
   after_validation :geocode, :reverse_geocode, :save_additional_address_fields, :date_parsing
@@ -28,14 +30,6 @@ class Event < ApplicationRecord
     self.event_month = event_date.strftime("%B")
     self.event_year = event_date.strftime("%Y")
   end
-
-  # ransacker :event_start_date do
-  #   Arel.sql('date(event_start_date)')
-  # end
-
-  # ransacker :event_month do
-  #   Arel.sql('date(event_month)')
-  # end
 
   def save_additional_address_fields
     search_results = Geocoder.search(address)

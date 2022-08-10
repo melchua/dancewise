@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_04_191912) do
+ActiveRecord::Schema.define(version: 2022_08_08_191526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -117,6 +127,10 @@ ActiveRecord::Schema.define(version: 2022_08_04_191912) do
     t.datetime "event_end_date"
     t.string "event_month"
     t.integer "event_year"
+    t.string "website_url"
+    t.string "facebook_url"
+    t.string "instagram_url"
+    t.string "ticket_url"
     t.index ["event_frequency_id"], name: "index_events_on_event_frequency_id"
     t.index ["event_type_id"], name: "index_events_on_event_type_id"
     t.index ["latitude", "longitude"], name: "index_events_on_latitude_and_longitude"

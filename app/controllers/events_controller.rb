@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  include EventsHelper
   # order matters here
   before_action :set_event, only: %i[edit show update destroy]
   before_action :require_user, except: %i[show index]
@@ -74,7 +73,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :description, :address, :event_image, :type, :event_start_date, :event_month, :event_year, :event_end_date, :event_type_id,
+      params.require(:event).permit(:name, :description, :address, :event_image, :type, :event_start_date, :event_month, :event_year, :event_end_date, :event_type_id, :website_url, :ticket_url, :facebook_url, :instagram_url,
                                     :event_frequency_id, dance_style_ids: [], artist_ids: [])
     end
 
