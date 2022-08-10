@@ -1,24 +1,14 @@
 <div class="form-style">
-
-<%= bootstrap_form_for(@artist) do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_field :description %>
-  <%= f.collection_check_boxes :dance_style_ids, DanceStyle.all, :id, :name %>
-  <%= f.file_field :avatar %>
-  <%= f.check_box :instructor %>
-  <%= f.check_box :dj %>
-  <%= f.submit "Submit Artist" %>
-<% end %>
-  <%# <h1>Create a new artist</h1>
-  <%= render 'shared/errors', obj: @artist %> 
-  <%# <%= form_with(model: @artist, local: true) do |f| %> 
-    <%# <p> %>
-      <%# <%= f.label :name, "Artist name" %> 
-      <%# <%= f.text_field :name %> 
-    <%# </p> %>
- 
-    <%# <p>
-      <%= f.label "Avatar Upload", "Avatar Upload"<br />
-      <%# <%= f.file_field :avatar %> 
-    <%# </p> %> 
+    <%= bootstrap_form_for(@artist) do |f| %>
+      <%= f.text_field :name %>
+      <%= f.text_field :description %>
+      <%= f.select :dance_style_ids, DanceStyle.all.pluck(:name, :id), 
+          { label: "What dance styles does this artist represent?", 
+             help: "Select the main dance styles they teach if they are an instructor, and the main dance styles they play if they are a DJ."}, 
+          { multiple: true, id: "select-dancestyle" } %>
+      <%= f.file_field :avatar %>
+      <%= f.check_box :instructor %>
+      <%= f.check_box :dj %>
+      <%= f.submit "Submit Artist" %>
+    <% end %>
 </div>
