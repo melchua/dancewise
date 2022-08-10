@@ -1,9 +1,7 @@
-<div class="show-page-wrapper">
-
-  <div class="container">
+<div class="container">
+  <div class="show-style">
     <h1><%= @artist.name %></h1>
     <h4>Showing artist details</h4>
-
     <div class="-">
     <% if @artist.avatar.attached? %>
               <%= image_tag @artist.avatar, class: "even-size-artist" %>
@@ -22,6 +20,8 @@
       <%# <p class="card-text"><%= @artist.description </p> %>
     </div>
 
+    <h3>Artist Bio</h3>
+       <p><%= @artist.description %></p>
   <div class="artist-video-wrapper">
     <h3>Artist Videos</h3>
  

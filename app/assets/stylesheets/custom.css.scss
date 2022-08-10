@@ -182,7 +182,7 @@ h5 {
 
 .form-style {
   margin-bottom: 200px;
-  width: 30vw;
+  width: 50%;
 }
 
 .show-style {
@@ -197,4 +197,18 @@ h5 {
 
 select {
   color: #3f3f3f;
+}
+
+.artist-form-checkbox {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+p.help-text {
+  margin-top: 10px;
+  color:grey;
+}
+
+.show-page-wrapper {
+  width: 50%;
 }
