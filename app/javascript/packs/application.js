@@ -7,23 +7,18 @@ import Rails from '@rails/ujs';
 import Turbolinks from 'turbolinks';
 import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
-
-require('utilities/tom_select');
-
-// import "bootstrap/dist/css/bootstrap";
-// import "bootstrap/dist/js/bootstrap";
-
 import 'stylesheets/application';
-
+import 'controllers';
 import 'bootstrap';
 import 'tom-select';
-// require("utilities/tom_select")
+
+require('utilities/tom_select');
+require('trix');
+require('@rails/actiontext');
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
-
-import 'controllers';
 
 window.initMap = function (...args) {
   const event = document.createEvent('Events');
@@ -31,7 +26,3 @@ window.initMap = function (...args) {
   event.args = args;
   window.dispatchEvent(event);
 };
-
-import 'controllers';
-require('trix');
-require('@rails/actiontext');
