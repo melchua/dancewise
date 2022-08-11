@@ -12,7 +12,7 @@
 // * https://github.com/ubilabs/geocomplete/
 // * by Martin Kleppe <kleppe@ubilabs.net>
 
-(function($, window, document, undefined) {
+(function ($, window, document, undefined) {
   // ## Options
   // The default options for this plugin.
   //
@@ -104,7 +104,7 @@
 
   // Initialize all parts of the plugin.
   $.extend(GeoComplete.prototype, {
-    init: function() {
+    init: function () {
       this.initMap();
       this.initMarker();
       this.initGeocoder();
@@ -115,7 +115,7 @@
     // Initialize the map but only if the option `map` was set.
     // This will create a `map` within the given container
     // using the provided `mapOptions` or link to the existing map instance.
-    initMap: function() {
+    initMap: function () {
       if (!this.options.map) {
         return;
       }
@@ -161,7 +161,7 @@
     // Add a marker with the provided `markerOptions` but only
     // if the option was set. Additionally it listens for the `dragend` event
     // to notify the plugin about changes.
-    initMarker: function() {
+    initMarker: function () {
       if (!this.map) {
         return;
       }
@@ -182,7 +182,7 @@
 
     // Associate the input with the autocompleter and create a geocoder
     // to fall back when the autocompleter does not return a value.
-    initGeocoder: function() {
+    initGeocoder: function () {
       // Indicates is user did select a result from the dropdown.
       var selected = false;
 
@@ -218,7 +218,7 @@
       );
 
       // Prevent parent form from being submitted if user hit enter.
-      this.$input.on('keypress.' + this._name, function(event) {
+      this.$input.on('keypress.' + this._name, function (event) {
         if (event.keyCode === 13) {
           return false;
         }
@@ -229,7 +229,7 @@
       if (this.options.geocodeAfterResult === true) {
         this.$input.bind(
           'keypress.' + this._name,
-          $.proxy(function() {
+          $.proxy(function () {
             if (event.keyCode != 9 && this.selected === true) {
               this.selected = false;
             }
@@ -240,7 +240,7 @@
       // Listen for "geocode" events and trigger find action.
       this.$input.bind(
         'geocode.' + this._name,
-        $.proxy(function() {
+        $.proxy(function () {
           this.find();
         }, this)
       );
@@ -248,7 +248,7 @@
       // Saves the previous input value
       this.$input.bind(
         'geocode:result.' + this._name,
-        $.proxy(function() {
+        $.proxy(function () {
           this.lastInputVal = this.$input.val();
         }, this)
       );
@@ -260,7 +260,7 @@
       if (this.options.blur === true) {
         this.$input.on(
           'blur.' + this._name,
-          $.proxy(function() {
+          $.proxy(function () {
             if (
               this.options.geocodeAfterResult === true &&
               this.selected === true
@@ -284,7 +284,7 @@
     // Prepare a given DOM structure to be populated when we got some data.
     // This will cycle through the list of component types and map the
     // corresponding elements.
-    initDetails: function() {
+    initDetails: function () {
       if (!this.options.details) {
         return;
       }
@@ -304,12 +304,12 @@
         details[value] = $details.find('[' + attribute + '=' + value + ']');
       }
 
-      $.each(componentTypes, function(index, key) {
+      $.each(componentTypes, function (index, key) {
         setDetail(key);
         setDetail(key + '_short');
       });
 
-      $.each(placesDetails, function(index, key) {
+      $.each(placesDetails, function (index, key) {
         setDetail(key);
       });
 
@@ -319,7 +319,7 @@
 
     // Set the initial location of the plugin if the `location` options was set.
     // This method will care about converting the value into the right format.
-    initLocation: function() {
+    initLocation: function () {
       var location = this.options.location,
         latLng;
 
@@ -350,7 +350,7 @@
       }
     },
 
-    destroy: function() {
+    destroy: function () {
       if (this.map) {
         google.maps.event.clearInstanceListeners(this.map);
         google.maps.event.clearInstanceListeners(this.marker);
@@ -366,7 +366,7 @@
 
     // Look up a given address. If no `address` was specified it uses
     // the current value of the input.
-    find: function(address) {
+    find: function (address) {
       this.geocode({
         address: address || this.$input.val(),
       });
@@ -374,7 +374,7 @@
 
     // Requests details about a given location.
     // Additionally it will bias the requests to the provided bounds.
-    geocode: function(request) {
+    geocode: function (request) {
       // Don't geocode if the requested address is empty
       if (!request.address) {
         return;
@@ -396,7 +396,7 @@
 
     // Get the selected result. If no result is selected on the list, then get
     // the first result from the list.
-    selectFirstResult: function() {
+    selectFirstResult: function () {
       //$(".pac-container").hide();
 
       var selected = '';
@@ -429,7 +429,7 @@
     },
 
     // Restores the input value using the previous value if it exists
-    restoreLastValue: function() {
+    restoreLastValue: function () {
       if (this.lastInputVal) {
         this.$input.val(this.lastInputVal);
       }
@@ -438,7 +438,7 @@
     // Handles the geocode response. If more than one results was found
     // it triggers the "geocode:multiple" events. If there was an error
     // the "geocode:error" event is fired.
-    handleGeocode: function(results, status) {
+    handleGeocode: function (results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         var result = results[0];
         this.$input.val(result.formatted_address);
@@ -453,14 +453,14 @@
     },
 
     // Triggers a given `event` with optional `arguments` on the input.
-    trigger: function(event, argument) {
+    trigger: function (event, argument) {
       this.$input.trigger(event, [argument]);
     },
 
     // Set the map to a new center by passing a `geometry`.
     // If the geometry has a viewport, the map zooms out to fit the bounds.
     // Additionally it updates the marker position.
-    center: function(geometry) {
+    center: function (geometry) {
       if (geometry.viewport) {
         this.map.fitBounds(geometry.viewport);
         if (this.map.getZoom() > this.options.maxZoom) {
@@ -479,7 +479,7 @@
 
     // Update the elements based on a single places or geocoding response
     // and trigger the "geocode:result" event on the input.
-    update: function(result) {
+    update: function (result) {
       if (this.map) {
         this.center(result.geometry);
       }
@@ -494,24 +494,24 @@
     // Populate the provided elements with new `result` data.
     // This will lookup all elements that has an attribute with the given
     // component type.
-    fillDetails: function(result) {
+    fillDetails: function (result) {
       var data = {},
         geometry = result.geometry,
         viewport = geometry.viewport,
         bounds = geometry.bounds;
 
       // Create a simplified version of the address components.
-      $.each(result.address_components, function(index, object) {
+      $.each(result.address_components, function (index, object) {
         var name = object.types[0];
 
-        $.each(object.types, function(index, name) {
+        $.each(object.types, function (index, name) {
           data[name] = object.long_name;
           data[name + '_short'] = object.short_name;
         });
       });
 
       // Add properties of the places details.
-      $.each(placesDetails, function(index, key) {
+      $.each(placesDetails, function (index, key) {
         data[key] = result[key];
       });
 
@@ -529,7 +529,7 @@
       // Set the values for all details.
       $.each(
         this.details,
-        $.proxy(function(key, $detail) {
+        $.proxy(function (key, $detail) {
           var value = data[key];
           this.setDetail($detail, value);
         }, this)
@@ -541,7 +541,7 @@
     // Assign a given `value` to a single `$element`.
     // If the element is an input, the value is set, otherwise it updates
     // the text content.
-    setDetail: function($element, value) {
+    setDetail: function ($element, value) {
       if (value === undefined) {
         value = '';
       } else if (typeof value.toUrlValue == 'function') {
@@ -556,30 +556,30 @@
     },
 
     // Fire the "geocode:dragged" event and pass the new position.
-    markerDragged: function(event) {
+    markerDragged: function (event) {
       this.trigger('geocode:dragged', event.latLng);
     },
 
-    mapClicked: function(event) {
+    mapClicked: function (event) {
       this.trigger('geocode:click', event.latLng);
     },
 
     // Fire the "geocode:mapdragged" event and pass the current position of the map center.
-    mapDragged: function(event) {
+    mapDragged: function (event) {
       this.trigger('geocode:mapdragged', this.map.getCenter());
     },
 
     // Fire the "geocode:idle" event and pass the current position of the map center.
-    mapIdle: function(event) {
+    mapIdle: function (event) {
       this.trigger('geocode:idle', this.map.getCenter());
     },
 
-    mapZoomed: function(event) {
+    mapZoomed: function (event) {
       this.trigger('geocode:zoom', this.map.getZoom());
     },
 
     // Restore the old position of the marker to the last knwon location.
-    resetMarker: function() {
+    resetMarker: function () {
       this.marker.setPosition(this.data.location);
       this.setDetail(this.details.lat, this.data.location.lat());
       this.setDetail(this.details.lng, this.data.location.lng());
@@ -587,7 +587,7 @@
 
     // Update the plugin after the user has selected an autocomplete entry.
     // If the place has no geometry it passes it to the geocoder.
-    placeChanged: function() {
+    placeChanged: function () {
       var place = this.autocomplete.getPlace();
       this.selected = true;
 
@@ -608,7 +608,7 @@
   // A plugin wrapper around the constructor.
   // Pass `options` with all settings that are different from the default.
   // The attribute is used to prevent multiple instantiations of the plugin.
-  $.fn.geocomplete = function(options) {
+  $.fn.geocomplete = function (options) {
     var attribute = 'plugin_geocomplete';
 
     // If you call `.geocomplete()` with a string as the first parameter
@@ -616,10 +616,7 @@
     // following arguments.
     if (typeof options == 'string') {
       var instance =
-          $(this).data(attribute) ||
-          $(this)
-            .geocomplete()
-            .data(attribute),
+          $(this).data(attribute) || $(this).geocomplete().data(attribute),
         prop = instance[options];
 
       if (typeof prop == 'function') {
@@ -632,7 +629,7 @@
         return prop;
       }
     } else {
-      return this.each(function() {
+      return this.each(function () {
         // Prevent against multiple instantiations.
         var instance = $.data(this, attribute);
         if (!instance) {
