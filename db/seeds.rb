@@ -81,6 +81,8 @@ EventFrequency.create(name: "Every Two Weeks")
 
 # EVENT CREATION
 
+# ====== North America
+
 Event.create(
     user_id: 1,
     name: "Salsa Event Test 1",
@@ -88,7 +90,7 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
     address: "220 Richmond St W, Toronto, ON M5V 1V6, Canada"
 )
 
@@ -101,13 +103,119 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
 )
 
 EventDanceStyle.create(event_id: 8, dance_style_id: 5)
 
+Event.create(
+    user_id: 2,
+    name: "Lindy Hop Event Test 1",
+    description: "Awesome Lindy Hop Event in Harlem",
+    image_url: "imageplaceholder123456",
+    event_type_id: rand(1..7),
+    event_frequency_id: rand(1..5),
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+)
+
+EventDanceStyle.create(event_id: 7, dance_style_id: 4)
+
+Event.create(
+    user_id: 2,
+    name: "Ballet Performance for Kids",
+    description: "Ballet recital",
+    image_url: "imageplaceholder123456",
+    event_type_id: rand(1..7),
+    event_frequency_id: rand(1..5),
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    address: "1401 E Cottonwood St, Springfield, IL, USA"
+)
+
+EventDanceStyle.create(event_id: 7, dance_style_id: 12)
+
+Event.create(
+    user_id: 2,
+    name: "Lindy Hop Lesson in Springfield",
+    description: "Ballet recital",
+    image_url: "imageplaceholder123456",
+    event_type_id: rand(1..7),
+    event_frequency_id: rand(1..5),
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    address: "14 E Main St, Springfield, Ohio, USA"
+)
+
+EventDanceStyle.create(event_id: 7, dance_style_id: 4)
+
+Event.create(
+    user_id: 2,
+    name: "Wild Hip Hop in Winnipeg",
+    description: "Fun hip hop event.",
+    image_url: "imageplaceholder123456",
+    event_type_id: rand(1..7),
+    event_frequency_id: rand(1..5),
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    address: "460 Main St, Winnipeg, Manitoba, Canada"
+)
+
+EventDanceStyle.create(event_id: 7, dance_style_id: 12)
+
+# ====== South America
+
+Event.create(
+    user_id: 2,
+    name: "Fusion Event Test 1",
+    description: "Awesome Fusion Event in Medellin",
+    image_url: "imageplaceholder123456",
+    event_type_id: rand(1..7),
+    event_frequency_id: rand(1..5),
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    address: "Cra. 43A #7-50, Medellín, El Poblado, Medellín, Antioquia, Colombia"
+)
+
+EventDanceStyle.create(event_id: 4, dance_style_id: 8)
 
 
+# ====== Europe
+
+Event.create(
+    user_id: 1,
+    name: "Bachata Test Event 1",
+    description: "Awesome Bachata Event in Dublin",
+    image_url: "imageplaceholder123456",
+    event_type_id: rand(1..7),
+    event_frequency_id: rand(1..5),
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    address: "40 N Lotts, North City, Dublin, Ireland"
+)
+
+EventDanceStyle.create(event_id: 3, dance_style_id: 2)
+
+Event.create(
+    user_id: 2,
+    name: "Zouk Event Test 1",
+    description: "Awesome Zouk Event in Paris",
+    image_url: "imageplaceholder123456",
+    event_type_id: rand(1..7),
+    event_frequency_id: rand(1..5),
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+)
+
+EventDanceStyle.create(event_id: 5, dance_style_id: 15)
+
+Event.create(
+    user_id: 2,
+    name: "Urbankiz Event Test 1",
+    description: "Awesome Urbankiz Event in Amsterdam",
+    image_url: "imageplaceholder123456",
+    event_type_id: rand(1..7),
+    event_frequency_id: rand(1..5),
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    address: "66 6A St - Al Quoz - Dubai - United Arab Emirates"
+)
+
+EventDanceStyle.create(event_id: 6, dance_style_id: 7)
+
+# ====== Asia
 
 Event.create(
     user_id: 1,
@@ -116,7 +224,7 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
+    event_start_date: Faker::Date.between(from: '20 21-01-02', to: '2023-12-24')
     address: "66 6A St - Al Quoz - Dubai - United Arab Emirates"
 )
 
@@ -129,60 +237,39 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
     address: "40 N Lotts, North City, Dublin, Ireland"
 )
 
 EventDanceStyle.create(event_id: 3, dance_style_id: 2)
 
-Event.create(
-    user_id: 2,
-    name: "Fusion Event Test 1",
-    description: "Awesome Fusion Event in Medellin",
-    image_url: "imageplaceholder123456",
-    event_type_id: rand(1..7),
-    event_frequency_id: rand(1..5),
-    event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
-    address: "Cra. 43A #7-50, Medellín, El Poblado, Medellín, Antioquia, Colombia"
-)
 
-EventDanceStyle.create(event_id: 4, dance_style_id: 8)
+# ====== Australia
 
-Event.create(
-    user_id: 2,
-    name: "Zouk Event Test 1",
-    description: "Awesome Zouk Event in Paris",
-    image_url: "imageplaceholder123456",
-    event_type_id: rand(1..7),
-    event_frequency_id: rand(1..5),
-    event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
-)
 
-EventDanceStyle.create(event_id: 5, dance_style_id: 15)
+# ====== Africa
 
-Event.create(
-    user_id: 2,
-    name: "Urbankiz Event Test 1",
-    description: "Awesome Urbankiz Event in Amsterdam",
-    image_url: "imageplaceholder123456",
-    event_type_id: rand(1..7),
-    event_frequency_id: rand(1..5),
-    event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
-)
 
-EventDanceStyle.create(event_id: 6, dance_style_id: 7)
+# ====== Antartica
 
-Event.create(
-    user_id: 2,
-    name: "Lindy Hop Event Test 1",
-    description: "Awesome Lindy Hop Event in Harlem",
-    image_url: "imageplaceholder123456",
-    event_type_id: rand(1..7),
-    event_frequency_id: rand(1..5),
-    event_date: Faker::Date.between(from: '2014-01-02', to: '2022-03-25')
-)
 
-EventDanceStyle.create(event_id: 7, dance_style_id: 4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

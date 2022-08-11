@@ -1,4 +1,5 @@
 <div class="container">
+<div class="show-style">
   <h1><%= @event.name %></h1>
 <br>
    <% if @event.event_image.attached? %>
@@ -6,11 +7,45 @@
     <% else %>
        <p>No event image uploaded.</p>
     <% end %>
+    <br>
+        <div class="event-show-date">
+          <p><small class="text-muted"><%= formatDateLong(@event.event_start_date) %> - </small></p>
+          <p><small class="text-muted"> 
+            <% if @event.event_end_date? %>
+               &nbsp; <%= formatDateLong(@event.event_end_date) %>
+             <% end %>
+      </small></p>
+        </div>
+    <br>
+      <div class="d-grid gap-2 d-md-block">
+        <% if @event.website_url.present? %>
+           <a href="<%= @event.website_url %>" class="btn btn-outline-primary" target="_blank" >Website</a>
+        <% else %>
+          <% end %>
+        <% if @event.ticket_url.present? %>
+           <a class="btn btn-outline-primary" href="<%= @event.ticket_url %>" target="_blank" role="button">Passes</a>
+        <% else %>
+          <% end %>
+        <% if @event.facebook_url.present? %>
+           <a class="btn btn-outline-primary" href="<%= @event.facebook_url %>" target="_blank" role="button">Facebook Event</a>
+        <% else %>
+          <% end %>
+        <% if @event.instagram_url.present? %>
+           <a class="btn btn-outline-primary" href="<%= @event.instagram_url %>" target="_blank" role="button">Instagram</a>
+        <% else %>
+          <% end %>
+      </div>
+    <br>
 
      <p class="card-text">
-      <%= @event.address %> <br>
-      <br>
-      <%= @event.city %> <%= @event.state %> <%= @event.country %> <%= @event.continent %>
+        <div class="p-3 mb-2 bg-info text-white">
+          <%= @event.address %> <br>
+          <br>
+          <%= @event.city %> <%= @event.state %> <%= @event.country %> <%= @event.continent %>
+        </div>
+        <div class="p-3 mb-2 bg-warning text-dark">
+          <%= @event.event_month %> <%= @event.event_year %>
+        </div>
     </p>
 
    <% if @event.dance_styles.any? %>
@@ -22,23 +57,18 @@
       </div>
     </div>
   <% end %>
+    <br>
+    <div class="event-detail-wrapper">
+      <h2>Event details</h2>
+      <p><%= @event.description %></p>
 
-  <div class="event-detail-wrapper">
-
-  <p><small class="text-muted"><%= formatDateLong(@event.event_date) %></small></p>
-  <h2>Event details</h2>
-  <p><%= @event.description %></p>
-
-  <h2>Your Artists: </h2>
-  <% if @event.artists.any? %>
-    <div class="row row-cols-4">
-      <%= render @event.artists %>
+      <h2>Your Artists: </h2>
+      <% if @event.artists.any? %>
+        <div class="row row-cols-4">
+          <%= render @event.artists %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
- 
-
-  </div>
   <div class="data-control-wrapper">
     <% if logged_in? && (@event.user == current_user || current_user.admin?)  %>
       <%= link_to '<button type="button" class="btn btn-outline-primary">
@@ -50,4 +80,5 @@
       </button>'.html_safe, event_path(@event), method: :delete, data: { confirm: "Are you sure?"} %>
     <% end %>
   </div>
+</div>  
 </div>

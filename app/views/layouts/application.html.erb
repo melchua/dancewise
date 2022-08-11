@@ -6,14 +6,12 @@
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
       <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_API_KEY'] %>&libraries=places&callback=initMap" async defer data-turbolinks-eval="false"></script>
+      <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
-
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  <%# <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:maps_api_key] %&libraries=places&callback=initMap" async defer data-turbolinks-eval="false"></script> %>
-
- 
 
   <body>
       

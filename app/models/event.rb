@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 require "json"
+require "i18n"
+require "date"
 
 class Event < ApplicationRecord
   belongs_to :user
+  has_rich_text :description
   has_many :event_dance_styles
   has_many :dance_styles, through: :event_dance_styles
   has_many :event_artists
@@ -12,18 +15,26 @@ class Event < ApplicationRecord
   belongs_to :event_type, optional: true, class_name: "EventType", foreign_key: "event_type_id"
   belongs_to :event_frequency, optional: true, class_name: "EventFrequency", foreign_key: "event_frequency_id"
   validates :name, presence: true, length: { minimum: 6, maximum: 100 }
-  validates :description, presence: true, length: { minimum: 10, maximum: 300 }
-  validates :event_date, presence: true
+  validates :description, presence: true, length: { minimum: 10 }
+  validates :event_start_date, presence: true
+  # validates :event_end_date, presence: true
   validates :event_frequency, presence: true
   validates :event_type, presence: true
 
+
   geocoded_by :address
-  after_validation :geocode, :reverse_geocode, :save_additional_address_fields
+  after_validation :geocode, :reverse_geocode, :save_additional_address_fields, :date_parsing
+
+  def date_parsing
+    event_date = self.event_start_date
+    self.event_month = event_date.strftime("%B")
+    self.event_year = event_date.strftime("%Y")
+  end
 
   def save_additional_address_fields
     search_results = Geocoder.search(address)
-    # search_results = Geocoder.search(to_coordinaters)
-    result = search_results.select { |x| (x.type == "city") && (x.data["class"] == "place")  }.first || search_results.first
+    # search_results = Geocoder.search(to_coordinates)
+    result = search_results.select { |x| (x.types == "city") && (x.data["class"] == "place")  }.first || search_results.first
 
     # JSON hash country code lookup to find continent
     file = File.read(File.join(Rails.root, "app", "assets", "json", "continents.json"))

@@ -8,12 +8,16 @@ import Turbolinks from 'turbolinks';
 import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
 
+require('utilities/tom_select');
+
 // import "bootstrap/dist/css/bootstrap";
 // import "bootstrap/dist/js/bootstrap";
 
 import 'stylesheets/application';
 
 import 'bootstrap';
+import 'tom-select';
+// require("utilities/tom_select")
 
 Rails.start();
 Turbolinks.start();
@@ -27,3 +31,10 @@ window.initMap = function (...args) {
   event.args = args;
   window.dispatchEvent(event);
 };
+
+import 'controllers';
+require('trix');
+require('@rails/actiontext');
+
+require('trix');
+require('@rails/actiontext');

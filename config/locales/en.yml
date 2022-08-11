@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  events:
+    one: 'Currently displaying 1 event.'
+    other: 'Currently displaying %{count} events.'

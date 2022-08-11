@@ -1,8 +1,7 @@
-<div class="show-page-wrapper">
-
-  <div class="container">
-    <h2>Showing artist details</h1>
-
+<div class="container">
+  <div class="show-style">
+    <h1><%= @artist.name %></h1>
+    <h4>Showing artist details</h4>
     <div class="-">
     <% if @artist.avatar.attached? %>
               <%= image_tag @artist.avatar, class: "even-size-artist" %>
@@ -21,21 +20,18 @@
       <%# <p class="card-text"><%= @artist.description </p> %>
     </div>
 
+    <h3>Artist Bio</h3>
+       <p><%= @artist.description %></p>
   <div class="artist-video-wrapper">
     <h3>Artist Videos</h3>
  
   
   <div class="row row-cols-4">
-      <% if @artist.first_video_id.nil? %>
+      <% if @artist.video_links.nil? %>
     <div>Empty.</div>
       <% else %>
   <div class="plyr__video-embed" id="player">
-    <iframe
-      src="<%= @artist.youtube_embed_url %>?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
-      allowfullscreen
-      allowtransparency
-      allow="autoplay"
-    ></iframe>
+    <p>Video link.</p>
   </div>
   <% end %>
   </div>
