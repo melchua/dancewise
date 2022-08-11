@@ -90,8 +90,8 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
-    address: "220 Richmond St W, Toronto, ON M5V 1V6, Canada"
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
+    address: "The Underground Dance Centre, Richmond Street West, Toronto, ON, Canada"
 )
 
 EventDanceStyle.create(event_id: 1, dance_style_id: 1)
@@ -127,7 +127,7 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
     address: "1401 E Cottonwood St, Springfield, IL, USA"
 )
 
@@ -140,7 +140,7 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
     address: "14 E Main St, Springfield, Ohio, USA"
 )
 
@@ -153,7 +153,7 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
     address: "460 Main St, Winnipeg, Manitoba, Canada"
 )
 
@@ -168,7 +168,7 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
     address: "Cra. 43A #7-50, Medellín, El Poblado, Medellín, Antioquia, Colombia"
 )
 
@@ -184,7 +184,7 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
     address: "40 N Lotts, North City, Dublin, Ireland"
 )
 
@@ -209,7 +209,7 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
     address: "66 6A St - Al Quoz - Dubai - United Arab Emirates"
 )
 
@@ -224,7 +224,7 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '20 21-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '20 21-01-02', to: '2023-12-24'),
     address: "66 6A St - Al Quoz - Dubai - United Arab Emirates"
 )
 
@@ -237,7 +237,7 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
     address: "40 N Lotts, North City, Dublin, Ireland"
 )
 
