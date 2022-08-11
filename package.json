@@ -4,7 +4,7 @@
   "dependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
-    "@popperjs/core": "^2.11.0",
+    "@popperjs/core": "^2.11.5",
     "@rails/actioncable": "^6.0.0",
     "@rails/actiontext": "^6.1.6",
     "@rails/activestorage": "^6.0.0",
