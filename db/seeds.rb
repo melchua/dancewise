@@ -128,7 +128,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
-    address: "1401 E Cottonwood St, Springfield, IL, USA"
+    address: "Springfield Dance, International Parkway, Springfield, IL, USA"
 )
 
 EventDanceStyle.create(event_id: 7, dance_style_id: 12)
@@ -141,7 +141,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
-    address: "14 E Main St, Springfield, Ohio, USA"
+    address: "Gary Geis School of Dance, East Main Street, Springfield, OH, USA"
 )
 
 EventDanceStyle.create(event_id: 7, dance_style_id: 4)
@@ -169,7 +169,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
-    address: "Cra. 43A #7-50, Medellín, El Poblado, Medellín, Antioquia, Colombia"
+    address: "Salsa Classes Medellin, Cra 80, Medellin, Antioquia, Colombia"
 )
 
 EventDanceStyle.create(event_id: 4, dance_style_id: 8)
@@ -185,7 +185,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
-    address: "40 N Lotts, North City, Dublin, Ireland"
+    address: "The Real Dance Studio, North Lotts, North City, Dublin, Ireland"
 )
 
 EventDanceStyle.create(event_id: 3, dance_style_id: 2)
@@ -210,7 +210,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
-    address: "66 6A St - Al Quoz - Dubai - United Arab Emirates"
+    address: "Amsterdam Dance Center, Marnixstraat, Amsterdam, Netherlands"
 )
 
 EventDanceStyle.create(event_id: 6, dance_style_id: 7)
@@ -225,7 +225,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_start_date: Faker::Date.between(from: '20 21-01-02', to: '2023-12-24'),
-    address: "66 6A St - Al Quoz - Dubai - United Arab Emirates"
+    address: "Palais de Danse Dance Studio Dubai - 6A Street - Dubai - United Arab Emirates"
 )
 
 EventDanceStyle.create(event_id: 2, dance_style_id: 6)
@@ -238,7 +238,7 @@ Event.create(
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
     event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
-    address: "40 N Lotts, North City, Dublin, Ireland"
+    address: "The Real Dance Studio, North Lotts, North City, Dublin, Ireland"
 )
 
 EventDanceStyle.create(event_id: 3, dance_style_id: 2)
