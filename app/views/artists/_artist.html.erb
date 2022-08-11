@@ -13,15 +13,11 @@
       </div>
     </div>
   <% end %>
-
-    <p class="card-text"><%= artist.description %></p>
-    
-    <%= link_to '<button type="button" class="btn btn-outline-primary">
-    Artist details
-    </button>'.html_safe, artist %>
+    <br>
+    <%= link_to '<button type="button" class="btn btn-outline-dark">Artist details</button>'.html_safe, artist %>
 
     <% if logged_in? && current_user.admin? %>
-      <%= link_to '<button type="button" class="btn btn-outline-primary">
+      <%= link_to '<button type="button" class="btn btn-outline-warning">
       Edit artist
       </button>'.html_safe, edit_artist_path(artist) %>
 
