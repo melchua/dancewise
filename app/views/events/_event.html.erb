@@ -37,13 +37,6 @@
         </div>
     </p>
 
-    <p class="card-text">
-      <%= truncate(event.description, :length => 100) %>
-    </p>
-  
-      
-      
-
   <%# ON DISPLAYING EVENT TYPE NAME ON THE EVENT VIEW: After making the changes to the eventtype and event models into include the class names I was able to get this render to work to display the event type name!# %>
      
   <%# I'm unable to get the event frequency to display in the event html erb page, I keep getting an error about the nil not being accepted in the Active Model, the only differences I'm seeing between Event Types, which are displaying correctly, and the Event Frequency is that there is a null = false value in the schema for  %>

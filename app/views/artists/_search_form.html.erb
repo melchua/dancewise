@@ -1,13 +1,9 @@
 <%= search_form_for @q,
     data: { controller: "places" } do |f| %>
 
-    <%= f.label :name_cont %>
-    <%= f.search_field :name_cont %> 
-
-    <%= f.label :dance_style %>
+    <%= f.label "Artist name contains:" %>
+    <%= f.search_field :name_cont, label:"Artist name contains:" %> 
+    <%= f.label "Choose a dance style:" %>
     <%= f.collection_select :dance_styles_id_eq, DanceStyle.all, :id, :name, include_blank: true %>
-
     <%= f.submit "Search!" %>
-
-
 <% end %>
