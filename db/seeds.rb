@@ -103,7 +103,8 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
+    address: "Urbanity Dance, Harrison Avenue, Boston, MA, USA"
 )
 
 EventDanceStyle.create(event_id: 8, dance_style_id: 5)
@@ -115,7 +116,8 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
+    address: "The Harlem Swing Dance Society, West 134th Street, New York, NY, USA"
 )
 
 EventDanceStyle.create(event_id: 7, dance_style_id: 4)
@@ -197,7 +199,8 @@ Event.create(
     image_url: "imageplaceholder123456",
     event_type_id: rand(1..7),
     event_frequency_id: rand(1..5),
-    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24')
+    event_start_date: Faker::Date.between(from: '2021-01-02', to: '2023-12-24'),
+    address: "Studio Harmonic, Passage des Taillandiers, Paris, France"
 )
 
 EventDanceStyle.create(event_id: 5, dance_style_id: 15)
