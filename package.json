@@ -22,9 +22,9 @@
   },
   "version": "0.1.0",
   "scripts": {
-    "precommit": "lint-staged",
-    "prepare": "husky install"
+    "precommit": "lint-staged"
   },
+  
   "lint-staged": {
     "app/**/*.{js,es6,jsx,scss,css}": [
       "./node_modules/prettier/bin-prettier.js --trailing-comma --single-quote es5 --write",
