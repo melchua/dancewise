@@ -13,7 +13,7 @@ require('utilities/tom_select');
 // import "bootstrap/dist/css/bootstrap";
 // import "bootstrap/dist/js/bootstrap";
 
-import 'stylesheets/application';
+// import 'stylesheets/application';
 
 import 'bootstrap';
 import 'tom-select';
