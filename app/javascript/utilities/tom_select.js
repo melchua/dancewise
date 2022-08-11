@@ -8,7 +8,7 @@ document.addEventListener('turbolinks:load', () => {
       plugins: {
         remove_button: { title: 'Remove this item' },
       },
-      onItemAdd: function () {
+      onItemAdd: function() {
         this.setTextboxValue('');
         this.refreshOptions();
       },
@@ -23,7 +23,7 @@ document.addEventListener('turbolinks:load', () => {
       plugins: {
         remove_button: { title: 'Remove this artist' },
       },
-      onItemAdd: function () {
+      onItemAdd: function() {
         this.setTextboxValue('');
         this.refreshOptions();
       },
