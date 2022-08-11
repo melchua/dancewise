@@ -2,8 +2,8 @@
   "name": "alpha-blog",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.18.2",
-    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "",
+    "@babel/runtime": "^7.18.9",
     "@popperjs/core": "^2.11.5",
     "@rails/actioncable": "^6.0.0",
     "@rails/actiontext": "^6.1.6-1",
@@ -24,7 +24,6 @@
   "scripts": {
     "precommit": "lint-staged"
   },
-  
   "lint-staged": {
     "app/**/*.{js,es6,jsx,scss,css}": [
       "./node_modules/prettier/bin-prettier.js --trailing-comma --single-quote es5 --write",
@@ -39,6 +38,6 @@
     "husky": "^0.13.4",
     "lint-staged": "^3.6.1",
     "prettier": "^1.19.1",
-    "webpack-dev-server": "^3"
+    "webpack-dev-server": "^4.10.0"
   }
 }

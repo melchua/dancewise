@@ -34,12 +34,6 @@ module.exports = function(api) {
           modules: false,
           exclude: ['transform-typeof-symbol']
         }
-      ],
-      [
-        require('@babel/preset-react').default,
-        {
-          development: isDevelopmentEnv || isTestEnv
-        }
       ]
     ].filter(Boolean),
     plugins: [
@@ -60,21 +54,11 @@ module.exports = function(api) {
         }
       ],
       [
-        '@babel/plugin-proposal-private-methods',
-        {
-          loose: true
-        }
-      ],
-      [
-        '@babel/plugin-proposal-private-property-in-object',
-        {
-          loose: true
-        }
-      ],
-      [
         '@babel/plugin-transform-runtime',
         {
-          helpers: false
+          helpers: false,
+          regenerator: true,
+          corejs: false
         }
       ],
       [
