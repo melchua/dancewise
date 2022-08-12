@@ -220,6 +220,25 @@ h5 {
   }
 }
 
+.card-style {
+  width: 100%;
+
+  @media (min-width: 43em) {
+    width: 45%;
+    display: flex;
+  }
+
+  @media (min-width: 62em) {
+    width: 30%;
+    display: flex;
+  }
+
+  @media (min-width: 82em) {
+    width: 20%;
+    display: flex;
+  }
+}
+
 ::placeholder {
   color: #3f3f3f;
   font-size: 0.8rem;
