@@ -89,11 +89,24 @@
 }
 .artist-page-image {
   width: 100%;
-  max-width: 400px;
   border-radius: 20px;
   object-fit: cover;
   margin-top: 10px;
   margin-bottom: 20px;
+
+  @media (min-width: 43em) {
+    width: 80%;
+    align: center;
+  }
+
+  @media (min-width: 62em) {
+    width: 50%;
+  }
+
+  @media (min-width: 82em) {
+    width: 50%;
+}
+
 }
 .even-size-artist {
   height: 300px;
@@ -108,7 +121,6 @@
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 .event-page-image {
@@ -123,8 +135,6 @@
 .event-show-date {
   display: flex;
 }
-
-
 
 h1,
 h2,
@@ -236,10 +246,8 @@ h5 {
     flex-grow: 3;
   }
 
-
   @media (min-width: 82em) {
-  width: 20%;
-    
+    width: 20%;
   }
 }
 
