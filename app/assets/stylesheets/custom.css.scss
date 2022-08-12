@@ -182,7 +182,22 @@ h5 {
 
 .form-style {
   margin-bottom: 200px;
-  width: 50%;
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+
+  @media (min-width: 43em){
+      width: 80%;
+      align: center;
+  }
+
+  @media (min-width: 62em){
+      width: 50%;
+  }
+
+  @media (min-width: 82em){
+      width: 50%;
+  }
 }
 
 .show-style {
@@ -193,6 +208,7 @@ h5 {
 
 ::placeholder {
   color: #3f3f3f;
+  font-size: 0.8rem;
 }
 
 select {
@@ -211,4 +227,8 @@ p.help-text {
 
 .show-page-wrapper {
   width: 50%;
+}
+
+.mdc-text-field-helper-text {
+  color:blue;
 }
