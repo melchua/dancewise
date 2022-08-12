@@ -101,12 +101,13 @@
 }
 
 .event-page-image {
-  max-width: 60vw;
+  width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
+
 }
 
 .event-show-date {
@@ -186,24 +187,39 @@ h5 {
   font-size: 1.2rem;
   line-height: 1.8rem;
 
-  @media (min-width: 43em){
-      width: 80%;
-      align: center;
+  @media (min-width: 43em) {
+    width: 80%;
+    align: center;
   }
 
-  @media (min-width: 62em){
-      width: 50%;
+  @media (min-width: 62em) {
+    width: 50%;
   }
 
-  @media (min-width: 82em){
-      width: 50%;
+  @media (min-width: 82em) {
+    width: 50%;
   }
 }
 
 .show-style {
   margin-bottom: 200px;
-  width: 60vw;
   align: center;
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+
+  @media (min-width: 43em) {
+    width: 80%;
+    align: center;
+  }
+
+  @media (min-width: 62em) {
+    width: 50%;
+  }
+
+  @media (min-width: 82em) {
+    width: 50%;
+  }
 }
 
 ::placeholder {
@@ -230,5 +246,5 @@ p.help-text {
 }
 
 .mdc-text-field-helper-text {
-  color:blue;
+  color: blue;
 }
