@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="show-style">
-    <h1><%= @artist.name %></h1>
-    <br>
+   <div class="show-style">
+     <h1><%= @artist.name %></h1>
+     <br>
            <div>
                <% if @artist.avatar.attached? %>
               <%= image_tag @artist.avatar, class: "even-size-artist" %>
@@ -19,32 +19,30 @@
           </div>
           <br>
 
-    <h3>Artist Bio</h3>
-       <p><%= @artist.description %></p>
-       <br>
-       <br>
+          <h3>Artist Bio</h3>
+            <p><%= @artist.description %></p>
+            <br>
+            <br>
 
-  <div class="">
-  <h3>Current Booked Events</h3>
-    <% if @artist.events.any? %>
-      <div class="row row-cols-4">
-        <%= render @artist.events %>
-      </div>
-        <% end %>
-    </div>
+          <div class="">
+            <h3>Current Booked Events</h3>
+              <% if @artist.events.any? %>
+                 <div class="row row-cols-4">
+                   <%= render @artist.events %>
+                 </div>
+                   <% end %>
+          </div>
 
-    <div class="data-control-wrapper">
-      <% if logged_in? && current_user.admin? %>
-        <%= link_to '<button type="button" class="btn btn-outline-primary">
-        Edit artist
-        </button>'.html_safe, edit_artist_path(@artist) %>
+          <div class="data-control-wrapper">
+            <% if logged_in? && current_user.admin? %>
+            <%= link_to '<button type="button" class="btn btn-outline-primary">
+               Edit artist
+            </button>'.html_safe, edit_artist_path(@artist) %>
 
-        <%= link_to '<button type="button" class="btn btn-outline-danger mt-1">
-        Delete artist
-        </button>'.html_safe, artist_path(@artist), method: :delete, data: { confirm: "Are you sure?"} %>
-      <% end %>
-    </div>
-  </div>
-  </div>
-  </div>
+            <%= link_to '<button type="button" class="btn btn-outline-danger mt-1">
+              Delete artist
+            </button>'.html_safe, artist_path(@artist), method: :delete, data: { confirm: "Are you sure?"} %>
+            <% end %>
+          </div>
+   </div>
 </div>
