@@ -102,6 +102,15 @@
   margin-top: 10px;
 }
 
+.even-size-event {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
 .event-page-image {
   width: 100%;
   height: auto;
@@ -115,15 +124,7 @@
   display: flex;
 }
 
-.even-size-event {
-  width: 250px;
-  border-radius: 10px;
-  margin-top: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
+
 
 h1,
 h2,
@@ -222,22 +223,42 @@ h5 {
   }
 }
 
+.card-style-show {
+  width: 100%;
+
+  @media (min-width: 43em) {
+    width: 45%;
+    flex-grow: 2;
+  }
+
+  @media (min-width: 62em) {
+    width: 30%;
+    flex-grow: 3;
+  }
+
+
+  @media (min-width: 82em) {
+  width: 20%;
+    
+  }
+}
+
 .card-style {
   width: 100%;
 
   @media (min-width: 43em) {
     width: 45%;
-    display: flex;
+    flex-grow: 2;
   }
 
   @media (min-width: 62em) {
     width: 30%;
-    display: flex;
+    flex-grow: 3;
   }
 
   @media (min-width: 82em) {
     width: 20%;
-    display: flex;
+    flex-grow: 4;
   }
 }
 

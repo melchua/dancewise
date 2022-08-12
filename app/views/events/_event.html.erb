@@ -1,35 +1,31 @@
 <div class="card shadow rounded me-3 mb-2 mt-2 card-style">
-    <% if event.event_image.attached? %>
+     <% if event.event_image.attached? %>
       <%= image_tag event.event_image, class: "event-page-image" %>
-    <% else %>
-      <img src=<%= "https://dancewise.s3.amazonaws.com/Blank+Event+Image.png" %> class="event-page-image">
-    <% end %>
-  <div class="card-body">
-    <h5 class="card-title"><%= event.name %></h5>
-    <p class="card-text">
-      <small class="text-muted">
-        <%= formatDateLong(event.event_start_date) %>
-      </small>
-      <small class="text-muted">
-      <% if event.event_end_date? %>
-         <%= formatDateLong(event.event_end_date) %>
-      <% end %>
-      </small>
-    </p>
-
-    <p>
-      <% if event.dance_styles.any? %>
-        <div class="pb-2">
-          <%= render event.dance_styles %>
+     <% else %>
+      <img src=<%= "https://dancewise.s3.amazonaws.com/Blank+Event+Image.png" %> class="even-size-event">
+     <% end %>
+   <div class="card-body">
+      <h5 class="card-title"><%= event.name %></h5>
+      <p class="card-text">
+         <small class="text-muted">
+           <%= formatDateLong(event.event_start_date) %>
+         </small>
+         <small class="text-muted">
+           <% if event.event_end_date? %>
+           <%= formatDateLong(event.event_end_date) %>
+           <% end %>
+        </small>
+     </p>
+    <div>
+      <p>
+       <% if event.dance_styles.any? %>
+           <%= render event.dance_styles %>
             <% end %>
-          <%= render event.event_type %>
-          <%= render event.event_frequency %>
-        </div>
-    </p>
-
-  <%# ON DISPLAYING EVENT TYPE NAME ON THE EVENT VIEW: After making the changes to the eventtype and event models into include the class names I was able to get this render to work to display the event type name!# %>
-     
-  <%# I'm unable to get the event frequency to display in the event html erb page, I keep getting an error about the nil not being accepted in the Active Model, the only differences I'm seeing between Event Types, which are displaying correctly, and the Event Frequency is that there is a null = false value in the schema for  %>
+            <%= render event.event_type %>
+            <%= render event.event_frequency %>
+     </p>
+     </div>
+   
 
       <%= link_to '<button type="button" class="btn btn-outline-primary">
       Event details
@@ -44,11 +40,5 @@
         Delete event
         </button>'.html_safe, event_path(event), method: :delete, data: { confirm: "Are you sure?"} %>
       <% end %>
-      
-      <p class="card-text">
-        <small class="text-muted">
-          Created by <%= event.user.username %> 
-        </small>
-      </p>
-    </div> 
-  </div>
+   </div>
+</div>

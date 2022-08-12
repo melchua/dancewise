@@ -76,7 +76,9 @@ ActiveRecord::Schema.define(version: 2022_08_08_191526) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "instructor", default: false
     t.boolean "dj", default: false
-    t.text "video_links", default: [], array: true
+    t.string "first_video_id"
+    t.string "second_video_id"
+    t.string "third_video_id"
   end
 
   create_table "dance_styles", force: :cascade do |t|
@@ -115,6 +117,7 @@ ActiveRecord::Schema.define(version: 2022_08_08_191526) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "event_start_date"
+    t.datetime "event_end_date"
     t.bigint "event_type_id", default: 1
     t.bigint "event_frequency_id", null: false
     t.string "address"
@@ -124,7 +127,6 @@ ActiveRecord::Schema.define(version: 2022_08_08_191526) do
     t.string "state"
     t.string "country"
     t.string "continent"
-    t.datetime "event_end_date"
     t.string "event_month"
     t.integer "event_year"
     t.string "website_url"

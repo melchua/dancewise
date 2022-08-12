@@ -1,5 +1,5 @@
 <div class="container">
-   <div class="show-style">
+   <div class="">
      <h1><%= @artist.name %></h1>
      <br>
            <div>
@@ -24,10 +24,27 @@
             <br>
             <br>
 
+            <br>
+      <div class="d-grid gap-2 d-md-block">
+        <% if @artist.first_video_id.present? %>
+           <a href="<%= @artist.first_video_id %>" class="btn btn-outline-primary" target="_blank" >Video 1</a>
+        <% else %>
+          <% end %>
+        <% if @artist.second_video_id.present? %>
+           <a href="<%= @artist.second_video_id %>" class="btn btn-outline-primary" target="_blank" >Video 2</a>
+        <% else %>
+          <% end %>
+        <% if @artist.first_video_id.present? %>
+           <a href="<%= @artist.first_video_id %>" class="btn btn-outline-primary" target="_blank" >Video 3</a>
+        <% else %>
+          <% end %>
+      </div>
+    <br>
+
           <div class="">
             <h3>Current Booked Events</h3>
               <% if @artist.events.any? %>
-                 <div class="row row-cols-4">
+                 <div class="row row-cols-4" style="width: 18rem;">
                    <%= render @artist.events %>
                  </div>
                    <% end %>

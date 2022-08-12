@@ -53,7 +53,7 @@
 
       <h2>Your Artists: </h2>
       <% if @event.artists.any? %>
-        <div class="row row-cols-4">
+        <div class="row row-cols-4" style="width: 18rem;">
           <%= render @event.artists %>
         </div>
       <% end %>
