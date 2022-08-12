@@ -44,7 +44,7 @@
           <div class="">
             <h3>Current Booked Events</h3>
               <% if @artist.events.any? %>
-                 <div class="row row-cols-4" style="width: 18rem;">
+                 <div class="row row-cols-4 card-style">
                    <%= render @artist.events %>
                  </div>
                    <% end %>
