@@ -8,7 +8,7 @@
     <h5 class="card-title"><%= artist.name %></h5>
        <% if artist.dance_styles.any? %>
     <div class="row row-cols-4">
-      <div class="mt-2">
+      <div class="d-grid gap-0 text-nowrap">
         <%= render artist.dance_styles %>
       </div>
     </div>

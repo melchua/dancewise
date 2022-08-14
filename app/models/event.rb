@@ -14,6 +14,7 @@ class Event < ApplicationRecord
   has_one_attached :event_image
   belongs_to :event_type, optional: true, class_name: "EventType", foreign_key: "event_type_id"
   belongs_to :event_frequency, optional: true, class_name: "EventFrequency", foreign_key: "event_frequency_id"
+  belongs_to :event_status, optional: true, class_name: "EventStatus", foreign_key: "event_status_id"
   validates :name, presence: true, length: { minimum: 6, maximum: 100 }
   validates :description, presence: true, length: { minimum: 10 }
   validates :event_start_date, presence: true

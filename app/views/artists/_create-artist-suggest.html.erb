@@ -13,7 +13,7 @@
         <%= f.check_box :dj, label: "This artist is a DJ." %>
         <p class="help-text">If the artist does both, check both boxes.</p>
       </div>
-      <%= f.collection_select :artist_status_id, ArtistStatus.all, :id, :status, label: "What is the status of this artist?" %>
-      <%= f.submit "Create New Artist", class: "btn btn-success" %>
+      <%= f.hidden_field :artist_status_id, value: 2 %>
+      <%= f.submit "Suggest New Artist", class: "btn btn-success" %>
     <% end %>
 </div>

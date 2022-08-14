@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Artist Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Artist</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @artist_statuses.each do |artist_status| %>
+      <tr>
+        <td><%= artist_status.status %></td>
+        <td><%= artist_status.artist_id %></td>
+        <td><%= link_to 'Show', artist_status %></td>
+        <td><%= link_to 'Edit', edit_artist_status_path(artist_status) %></td>
+        <td><%= link_to 'Destroy', artist_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Artist Status', new_artist_status_path %>

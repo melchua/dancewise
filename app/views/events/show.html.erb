@@ -1,5 +1,5 @@
 <div class="container">
-<div class="show-style">
+<div class="">
   <h1><%= @event.name %></h1>
 <br>
    <% if @event.event_image.attached? %>
@@ -47,13 +47,13 @@
     </div>
   <% end %>
     <br>
-    <div class="event-detail-wrapper">
+    <div class="event-list-wrapper">
       <h2>Event details</h2>
       <p><%= @event.description %></p>
 
       <h2>Your Artists: </h2>
       <% if @event.artists.any? %>
-        <div class="row row-cols-4" style="width: 18rem;">
+        <div class="row row-cols-4 show-artist">
           <%= render @event.artists %>
         </div>
       <% end %>

@@ -1,0 +1,27 @@
+<%= form_with(model: artist_status) do |form| %>
+  <% if artist_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(artist_status.errors.count, "error") %> prohibited this artist_status from being saved:</h2>
+
+      <ul>
+        <% artist_status.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :artist_id %>
+    <%= form.number_field :artist_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

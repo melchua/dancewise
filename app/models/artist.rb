@@ -10,6 +10,7 @@ class Artist < ApplicationRecord
   has_many :events, through: :event_artists
   has_many :artist_dance_styles
   has_many :dance_styles, through: :artist_dance_styles
+  belongs_to :event_status, optional: true, class_name: "EventStatus", foreign_key: "event_status_id"
   has_rich_text :description
   has_one_attached :avatar
   validates_uniqueness_of :name
