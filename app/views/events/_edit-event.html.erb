@@ -20,6 +20,7 @@
     <%= f.text_field :ticket_url, label: "Passes Link", placeholder: 'http://yourticketsite.com/yourevent', label: "What is the link to purchase passes?", help: "If the event has a direct link to purchase passes, enter the link here." %>
     <%= f.text_field :facebook_url, label: "Facebook Event Link", placeholder: 'https://www.facebook.com/events/12356/', label: "Is this event on Facebook?", help: "If the event has a Facebook event, enter the link here." %>
     <%= f.text_field :instagram_url, label: "Instgram Link", placeholder: 'http://www.instagram.com/yourevent', label: "Does this event have an Instagram account?", help: "If the event has an Instagram account, enter the link here." %>
+    <%= f.collection_select :event_status_id, EventStatus.all, :id, :status, label: "What is the status of this event?" %>
     <%= f.submit "Update Existing Event", class: "btn btn-success" %>
   <% end %>
 </div>
