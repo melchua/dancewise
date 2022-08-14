@@ -22,6 +22,7 @@ class ArtistsController < ApplicationController
     end
     @q = Artist.ransack(params[:q])
     @artists = @q.result(distinct: true)
+    .where(artist_status_id: 1)
   end
 
   def new
@@ -60,9 +61,13 @@ class ArtistsController < ApplicationController
     redirect_to artists_path
   end
 
+  def suggest_artist
+    @artist = Artist.new
+  end
+
   private
     def artist_params
-      params.require(:artist).permit(:name, :description, :image_url, :avatar, :instructor, :dj, :first_video_id, :second_video_id, :third_video_id,
+      params.require(:artist).permit(:name, :description, :image_url, :avatar, :instructor, :dj, :first_video_id, :second_video_id, :third_video_id, :artist_status_id,
                                  dance_style_ids: [], event_ids: [])
     end
 

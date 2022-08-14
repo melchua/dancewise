@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_08_191526) do
+ActiveRecord::Schema.define(version: 2022_08_14_073527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,21 @@ ActiveRecord::Schema.define(version: 2022_08_08_191526) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "artist_status", force: :cascade do |t|
+    t.string "status"
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_artist_status_on_event_id"
+  end
+
+  create_table "artist_statuses", force: :cascade do |t|
+    t.string "status"
+    t.integer "artist_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -79,6 +94,8 @@ ActiveRecord::Schema.define(version: 2022_08_08_191526) do
     t.string "first_video_id"
     t.string "second_video_id"
     t.string "third_video_id"
+    t.bigint "artist_status_id"
+    t.index ["artist_status_id"], name: "index_artists_on_artist_status_id"
   end
 
   create_table "dance_styles", force: :cascade do |t|
@@ -99,6 +116,21 @@ ActiveRecord::Schema.define(version: 2022_08_08_191526) do
 
   create_table "event_frequencies", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "event_status", force: :cascade do |t|
+    t.string "status"
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_status_on_event_id"
+  end
+
+  create_table "event_statuses", force: :cascade do |t|
+    t.string "status"
+    t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -133,7 +165,9 @@ ActiveRecord::Schema.define(version: 2022_08_08_191526) do
     t.string "facebook_url"
     t.string "instagram_url"
     t.string "ticket_url"
+    t.bigint "event_status_id"
     t.index ["event_frequency_id"], name: "index_events_on_event_frequency_id"
+    t.index ["event_status_id"], name: "index_events_on_event_status_id"
     t.index ["event_type_id"], name: "index_events_on_event_type_id"
     t.index ["latitude", "longitude"], name: "index_events_on_latitude_and_longitude"
   end
@@ -149,6 +183,10 @@ ActiveRecord::Schema.define(version: 2022_08_08_191526) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "artist_status", "events"
+  add_foreign_key "artists", "artist_statuses"
+  add_foreign_key "event_status", "events"
   add_foreign_key "events", "event_frequencies"
+  add_foreign_key "events", "event_statuses"
   add_foreign_key "events", "event_types"
 end

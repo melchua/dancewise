@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @artist_status.status %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @artist_status.artist_id %>
+</p>
+
+<%= link_to 'Edit', edit_artist_status_path(@artist_status) %> |
+<%= link_to 'Back', artist_statuses_path %>

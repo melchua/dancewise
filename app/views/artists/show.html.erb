@@ -12,7 +12,7 @@
           <br>
           <div>
             <% if @artist.dance_styles.any? %>
-                <div class="mt-2">
+                <div class="d-grid gap-2 col-2 text-nowrap button-wrap">
                     <%= render @artist.dance_styles %>
                     <% end %>
                 </div>
@@ -44,7 +44,7 @@
           <div class="">
             <h3>Current Booked Events</h3>
               <% if @artist.events.any? %>
-                 <div class="row row-cols-4 card-style">
+                 <div class="row row-cols-4 show-event">
                    <%= render @artist.events %>
                  </div>
                    <% end %>

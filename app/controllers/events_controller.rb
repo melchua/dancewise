@@ -24,20 +24,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    # if params[:select][:event_year].present? || params[:select][:event_month].present?
-    #   event_start_date = (params[:select][:event_year]+"-" +params[:select][:event_month]+"-"+Date.today.day.to_s).to_datetime.beginning_of_day
-    #   event_end_date = Date.today.end_of_day
-    #   @events = Event.where("datum_auftrag BETWEEN ? AND ?",event_start_date, event_end_date)
-    # else
-    #   @events = Event.all
-    # end
-
-
-    # Event.where('extract(month from event_start_date) = ?', select_month) & Event.where('extract(year from event_start_date) = ?', select_year)
-
-
-    # binding.pry
-
     if params[:q]
       params[:q][:combinator] = "and"
       params[:q][:groupings] = []
@@ -52,6 +38,7 @@ class EventsController < ApplicationController
     end
     @q = Event.ransack(params[:q])
     @events = @q.result(distinct: true)
+      .where(event_status_id: 1)
   end
 
   def create
@@ -71,9 +58,13 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def suggest_event
+    @event = Event.new
+  end
+
   private
     def event_params
-      params.require(:event).permit(:name, :description, :address, :event_image, :type, :event_start_date, :event_month, :event_year, :event_end_date, :event_type_id, :website_url, :ticket_url, :facebook_url, :instagram_url,
+      params.require(:event).permit(:name, :description, :address, :event_image, :type, :event_start_date, :event_month, :event_year, :event_end_date, :event_type_id, :website_url, :ticket_url, :facebook_url, :instagram_url, :event_status_id,
                                     :event_frequency_id, dance_style_ids: [], artist_ids: [])
     end
 
@@ -83,7 +74,7 @@ class EventsController < ApplicationController
 
     def require_same_user
       if current_user != @event.user && !current_user.admin?
-        flash[:alert] = "You can only edit or delete your own article"
+        flash[:alert] = "You can only edit or delete your own event"
         redirect_to @event
       end
     end
