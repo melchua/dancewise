@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount ForestLiana::Engine => '/forest'
   resources :artist_statuses
   resources :event_statuses
   resources :event_frequencies
