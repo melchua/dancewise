@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EventFrequenciesController < ApplicationController
+  before_action :require_admin, except: %i[index show new]
   before_action :set_event_frequency, only: %i[show edit update destroy]
 
   # GET /event_frequencies or /event_frequencies.json
@@ -61,6 +62,13 @@ class EventFrequenciesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to event_frequencies_url, notice: "Event frequency was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def require_admin
+    unless logged_in? && current_user.admin?
+      flash[:alert] = "Only admins can perform that action"
+      redirect_to event_frequencies_path
     end
   end
 

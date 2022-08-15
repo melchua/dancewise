@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EventTypesController < ApplicationController
+  before_action :require_admin, except: %i[index show new]
   before_action :set_event_type, only: %i[show]
 
   # GET /event_types or /event_types.json
@@ -57,6 +58,13 @@ class EventTypesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to event_types_url, notice: "Event type was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def require_admin
+    unless logged_in? && current_user.admin?
+      flash[:alert] = "Only admins can perform that action"
+      redirect_to event_types_path
     end
   end
 
