@@ -3,7 +3,7 @@
 class ArtistsController < ApplicationController
   include VideosHelper
   include ActionController::MimeResponds
-  before_action :require_admin, except: %i[index show]
+  # before_action :require_admin, except: %i[index show new]
   before_action :set_artist, only: %i[show update edit destroy]
 
   # One of of the changes I made to fix the some of the errors was on line 12 to change @artists to Artist.

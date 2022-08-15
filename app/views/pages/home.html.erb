@@ -1,13 +1,19 @@
 <div class="container" id="home-container">
-  <h1>Welcome to Dancewise</h1>
+  <h1>Welcome to WhereToFuckingDance.com!</h1>
+  
 
-  <%
-=begin%>
- <%= link_to 'Article listing', articles_path %> |  
-<%
-=end%>
-  <%= link_to 'About page', about_path %> | 
-  <%= link_to 'Sign up page', signup_path %> |
-  <%= link_to 'Users listing', users_path %> |
+
+
+
+   <div class="btn btn-outline-primary gap-2">
+  <%= link_to 'Sign up page', signup_path %>
+    </div>
+    <div class="btn btn-outline-primary gap-2">
+   <%= link_to 'View Artists', artists_path %>
+    </div>
+    <div class="btn btn-outline-primary gap-2">
   <%= link_to 'Events listing', events_path %>
+    </div>
+</div>
+</div>
 </div>

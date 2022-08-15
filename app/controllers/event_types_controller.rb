@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EventTypesController < ApplicationController
-  before_action :set_event_type, only: %i[show edit update destroy]
+  before_action :set_event_type, only: %i[show]
 
   # GET /event_types or /event_types.json
   def index

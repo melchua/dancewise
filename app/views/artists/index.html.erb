@@ -8,7 +8,9 @@
       </div>
     <%# <div class="digg_pagination">
     <%= will_paginate @artists, :container => false %>
-   
+    <br>
+    <h5>Currently displaying <%= pluralize(@artists.count, "artist") %>. </h5>
+    <br>
 
 </div>
 
