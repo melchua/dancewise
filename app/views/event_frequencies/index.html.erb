@@ -17,8 +17,10 @@
           <td><%= event_frequency.id %>
           <td><%= event_frequency.name %>
           <td><%= link_to 'Show', event_frequency %></td>
+          <% if logged_in? && current_user.admin? %>
           <td><%= link_to 'Edit', edit_event_frequency_path(event_frequency) %></td>
           <td><%= link_to 'Destroy', event_frequency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
