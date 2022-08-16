@@ -5,6 +5,7 @@ class ArtistsController < ApplicationController
   include ActionController::MimeResponds
   # before_action :require_admin, except: %i[index show new]
   before_action :set_artist, only: %i[show update edit destroy]
+  before_action :require_user, except: %i[show index]
 
   # One of of the changes I made to fix the some of the errors was on line 12 to change @artists to Artist.
 
