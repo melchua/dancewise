@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DanceStylesController < ApplicationController
-  before_action :require_user, except: %i[index show]
+  before_action :require_user , except: %i[index show]
 
   def show
     @dance_style = DanceStyle.find(params[:id])
