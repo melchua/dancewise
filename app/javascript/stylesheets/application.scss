@@ -1,21 +1,18 @@
 @import 'bootstrap';
 @import 'tom-select/dist/css/tom-select.bootstrap5';
 
-
 a:visited {
-    color: #f8f9fa !important;
+  color: #f8f9fa !important;
+}
+
+.dropdown-menu {
+  --bs-dropdown-color: #212529;
+  --bs-dropdown-link-hover-bg: #ff801199;
+  --bs-dropdown-item-padding-y: 0.5rem;
+  @media (min-width: 43em) {
+    --bs-dropdown-item-padding-y: 1rem;
   }
-  
-  .dropdown-menu {
-    --bs-dropdown-color: #212529;
-    --bs-dropdown-link-hover-bg: #ff801199;
-    --bs-dropdown-item-padding-y: .5rem;
-    @media (min-width: 43em) {
-        --bs-dropdown-item-padding-y: 1rem;
-      }
-    
-  }
-  .dropdown-menu.show {
-    --bs-dropdown-bg: #212529 !important;
-    
-  }
+}
+.dropdown-menu.show {
+  --bs-dropdown-bg: #212529 !important;
+}
