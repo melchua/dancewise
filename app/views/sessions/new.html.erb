@@ -1,14 +1,13 @@
 <div class="container">
+<div class="form-style">
   <h1>Log in</h1>
 
-  <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+  <%= bootstrap_form_with(scope: :session, url: login_path, local: true) do |f| %>
     <p>
-      <%= f.label :email %><br />
       <%= f.email_field :email, placeholder: "Enter your email address" %>
     </p>
 
       <p>
-      <%= f.label :password %><br />
       <%= f.password_field :password, placeholder: "Enter your password" %>
     </p>
 
@@ -17,4 +16,15 @@
     </p>
   <% end %>
 
+
+   <br>
+    <br>
+<div>
+  <h5>If you don't have an account already, create a free account with the button below! </h5>
+      <br>
+    <div class="btn btn-outline-success">
+          <%= link_to 'Create a free account!', signup_path, :class => "btn" %>
+    </div>
+</div>
+</div>
 </div>

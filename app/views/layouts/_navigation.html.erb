@@ -11,9 +11,7 @@
             Events
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-             <% if logged_in? %>
               <%= link_to "Suggest a new event", suggest_event_path, class: "dropdown-item" %>
-            <% end %>
             <% if logged_in? && current_user.admin? %>
               <%= link_to "Create event as admin", new_event_path, class: "dropdown-item" %>
             <% end %>
@@ -36,9 +34,7 @@
             Artists
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <% if logged_in? %>
               <%= link_to "Suggest a new artist", suggest_artist_path, class: "dropdown-item" %>
-            <% end %>
             <% if logged_in? && current_user.admin? %>
               <%= link_to "Create artist as admin", new_artist_path, class: "dropdown-item" %>
             <% end %>
