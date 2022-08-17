@@ -16,6 +16,9 @@
            <% end %>
         </small>
      </p>
+     <div class="geo-info">
+      <%= event.city %> - <%= event.state %> <br> <%= event.country %> - <%= event.continent %>
+     </div>
     <div>
       <p>
        <% if event.dance_styles.any? %>

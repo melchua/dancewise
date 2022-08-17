@@ -16,6 +16,9 @@
              <% end %>
       </small></p>
         </div>
+        <div class="geo-info">
+      <%= @event.city %> - <%= @event.state %> - <%= @event.country %> - <%= @event.continent %>
+     </div>
     <br>
       <div class="d-grid gap-2 d-md-block">
         <% if @event.website_url.present? %>
