@@ -3,18 +3,18 @@
     <%= f.text_field :name, placeholder: 'Enter the name of the event here', label: "What is the name of this event?" %>
     <%= f.rich_text_area :description, placeholder: 'Enter the description of the event here', label: "Tell us about the event." %>
         <%= f.file_field :event_image, label: "Upload the event image", help: "Upload a horizontal image of event flyer, 1920 X 1080 pixels works best!" %>
-    <%= f.text_field :address, data: { target: "places.field" }, label: "Where is this event taking place?" %>
+    <%= f.text_field :address, data: { target: "places.field" }, label: "Where is this event taking place?", required: true %>
     <%= f.collection_select :event_type_id, EventType.all, :id, :name, label: "What type of event is this?" %>
     <%= f.select :dance_style_ids, DanceStyle.all.pluck(:name, :id), 
           { label: "What are the main dance styles that will be represented at this event?", 
-             help: "Select the main dance styles that will be represented in the classes and/or socials."}, 
+             help: "Select the main dance styles that will be represented in the classes and/or socials.", required: true }, 
           { multiple: true, id: "select-dancestyle" } %>
      <%= f.collection_select :event_frequency_id, EventFrequency.all, :id, :name, label: "How often will this event occur?" %>
     <%= f.select :artist_ids, Artist.all.pluck(:name, :id), 
           { label: "Which artists have been booked for this event?", 
              help: "Select the artists that will be represented in the classes and/or socials."}, 
           { multiple: true, id: "select-artist" } %>
-    <%= f.date_field :event_start_date, wrapper: { class: "date"}, label: "What date does this event start?" %>
+    <%= f.date_field :event_start_date, wrapper: { class: "date"}, label: "What date does this event start?", required: true %>
     <%= f.date_field :event_end_date, wrapper: { class: "date"}, label: "What date does this event end?", help: "Enter the same date if this is a same day event." %>
     <%= f.text_field :website_url, label: "Event Website Link", placeholder: 'http://www.yourevent.com', label: "Does this event have a website?", help: "If the event has a website, enter the link here." %>
     <%= f.text_field :ticket_url, label: "Passes Link", placeholder: 'http://yourticketsite.com/yourevent', label: "What is the link to purchase passes?", help: "If the event has a direct link to purchase passes, enter the link here." %>
