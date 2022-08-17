@@ -97,17 +97,20 @@
 
   @media (min-width: 43em) {
     width: 50%;
-    align: center;
+    aspect-ratio: 1 / 1;
   }
 
   @media (min-width: 62em) {
     width: 50%;
+    aspect-ratio: 1 / 1;
   }
 
   @media (min-width: 82em) {
     width: 33%;
+    aspect-ratio: 1 / 1;
   }
 }
+
 .even-size-artist {
   height: 300px;
   object-fit: cover;
