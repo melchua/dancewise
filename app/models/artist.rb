@@ -6,6 +6,7 @@ class Artist < ApplicationRecord
   include VideosHelper
   YOUTUBE_REGEX = %r(^(https*://)?(www.)?(youtube.com|youtu.be)/(watch\?v=){0,1}([a-zA-Z0-9_-]{11}))
 
+  belongs_to :user
   has_many :event_artists
   has_many :events, through: :event_artists
   has_many :artist_dance_styles

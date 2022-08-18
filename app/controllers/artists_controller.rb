@@ -36,6 +36,7 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
+    @artist.user = current_user
     if @artist.save
       flash[:notice] = "Artist was successfully created"
       redirect_to @artist
@@ -48,6 +49,7 @@ class ArtistsController < ApplicationController
 
   def update
     # youtube_embed_url
+    @artist.user = current_user
     if @artist.update(artist_params)
       flash[:notice] = "Artist was successfully updated"
       redirect_to @artist

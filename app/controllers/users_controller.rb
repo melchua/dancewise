@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @events = @user.events
+    @events = @user.artists
   end
 
   def new
